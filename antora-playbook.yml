@@ -1,6 +1,6 @@
 site:
  title: Bristol SU Portal Project
- url: bristolsu.github.io/docs
+ url: https://bristol-su.github.io/docs
  start_page: home::index.adoc
 content:
  sources:

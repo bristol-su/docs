@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <sitemap>
-<loc>bristolsu.github.io/docs/sitemap-component-a.xml</loc>
+<loc>https://bristol-su.github.io/docs/sitemap-component-a.xml</loc>
 </sitemap>
 <sitemap>
-<loc>bristolsu.github.io/docs/sitemap-component-b.xml</loc>
+<loc>https://bristol-su.github.io/docs/sitemap-component-b.xml</loc>
 </sitemap>
 <sitemap>
-<loc>bristolsu.github.io/docs/sitemap-home.xml</loc>
+<loc>https://bristol-su.github.io/docs/sitemap-home.xml</loc>
 </sitemap>
 </sitemapindex>
