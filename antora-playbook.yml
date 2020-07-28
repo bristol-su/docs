@@ -1,10 +1,11 @@
 site:
  title: Bristol SU Portal Project
  url: bristolsu.github.io/docs
- start_page: component-b::index.adoc
+ start_page: home::index.adoc
 content:
  sources:
- - url: ./docs
+ - url: .
+   start_path: docs
  - url: https://gitlab.com/antora/demo/demo-component-a.git
  - url: https://gitlab.com/antora/demo/demo-component-b.git
    branches: [v2.0, v1.0]
