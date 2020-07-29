@@ -1,7 +1,6 @@
 site:
  title: Bristol SU Portal Project
- url: http://127.0.0.1:8080
- #url: https://bristol-su.github.io/docs
+ url: https://bristol-su.github.io/docs
  start_page: home::index.adoc
 content:
  sources:
