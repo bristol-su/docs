@@ -1,21 +1,71 @@
 site:
  title: Bristol SU Portal Project
- url: https://bristol-su.github.io/docs
+ url: http://127.0.0.1:8080
+ #url: https://bristol-su.github.io/docs
  start_page: home::index.adoc
 content:
  sources:
- - url: .
+ # Home for contents page to rest of docs site
+ - url: https://github.com/bristol-su/docs
    start_path: home
- - url: https://gitlab.com/antora/demo/demo-component-a.git
- - url: https://gitlab.com/antora/demo/demo-component-b.git
-   branches: [v2.0, v1.0]
+   branches: [master]
+ # Portal documentation
+ - url: https://github.com/bristol-su/portal
    start_path: docs
+   branches: [develop]
+   tags: v*
+ # Playground Documentation
+ - url: https://github.com/bristol-su/playground
+   start_path: docs
+   branches: [develop]
+ # SDK Documentation
+ - url: https://github.com/bristol-su/support
+   start_path: antora-docs
+   branches: [develop]
+ # Control Documentation
+ - url: https://github.com/bristol-su/control
+   start_path: antora-docs
+   branches: [develop]
+ - url: https://github.com/bristol-su/control-management
+   start_path: docs
+   branches: [master]
+ # Integrations
+ - url: https://github.com/bristol-su/unioncloud-portal
+   start_path: docs
+   branches: [master]
+ - url: https://github.com/bristol-su/airtable
+   start_path: docs
+   branches: [master]
+ # Modules
+ - url: https://github.com/bristol-su/static-page
+   start_path: docs
+   branches: [master]
+ - url: https://github.com/bristol-su/upload-file
+   start_path: docs
+   branches: [master]
+ - url: https://github.com/bristol-su/assign-roles
+   start_path: docs
+   branches: [master]
+ - url: https://github.com/bristol-su/data-entry
+   start_path: docs
+   branches: [master]
+ - url: https://github.com/bristol-su/typeform
+   start_path: docs
+   branches: [develop]
+ - url: https://github.com/bristol-su/template
+   start_path: docs
+   branches: [master]
+ # Services
+ - url: https://github.com/bristol-su/typeform-service
+   start_path: docs
+   branches: [master]
 output:
  clean: true
  dir: ./docs
 ui:
  bundle:
-  url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+  #url: https://github.com/bristol-su/docs-ui/raw/master/build/ui-bundle.zip
+  url: ./../docs-ui/build/ui-bundle.zip
   snapshot: true
  supplemental_files:
  - path: ui.yml

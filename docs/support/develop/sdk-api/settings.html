@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Settings :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="http://127.0.0.1:8080/support/develop/sdk-api/settings.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://127.0.0.1:8080">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="http://127.0.0.1:8080">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="../creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="support" data-version="develop">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../creating-module/index.html">SDK (Support)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Creating a Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/setup.html">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/module-layout.html">Module Layout</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/service-provider.html">Service Provider</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/developing.html">Developing a Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/releasing.html">Releasing a Module</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frontend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/pages.html">Setting up Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/api.html">Creatng an API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/using-js-vue.html">Using JS and Vue</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">SDK API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="authentication-authorization.html">Authentication &amp; Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="storage.html">Storage</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="connections.html">Connections</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="settings.html">Settings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="commands.html">Commands</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="completion-conditions.html">Completion Conditions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="database.html">Database</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="control.html">Control</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Components in depth</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/index.html">Introduction to the components</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/activity.html">Activity</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/activity-instance.html">Activity Instance</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/authentication.html">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/authorization.html">Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/completion.html">Completion</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/connection.html">Connection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/helpers.html">Helpers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/http.html">Http</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/logic.html">Logic</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/module.html">Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/module-instance.html">ModuleInstance</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/permissions.html">Permissions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/user.html">User</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../components/middleware.html">Middleware</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SDK (Support)</span>
+    <span class="version">develop</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../creating-module/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../creating-module/index.html">SDK (Support)</a></li>
+    <li>SDK API</li>
+    <li><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/support/edit/develop/antora-docs/modules/sdk-api/pages/settings.adoc">Edit this Page</a></div>
+  
+    <div class="view-on-github"><a href="https://github.com/bristol-su/support">View on GitHub</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Settings</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>It&#8217;s generally better to reuse a module rather than creating a new one,
+since it leads to less code to maintain, fewer bugs and so less time
+spent developing! Therefore, rather than creating for example a file
+upload module, and a multiple file upload module, it&#8217;d be better if we
+could create a single file upload and give the user the choice of
+allowing multiple file uploads or not.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_settings"><a class="anchor" href="#_settings"></a>Settings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For this, we use settings. A module registers the settings it needs,
+then a user fills them out when creating a module instance. You can
+access the setting values in your controllers/blade templates.</p>
+</div>
+<div class="sect2">
+<h3 id="_defining_settings"><a class="anchor" href="#_defining_settings"></a>Defining Settings</h3>
+<div class="paragraph">
+<p>To define settings, you should create a 'settings' method in your
+service provider and create a form schema. To learn more about form
+schemas, see the
+<a href="https://github.com/tobytwigger/form-schema-generator">FormSchema
+package</a>. This registration may look like:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>public function settings(): Form
+{
+    return \FormSchema\Generator\Form::make()-&gt;withGroup(
+        \FormSchema\Generator\Group::make('Page Settings')-&gt;withField(
+            \FormSchema\Generator\Field::input('page_title')-&gt;inputType('text')-&gt;default('Title of the Page')
+        )
+    )-&gt;getSchema();
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_accessing_setting_values"><a class="anchor" href="#_accessing_setting_values"></a>Accessing Setting Values</h3>
+<div class="paragraph">
+<p>The SDK handles the assignment of the settings in a module. To access a
+settings value, use the settings() helper.</p>
+</div>
+<div class="paragraph">
+<p><code>settings($key, $default)</code>: Get the settings value with the given key.
+Returns default if the setting is not defined, or an array of all
+settings for the module if the key is null.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setting_listeners"><a class="anchor" href="#_setting_listeners"></a>Setting listeners</h3>
+<div class="paragraph">
+<p>If you want to respond to settings being changed, you can hook into the
+events fired when settings are created, saved, deleted etc.</p>
+</div>
+<div class="paragraph">
+<p>To create a settings listener, extend the
+<code>\BristolSU\Support\ModuleInstance\Settings\SettingsListener</code> class
+and add methods to handle different events:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;?php
+
+// Save a row each time the name is changed for a revision history
+class NameSettingListener extends \BristolSU\Support\ModuleInstance\Settings\SettingListener
+{
+    protected $key = 'name'; // Key of the setting to trigger on
+
+    public function onSaved(ModuleInstanceSetting $setting)
+    {
+        // Handle the setting change
+    }
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_module_wide_settings"><a class="anchor" href="#_module_wide_settings"></a>Module-wide settings</h3>
+<div class="paragraph">
+<p>Some settings may need to be set module-wide as opposed to per module
+instance. The obvious example is a client ID for oauth, which should be
+set once for the whole application.</p>
+</div>
+<div class="paragraph">
+<p>For these, put them in the config/config.php. You can use the
+env('ENV_NAME', default) method to load values from the .env file. These
+can be set in the portal to provide customisable module-wide settings.</p>
+</div>
+<div class="paragraph">
+<p>We will either be setting up a way to edit the .env through the UI, or
+add 'advanced' settings which are set through the config but overridden
+through the UI.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_custom_fields"><a class="anchor" href="#_custom_fields"></a>Custom Fields</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Although the FormSchema package provides a number of fields, you may
+sometimes need to make your own. For example, you may need want a third
+party login button which redirects to an oauth URL, with a dropdown of
+recent logins. This can be created by creating a custom component as per
+the
+<a href="https://vue-generators.gitbook.io/vue-generators/fields/custom_fields">VueFormGenerator
+Vue Package</a>.</p>
+</div>
+<div class="paragraph">
+<p>Since your component will need to be used throughout the site, not just
+in your module, you need to globally register the javascript file that
+registers this component as a custom field. This should be in its own
+file. You can add the following to your service provider boot method to
+load a script on every page to be used for settings:</p>
+</div>
+<div class="paragraph">
+<p>The script should look something like</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>import CustomComponent from './components/CustomComponent';
+
+Vue.component('field-modulealiasCustomComponent', CustomComponent);</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Having added the script to your .mix file and compiled it, you can add
+the following to your service provider to load the script globally:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>public function boot()
+{
+    parent::boot();
+    $this-&gt;registerGlobalScript('modules/module-alias/js/components.js');
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

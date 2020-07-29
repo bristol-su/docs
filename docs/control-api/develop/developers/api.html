@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>API :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="http://127.0.0.1:8080/control-api/develop/developers/api.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://127.0.0.1:8080">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="http://127.0.0.1:8080">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="index.html">Control (API)</a>
+                <a class="navbar-item" href="../../../support/develop/creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="control-api" data-version="develop">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Control (API)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="integrations.html">Integrations</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="api.html">API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="additional-attributes.html">Additional Attributes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Control (API)</span>
+    <span class="version">develop</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../support/develop/creating-module/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Control (API)</a></li>
+    <li><a href="api.html">API</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/control/edit/develop/antora-docs/modules/developers/pages/api.adoc">Edit this Page</a></div>
+  
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">API</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>By pulling the control package into your project, no matter what
+integration you&#8217;re using, we provide a ready-made full REST Api for
+managing users. We do this by building an API on top of the repository
+and model contracts, therefore the API holds independently of the
+repository or model implementation logic.</p>
+</div>
+<div class="paragraph">
+<p>Scopes for authorization are still to be set up. For now, if
+authenticated, all routes are available.</p>
+</div>
+<div class="paragraph">
+<p>A <a href="https://www.getpostman.com/">Postman</a> collection covering the below
+requests can be found here:
+<a href="https://www.getpostman.com/collections/e1df9930bd973737707c" class="bare">https://www.getpostman.com/collections/e1df9930bd973737707c</a></p>
+</div>
+<div class="paragraph">
+<p>A swagger.json definition can be seen here:
+<a href="https://bristol-su.github.io/control-api-docs/#/" class="bare">https://bristol-su.github.io/control-api-docs/#/</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_group"><a class="anchor" href="#_group"></a>Group</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Standard REST endpoints for a group</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group</p>
+</div>
+<div class="paragraph">
+<p>Get all groups</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a group by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/group</p>
+</div>
+<div class="paragraph">
+<p>Create a group. Accepts a name and email</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the group. Accepts a name and email</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a group</p>
+</div>
+<div class="paragraph">
+<p><strong>Tagging Groups</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}/tag</p>
+</div>
+<div class="paragraph">
+<p>Get all tags belonging to the group</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}/tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Tag the group with the tag</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}/tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the tag from the group</p>
+</div>
+<div class="paragraph">
+<p><strong>Managing user memberships with groups</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}/user</p>
+</div>
+<div class="paragraph">
+<p>Get all users belonging to the group</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}/user/{id}</p>
+</div>
+<div class="paragraph">
+<p>Associate the user with the group</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}/user/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the user from the group</p>
+</div>
+<div class="paragraph">
+<p><strong>Manage roles associated with the group</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group/{id}/role</p>
+</div>
+<div class="paragraph">
+<p>Get all roles belonging to the group</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user"><a class="anchor" href="#_user"></a>User</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Standard REST endpoints for a user</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user</p>
+</div>
+<div class="paragraph">
+<p>Get all users</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a user by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/user</p>
+</div>
+<div class="paragraph">
+<p>Create a user. Accepts a first name, last name, dob, email and preferred
+name</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the user. Accepts a first name, last name, dob, email and
+preferred name</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a user</p>
+</div>
+<div class="paragraph">
+<p><strong>Tagging Users</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}/tag</p>
+</div>
+<div class="paragraph">
+<p>Get all tags belonging to the user</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}/tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Tag the user with the tag</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}/tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the tag from the user</p>
+</div>
+<div class="paragraph">
+<p><strong>Managing groups memberships of users</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}/group</p>
+</div>
+<div class="paragraph">
+<p>Get all groups the user is a member of</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}/group/{id}</p>
+</div>
+<div class="paragraph">
+<p>Associate the user with a group</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}/group/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the user from a group</p>
+</div>
+<div class="paragraph">
+<p><strong>Manage roles associated with the user</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}/role</p>
+</div>
+<div class="paragraph">
+<p>Get all roles belonging to the user</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}/role/{id}</p>
+</div>
+<div class="paragraph">
+<p>Associate the role with the user</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/user/{id}/role/{id}</p>
+</div>
+<div class="paragraph">
+<p>Remove the role from the user</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_role"><a class="anchor" href="#_role"></a>Role</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Standard REST endpoints for a role</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role</p>
+</div>
+<div class="paragraph">
+<p>Get all roles</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a role by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/role</p>
+</div>
+<div class="paragraph">
+<p>Create a role. Accepts a position_id, group_id, position name and email</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the role. Accepts a position_id, group_id, position name and
+email</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a role</p>
+</div>
+<div class="paragraph">
+<p>*Tagging Roles<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}/tag</p>
+</div>
+<div class="paragraph">
+<p>Get all tags belonging to the role</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}/tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Tag the role with the tag</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}/tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the tag from the role</p>
+</div>
+<div class="paragraph">
+<p>*Managing users who own a role<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}/user</p>
+</div>
+<div class="paragraph">
+<p>Get all users the role belongs to</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}/user/{id}</p>
+</div>
+<div class="paragraph">
+<p>Associate the role with a user</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}/user/{id}</p>
+</div>
+<div class="paragraph">
+<p>Remove a role from the user</p>
+</div>
+<div class="paragraph">
+<p>*Group belonging to the role<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}/group</p>
+</div>
+<div class="paragraph">
+<p>Get the group the role belongs to</p>
+</div>
+<div class="paragraph">
+<p>*Position belonging to the role<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role/{id}/position</p>
+</div>
+<div class="paragraph">
+<p>Get all position the role belongs to</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_position"><a class="anchor" href="#_position"></a>Position</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The position API is still in development</p>
+</div>
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p>*Standard REST endpoints for a position<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position</p>
+</div>
+<div class="paragraph">
+<p>Get all positions</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a position by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/position</p>
+</div>
+<div class="paragraph">
+<p>Create a position. Accepts a name and description</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/position/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the position. Accepts a name and description</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/position/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a position</p>
+</div>
+<div class="paragraph">
+<p>*Tagging Positions<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position/{id}/tag</p>
+</div>
+<div class="paragraph">
+<p>Get all tags belonging to the position</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/position/{id}/tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Tag the position with the tag</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/position/{id}/tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the tag from the position</p>
+</div>
+<div class="paragraph">
+<p>*Managing roles who use the position<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position/{id}/role</p>
+</div>
+<div class="paragraph">
+<p>Get all roles that use the position</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_group_tags"><a class="anchor" href="#_group_tags"></a>Group Tags</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p>*Standard REST endpoints for a group tag<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group-tag</p>
+</div>
+<div class="paragraph">
+<p>Get all group tags</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a group tag by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/group-tag</p>
+</div>
+<div class="paragraph">
+<p>Create a group tag. Accepts a name, description, reference and tag
+category id</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/group-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the group tag. Accepts a name, description, reference and tag
+category id</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/group-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a group tag</p>
+</div>
+<div class="paragraph">
+<p>*Tagging Groups<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group-tag/{id}/group</p>
+</div>
+<div class="paragraph">
+<p>Get all groups belonging to the group tag</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/group-tag/{id}/group/{id}</p>
+</div>
+<div class="paragraph">
+<p>Tag the group with the group tag</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/group-tag/{id}/group/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the group from the group tag</p>
+</div>
+<div class="paragraph">
+<p><strong>Group Tag Category</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group-tag/{id}/group-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Get the group tag category for the tag</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_group_tag_categories"><a class="anchor" href="#_group_tag_categories"></a>Group Tag Categories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p>*Standard REST endpoints for a group tag category<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Get all group tag categories</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a group tag category by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/group-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Create a group tag category. Accepts a name, description and reference</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/group-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the group tag category. Accepts a name, description and reference</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/group-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a group tag cagegory</p>
+</div>
+<div class="paragraph">
+<p>*Manage Group Tags<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/group-tag-category/{id}/group-tag</p>
+</div>
+<div class="paragraph">
+<p>Get all group tags belonging to the group tag category</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_tags"><a class="anchor" href="#_user_tags"></a>User Tags</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p>*Standard REST endpoints for a user tag<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user-tag</p>
+</div>
+<div class="paragraph">
+<p>Get all user tags</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a user tag by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/user-tag</p>
+</div>
+<div class="paragraph">
+<p>Create a user tag. Accepts a name, description, reference and tag
+category id</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/user-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the user tag. Accepts a name, description, reference and tag
+category id</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/user-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a user tag</p>
+</div>
+<div class="paragraph">
+<p>*Tagging users<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user-tag/{id}/user</p>
+</div>
+<div class="paragraph">
+<p>Get all users belonging to the user tag</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/user-tag/{id}/user/{id}</p>
+</div>
+<div class="paragraph">
+<p>Tag the user with the user tag</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/user-tag/{id}/user/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the user from the user tag</p>
+</div>
+<div class="paragraph">
+<p><strong>User Tag Category</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user-tag/{id}/user-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Get the user tag category for the tag</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_tag_categories"><a class="anchor" href="#_user_tag_categories"></a>User Tag Categories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p>*Standard REST endpoints for a user tag category<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Get all user tag categories</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a user tag category by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/user-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Create a user tag category. Accepts a name, description and reference</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/user-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the user tag category. Accepts a name, description and reference</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/user-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a user tag cagegory</p>
+</div>
+<div class="paragraph">
+<p>*Manage user Tags<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/user-tag-category/{id}/user-tag</p>
+</div>
+<div class="paragraph">
+<p>Get all user tags belonging to the user tag category</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_position_tags"><a class="anchor" href="#_position_tags"></a>Position Tags</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p>*Standard REST endpoints for a position tag<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position-tag</p>
+</div>
+<div class="paragraph">
+<p>Get all position tags</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a position tag by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/position-tag</p>
+</div>
+<div class="paragraph">
+<p>Create a position tag. Accepts a name, description, reference and tag
+category id</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/position-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the position tag. Accepts a name, description, reference and tag
+category id</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/position-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a position tag</p>
+</div>
+<div class="paragraph">
+<p>*Tagging positions<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position-tag/{id}/position</p>
+</div>
+<div class="paragraph">
+<p>Get all positions belonging to the position tag</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/position-tag/{id}/position/{id}</p>
+</div>
+<div class="paragraph">
+<p>Tag the position with the position tag</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/position-tag/{id}/position/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the position from the position tag</p>
+</div>
+<div class="paragraph">
+<p><strong>Position Tag Category</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position-tag/{id}/position-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Get the position tag category for the tag</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_position_tag_categories"><a class="anchor" href="#_position_tag_categories"></a>Position Tag Categories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p>*Standard REST endpoints for a position tag category<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Get all position tag categories</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a position tag category by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/position-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Create a position tag category. Accepts a name, description and
+reference</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/position-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the position tag category. Accepts a name, description and
+reference</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/position-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a position tag cagegory</p>
+</div>
+<div class="paragraph">
+<p>*Manage position Tags<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/position-tag-category/{id}/position-tag</p>
+</div>
+<div class="paragraph">
+<p>Get all position tags belonging to the position tag category</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_role_tags"><a class="anchor" href="#_role_tags"></a>Role Tags</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p>*Standard REST endpoints for a role tag<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role-tag</p>
+</div>
+<div class="paragraph">
+<p>Get all role tags</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a role tag by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/role-tag</p>
+</div>
+<div class="paragraph">
+<p>Create a role tag. Accepts a name, description, reference and tag
+category id</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/role-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the role tag. Accepts a name, description, reference and tag
+category id</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/role-tag/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a role tag</p>
+</div>
+<div class="paragraph">
+<p>*Tagging roles<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role-tag/{id}/role</p>
+</div>
+<div class="paragraph">
+<p>Get all roles belonging to the role tag</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/role-tag/{id}/role/{id}</p>
+</div>
+<div class="paragraph">
+<p>Tag the role with the role tag</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/role-tag/{id}/role/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete the role from the role tag</p>
+</div>
+<div class="paragraph">
+<p><strong>Role Tag Category</strong></p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role-tag/{id}/role-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Get the role tag category for the tag</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_role_tag_categories"><a class="anchor" href="#_role_tag_categories"></a>Role Tag Categories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Method</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Endpoint</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
+<p>*Standard REST endpoints for a role tag category<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Get all role tag categories</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Get a role tag category by ID</p>
+</div>
+<div class="paragraph">
+<p>POST</p>
+</div>
+<div class="paragraph">
+<p>/role-tag-category</p>
+</div>
+<div class="paragraph">
+<p>Create a role tag category. Accepts a name, description and reference</p>
+</div>
+<div class="paragraph">
+<p>PUT/PATCH</p>
+</div>
+<div class="paragraph">
+<p>/role-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Update the role tag category. Accepts a name, description and reference</p>
+</div>
+<div class="paragraph">
+<p>DELETE</p>
+</div>
+<div class="paragraph">
+<p>/role-tag-category/{id}</p>
+</div>
+<div class="paragraph">
+<p>Delete a role tag cagegory</p>
+</div>
+<div class="paragraph">
+<p>*Manage role Tags<br>
+*</p>
+</div>
+<div class="paragraph">
+<p>GET</p>
+</div>
+<div class="paragraph">
+<p>/role-tag-category/{id}/role-tag</p>
+</div>
+<div class="paragraph">
+<p>Get all role tags belonging to the role tag category</p>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Testing :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="http://127.0.0.1:8080/support/develop/components/testing.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://127.0.0.1:8080">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="http://127.0.0.1:8080">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="../creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="support" data-version="develop">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../creating-module/index.html">SDK (Support)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Creating a Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/setup.html">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/module-layout.html">Module Layout</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/service-provider.html">Service Provider</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/developing.html">Developing a Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/releasing.html">Releasing a Module</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frontend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/pages.html">Setting up Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/api.html">Creatng an API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/using-js-vue.html">Using JS and Vue</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">SDK API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/authentication-authorization.html">Authentication &amp; Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/storage.html">Storage</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/settings.html">Settings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/completion-conditions.html">Completion Conditions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/database.html">Database</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/control.html">Control</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Components in depth</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction to the components</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="activity.html">Activity</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="activity-instance.html">Activity Instance</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="authentication.html">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="authorization.html">Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="completion.html">Completion</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="connection.html">Connection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="helpers.html">Helpers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="http.html">Http</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="logic.html">Logic</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="module.html">Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="module-instance.html">ModuleInstance</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="permissions.html">Permissions</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user.html">User</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="middleware.html">Middleware</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SDK (Support)</span>
+    <span class="version">develop</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../creating-module/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../creating-module/index.html">SDK (Support)</a></li>
+    <li>Components in depth</li>
+    <li><a href="testing.html">Testing</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/support/edit/develop/antora-docs/modules/components/pages/testing.adoc">Edit this Page</a></div>
+  
+    <div class="view-on-github"><a href="https://github.com/bristol-su/support">View on GitHub</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Testing</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This package provides a set of helper traits to aid testing within the
+sdk environment.</p>
+</div>
+<div class="paragraph">
+<p>In general, you should create a TestCase class in your tests directory,
+which should extend the <code>BristolSU\Support\Testing\TestCase</code> class.
+This will allow you to use orchestra, and will take care of the sdk
+environmental setup.</p>
+</div>
+<div class="paragraph">
+<p>You can then add traits to this class, such as database migrations. By
+default, testing will be done in memory with an sqlite database. You can
+also add the following traits to extend PHPUnit for use with the portal
+sdk tools.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.bristolsustaging.co.uk/link/100#bkmrk-%C2%A0-2"><strong>HandlesAuthentication</strong></a>:
+Help with handling authenticating as a user/group/role.</p>
+</li>
+<li>
+<p><a href="https://docs.bristolsustaging.co.uk/link/100#bkmrk-logic-testing"><strong>FakesLogicTesters</strong></a>:
+Help with faking logic testers for your tests.</p>
+</li>
+<li>
+<p><a href="https://docs.bristolsustaging.co.uk/link/100#bkmrk-eloquent-model-testi"><strong>AssertsEloquentModels</strong></a>:
+Help with asserting properties about eloquent models.</p>
+</li>
+<li>
+<p><a href="https://docs.bristolsustaging.co.uk/link/100#bkmrk-%C2%A0-3"><strong>CreatesSdkEnvironment</strong></a>:
+Already included. Sets up the needed laravel authentication providers.</p>
+</li>
+<li>
+<p><a href="https://docs.bristolsustaging.co.uk/link/100#bkmrk-createsmoduleenviron"><strong>CreatesModuleEnvironment</strong></a>:
+Sets up the environment for module testing.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To help deal with and test the complex user management system, control,
+the HandlesAuthentication trait provides some useful tools for
+authenticating and authorizing users.</p>
+</div>
+<div class="paragraph">
+<p>First up, we provide a beUser, beGroup and beRole function, which set
+the current user, group or role. We also provide the newGroup, new Role
+and new User functions to create new users, groups and roles.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_logic_testing"><a class="anchor" href="#_logic_testing"></a>Logic Testing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Commonly when writing tests, you&#8217;ll find yourself using the logic
+testing system. For example, you could be testing if someone has the
+permissions to do something, and in doing so check they&#8217;re in a logic
+group. To mock this behaviour, you can use the 'FakesLogicTesters'
+trait.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows the setup of a logic tester. This logic
+tester will return true if <code>$logic</code> is tested against
+<code>$user, $group, $role</code> , false if the logic is tested against
+<code>$user1, $group1, $role1</code>, and false otherwise.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$this-&gt;logicTester()
+    -&gt;forLogic($logic) // Let the logic tester know what logic the following applies to
+    -&gt;pass($user, $group, $role) // If the given user/group/role (any can be null) match those being evaluated, will return true
+    -&gt;fail($user2, $group2, $role2) // If the given user/group/role (any can be null) match those being evaluated, will return false
+    -&gt;otherwise(false) // Default to return if no match found. Defaults to false.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To then use the logic tester, or determine results for other logics, you
+can repeat the same process. Just calling <code>$this-&gt;logicTester()</code> will
+return the logic tester ready to use.</p>
+</div>
+<div class="paragraph">
+<p>Of course, often the logic tester should be bound to the container to be
+used throughout the sdk, module or portal. Instead of doing this
+manually, you can call <code>$this-&gt;logicTester()-&gt;bind()</code> to instantly
+bind the logic tester into the container.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_eloquent_model_testing"><a class="anchor" href="#_eloquent_model_testing"></a>Eloquent Model testing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Since most the models you handle in the sdk (by default) are eloquent
+based, we provide some helper functions for asserting properties about
+eloquent models</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>assertModelEquals($expected, $actual, $message): Check if two models
+are equal.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_createssdkenvironment"><a class="anchor" href="#_createssdkenvironment"></a>CreatesSdkEnvironment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sets up the authentication providers for Laravel to manage
+authentication of users, groups, roles and activity instances. This
+function may do anything else necessary in the future too, so should
+always be called before running a test.</p>
+</div>
+<div class="paragraph">
+<p>You&#8217;ll need to call <code>createSdkEnvironment(Application $app)</code> in your
+<code>setup</code> or <code>getEnvironmentSetUp</code> function.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_createsmoduleenvironment"><a class="anchor" href="#_createsmoduleenvironment"></a>CreatesModuleEnvironment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This trait sets up the environment for testing a module whilst framed as
+a module. For example, it will create a module instance, an activity,
+and logs into authentication credentials.</p>
+</div>
+<div class="paragraph">
+<p>It also provides helper functions to get urls from this information, for
+making requests to your module during testing.</p>
+</div>
+<div class="paragraph">
+<p>To initialise the trait, call <code>createModuleEnvironment($alias)</code> in
+your setUp method. You must pass in your module alias for the setup to
+work. Before calling this method, you can customise the module
+environment</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>setModuleIsFor($for): Specifies who the module is for (a 'user', a
+'group' or a 'role'). Defaults to 'user'</p>
+</li>
+<li>
+<p>setActivity($activity): Specify the activity to use</p>
+</li>
+<li>
+<p>setModuleInstance($moduleInstance) Specify the module instance to use</p>
+</li>
+<li>
+<p>setActivityInstance($activityInstance): Specify the activity to use</p>
+</li>
+<li>
+<p>setControlUser($user): Sets the control user to use for testing.</p>
+</li>
+<li>
+<p>setControlGroup($group): Sets the control group to use for testing.</p>
+</li>
+<li>
+<p>setControlRole($role): Sets the control role to use for testing.</p>
+</li>
+<li>
+<p>setDatabaseUser($user): Sets the database user to use</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>With all these customisations, get functions are also defined to
+retrieve the value. If previously set before calling
+createModuleEnvironment, they will return the values that were set.
+Otherwise, it will return newly created values.</p>
+</div>
+<div class="paragraph">
+<p>Finally, the following functions manipulate data about the activity to
+provide helpful shortcuts. For example, creating a URL for the module to
+send requests to.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>adminUrl($path = ''): Returns the url to the admin side of a module.
+Give a path to navigate to this page instead (e.g. '/files').s</p>
+</li>
+<li>
+<p>userUrl($path = ''): Return the url to the user side.</p>
+</li>
+<li>
+<p>adminApiUrl($path = ''): Return the url to the admin API</p>
+</li>
+<li>
+<p>userApiUrl($path = ''): Return the url to the participant API</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
