@@ -26,11 +26,11 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Install dependencies
-      run: npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
+      run: npm install @antora/cli@2.3 @antora/site-generator-default@2.3
 
     # Runs a set of commands using the runners shell
     - name: Build
-      run: antora --fetch antora-playbook.yml
+      run: $(npm bin)/antora --fetch antora-playbook.yml
       env:
         ALGOLIA_APP_ID: X72DC2WY93
         ALGOLIA_INDEX_NAME: portal-docs
