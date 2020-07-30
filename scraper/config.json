@@ -1,7 +1,7 @@
 {
   "index_name": "portal-docs",
   "start_urls": [
-    "url": "https://docs.bristolsustaging.co.uk/(?P<component>.*?)/(?P<version>.*?)/",
+    "https://docs.bristolsustaging.co.uk/(?P<component>.*?)/(?P<version>.*?)/"
   ],
   "sitemap_urls": [
     "https://docs.bristolsustaging.co.uk/sitemap.xml"
