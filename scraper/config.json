@@ -14,6 +14,12 @@
       "global": true,
       "default_value": "Home"
     },
+    "lvl1": {
+      "selector": "//nav[@class='breadcrumbs']/ul/li[last() - 1]",
+      "type": "xpath",
+      "global": true,
+      "default_value": "Introduction"
+    },
     "lvl1": ".doc h1",
     "lvl2": ".doc h2",
     "lvl3": ".doc h3",
