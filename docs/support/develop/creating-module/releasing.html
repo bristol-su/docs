@@ -9,48 +9,62 @@
     <meta name="keywords" content="release, finished module, publish">
     <meta name="generator" content="Antora 2.3.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+        <div class="navbar-item hide-for-print">
+          <input id="search-input" type="text" placeholder="Search docs">
+        </div>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
+
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" href="#">Home</a>
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="#">Products</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Product A</a>
-            <a class="navbar-item" href="#">Product B</a>
-            <a class="navbar-item" href="#">Product C</a>
+                <a class="navbar-item" href="../../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../../portal/develop/index.html">Portal</a>
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Services</a>
+          <a class="navbar-link" href="#">Modules</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Service A</a>
-            <a class="navbar-item" href="#">Service B</a>
-            <a class="navbar-item" href="#">Service C</a>
+                <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../../module-upload-file/1.0.0/index.html">Upload File</a>
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Resources</a>
+          <a class="navbar-link" href="#">Developers</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Resource A</a>
-            <a class="navbar-item" href="#">Resource B</a>
-            <a class="navbar-item" href="#">Resource C</a>
+                <a class="navbar-item" href="../../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
           </div>
         </div>
         <div class="navbar-item">
           <span class="control">
-            <a class="button is-primary" href="#">Download</a>
+            <a class="button is-primary" href="#">Get Started</a>
           </span>
         </div>
       </div>
@@ -361,14 +375,101 @@
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/bristol-su/support/edit/develop/antora-docs/modules/creating-module/pages/releasing.adoc">Edit this Page</a></div>
-  </div>
+  
+    <div class="view-on-github"><a href="https://github.com/bristol-su/support">View on GitHub</a></div>
+</div>
   <div class="content">
 <article class="doc">
 <h1 class="page">Releasing</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Releasing your module&#8230;&#8203;</p>
+<p>Once your module is ready to go, and you&#8217;ve written all the necessary tests, you want to open it to the world. This page will take you through the necessary steps to make sure your module can be used by others.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_meta_files_in_the_repository"><a class="anchor" href="#_meta_files_in_the_repository"></a>Meta files in the repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To be accepted by the portal, your repository needs to meet community standards. This means you&#8217;ll need to ensure your repository has the following files:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CHANGELOG.md - A changelog to keep track of the changes between releases of your module. This should look something like&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [1.0.1] - (18/03/2020)
+
+### Added
+- Use me for new features.
+### Changed
+- Use me for changes in existing functionality.
+### Deprecated
+- Use me for soon-to-be removed features.
+### Removed
+- Use me for now removed features.
+### Fixed
+- Use me for any bug fixes.
+### Security
+- Use me in case of vulnerabilities.
+
+## [1.0] - (28/02/2020)
+
+### Added
+- Initial Release
+
+[Unreleased]: https://github.com/username/repository/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/username/repository/compare/v1.0...v1.0.1
+[1.0]: https://github.com/username/repository/releases/tag/v1.0</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CODE_OF_CONDUCT.md. Feel free to write your own, but <a href="_attachments/CODE_OF_CONDUCT.md">here</a> is the one we use for all our projects.</p>
+</li>
+<li>
+<p>CONTRIBUTING.md. A description of how to contribute to the project. Ours can be found <a href="_attachments/CONTRIBUTING.md">here</a>.</p>
+</li>
+<li>
+<p>LICENCE.md. The licence for your project. This will nearly always be the GNU General Public License v3.0, found <a href="https://www.gnu.org/licenses/gpl-3.0.txt">here</a>.</p>
+</li>
+<li>
+<p>README.md. A description of your module. A template can be found <a href="_attachments/README.md">here</a>.</p>
+</li>
+<li>
+<p>.gitattributes. This specifies (amongst other things) the files that aren&#8217;t needed for your code to run, and helps keep your module small when installed in the portal.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>* text=auto
+/tests export-ignore
+composer.lock export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+package-lock.json export-ignore
+phpunit.xml export-ignore
+CHANGELOG.md export-ignore
+CODE_OF_CONDUCT.md export-ignore
+CONTRIBUTING.md export-ignore
+/docs export-ignore</pre>
+</div>
 </div>
 </div>
 </div>
@@ -377,6 +478,179 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>To make your module as easy to use as possible, we strongly recommend documenting your work. To have your documentation included on the Bristol SU Documentation site, you must use antora.</p>
+</div>
+<div class="paragraph">
+<p>This may sound scary, but it&#8217;s really simple to get started! We see documentation as being just as important as the code, and therefore should be kept in the same place. Generally this should be a <code>/docs</code> folder.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The template module includes the documentation framework.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_structure"><a class="anchor" href="#_structure"></a>Structure</h3>
+<div class="paragraph">
+<p>The general structure of the <code>docs</code> folder should be as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>- /docs
+    - antora.yml <i class="conum" data-value="1"></i><b>(1)</b>
+    - /modules
+        - /users <i class="conum" data-value="2"></i><b>(2)</b>
+            - nav.adoc <i class="conum" data-value="3"></i><b>(3)</b>
+            - /pages
+                - dummy-page.adoc <i class="conum" data-value="4"></i><b>(4)</b>
+            - /images
+        - /admins <i class="conum" data-value="5"></i><b>(5)</b>
+        - /setup <i class="conum" data-value="6"></i><b>(6)</b>
+        - /developers <i class="conum" data-value="7"></i><b>(7)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>antora.yml</code> file describes your documentation, giving it a version and a name. An example <code>antora.yml</code> file can be found below.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Where your user documentation lives. This should focus on how to use your module as a user</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The navigation file. This defines the layout of the section. Each folder has one of these files. An example is given below.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>An example page. Again, an example is given below.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The admin documentation. This should focus on how to use the admin side of the module</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>THe setup documentation. This should focus on what each setting does, what the permissions do, etc. It should make the setup process using your module as easy as possible.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>The developer documentation (optional). Contains any documentation you think may help future developers, or yourself.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_files"><a class="anchor" href="#_example_files"></a>Example Files</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Example <code>antora.yml</code> file</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">name: module-mymodule <i class="conum" data-value="1"></i><b>(1)</b>
+title: My Module <i class="conum" data-value="2"></i><b>(2)</b>
+version: v1.2.3 <i class="conum" data-value="3"></i><b>(3)</b>
+asciidoc:
+ attributes:
+  page-repo-url: https://github.com/bristol-su/support <i class="conum" data-value="4"></i><b>(4)</b>
+start_page: users:index.adoc <i class="conum" data-value="5"></i><b>(5)</b>
+nav: <i class="conum" data-value="6"></i><b>(6)</b>
+ - modules/users/nav.adoc
+ - modules/admins/nav.adoc
+ - modules/developers/nav.adoc</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The alias of your module prefixed with 'module-'. This is very important, else the module won&#8217;t show up in the documentation.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The title of your module</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The version of your module. This should be kept up to date each time you release a new version.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The repository URL of your project (optional)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The initial page.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>The list of navigations within your documentation.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Example <code>nav.adoc</code> file</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">.Users <i class="conum" data-value="1"></i><b>(1)</b>
+* xref:dummy-page.adoc[Dummy Page] <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The section of the documentation.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>A link to the page of your module. In reality, you can have as many of these as you want. See the <a href="https://docs.antora.org/antora/2.3/navigation/files-and-lists/">Antora documentation</a> for more information.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Example <code>dummy-page.adoc</code> file</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">= The title of my page
+Toby Twigger &lt;tobytwigger1@gmail.com&gt;
+:description: A description of this page
+:keywords: A comma separated, list of, keywords
+
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_making_your_module_downloadable"><a class="anchor" href="#_making_your_module_downloadable"></a>Making your module downloadable</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use packagist</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pull_requests"><a class="anchor" href="#_pull_requests"></a>Pull requests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To portal and docs</p>
 </div>
 </div>
 </div>
@@ -392,6 +666,21 @@
   <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
 </footer>
 <script src="../../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '6bc265175baf47f9fcd811a4f5e97e16',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
 <script async src="../../../_/js/vendor/highlight.js"></script>
   </body>
 </html>
