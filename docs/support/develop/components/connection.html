@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Connection :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/support/develop/components/connection.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <meta name="docsearch:language" content="en" />
+      <meta name="docsearch:version" content="develop">
+      <meta name="docsearch:component" content="SDK (Support)">
+      <meta name="docsearch:module" content="components">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+        <div class="navbar-item hide-for-print">
+          <input id="search-input" type="text" placeholder="Search docs">
+        </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="../creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://github.com/bristol-su/portal">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="support" data-version="develop">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../creating-module/index.html">SDK (Support)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Creating a Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/setup.html">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/module-layout.html">Module Layout</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/service-provider.html">Service Provider</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/developing.html">Developing a Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/releasing.html">Releasing a Module</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frontend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/pages.html">Setting up Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/api.html">Creatng an API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/using-js-vue.html">Using JS and Vue</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">SDK API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/authentication-authorization.html">Authentication &amp; Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/storage.html">Storage</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/settings.html">Settings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/completion-conditions.html">Completion Conditions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/database.html">Database</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/control.html">Control</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Components in depth</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction to the components</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="activity.html">Activity</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="activity-instance.html">Activity Instance</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="authentication.html">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="authorization.html">Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="completion.html">Completion</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="connection.html">Connection</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="helpers.html">Helpers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="http.html">Http</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="logic.html">Logic</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="module.html">Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="module-instance.html">ModuleInstance</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="permissions.html">Permissions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="user.html">User</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="middleware.html">Middleware</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SDK (Support)</span>
+    <span class="version">develop</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../creating-module/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../creating-module/index.html">SDK (Support)</a></li>
+    <li>Components in depth</li>
+    <li><a href="connection.html">Connection</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/support/edit/develop/antora-docs/modules/components/pages/connection.adoc">Edit this Page</a></div>
+  
+    <div class="view-on-github"><a href="https://github.com/bristol-su/support">View on GitHub</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Connection</h1>
+<div class="paragraph">
+<p>One of the major benefits of the portal is that it can act as an
+abstraction layer over third party software. This gives the freedom of
+choice for third party software, and minimises repercussions of changing
+third party providers or having many different providers.</p>
+</div>
+<div class="paragraph">
+<p>Most third party providers will be interacted with using an API. Most
+APIs require authentication, but the authentication to use should be
+decided on a module instance basis. For example, if using the form
+platform Typeform, different users should be able to create connections
+to this third party, and then choose the connection they want to use
+when setting up a new module instance.</p>
+</div>
+<div class="paragraph">
+<p>The idea behind this architecture is to provide a ready-made 'Client' to
+any module. This client will add all relevant headers/query strings etc
+to provide authentication, and the portal will handle the creation of
+the client. In this way, any module wanting to use a third party API can
+express its requirement, and know it can retrieve a client (a class with
+a 'request' function) without having to worry about authentication.</p>
+</div>
+<div class="paragraph">
+<p>To start, the connection package provides a client. This is a basic
+authentication-less class which contains a request function for making
+API requests, and will soon contain helper functions for manipulating
+requests (i.e. adding authentication). We also provide an implementation
+of this client, using GuzzleHttp, and a cached client decorator for
+caching requests.</p>
+</div>
+<div class="paragraph">
+<p>A connector is a class extending the Connector class, which also
+registers a request method. This is the class which a module will
+regularly use. A new connector is needed for each third party required
+by the portal, and they can be registered and retrieved as normal.
+Additionally, two other functions must be implemented. A 'test' function
+will return a boolean as to whether the connector is valid or not, and
+the 'settingsSchema' will return a FormSchema class representing the
+settings needed by the connector for authentication. This could be
+something basic like an API key, and can be manipulated in any way
+before a request is made. A connector can make use of the getSetting
+method, which (in the test and request methods) will always return the
+setting as set by the user. In this way, a connector may be made of any
+settings, and manipulate the request in any way to provide an
+authenticated third party client.</p>
+</div>
+<div class="paragraph">
+<p>Having created a connector, it needs to be registered. As normal, there
+is a ConnectorStore (a singleton) which can be used to register or
+retrieve connectors. It stores these as 'RegisteredConnector&#8217;s, which is
+a simple class for storing the metadata of a connector and providing
+elegant casting to arrays or strings. This class contains a name and
+description of the connector, the service name, the alias of the
+connector and the class name of the connector.</p>
+</div>
+<div class="paragraph">
+<p>The ConnectorRepository can be used to retrieve RegisteredConnectors at
+any point. Either all available connectors can be returned, a single
+connector by alias, or any connector for a service. This is because some
+third party services may have multiple connectors, i.e. multiple ways of
+connecting. We can create multiple connectors, i.e. an API key and an
+oAuth login for Typeform, and by requesting a 'typeform' service the
+portal will provide either connector as a valid connector for typeform.</p>
+</div>
+<div class="paragraph">
+<p>Given connectors can now be created or used, we need to create some
+connections. Connections are specific instances of a connector, and can
+be thought of as a connector with a valid connection. A connection is a
+row in the database, made of the following columns.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Name and description for the connection</p>
+</li>
+<li>
+<p>User ID: Who created the connection</p>
+</li>
+<li>
+<p>Alias: Alias of the connector</p>
+</li>
+<li>
+<p>Settings: Settings to pass to the connector.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When a module needs a third party connection, during set up, the user is
+prompted to choose the connection to use. They will be given a list of
+connections to choose from. The module instance and connection are then
+associated (see Module Instance), allowing for the connection to be
+retrieved later by the module.</p>
+</div>
+<div class="paragraph">
+<p>We provide a repository to help handle connections. This has a number of
+helper methods to CRUD connections and retrieve all connections for a
+given service (possibly multiple connectors). We also attach a global
+scope to the connection, to ensure only connections which the user owns
+can be accessed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This will soon be changed to connections a user owns OR has access to
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Although we can retrieve the connection, and from it the connector, the
+creation of the connector is handled by the package. We provide a
+ConnectorFactory class to create a connector from a connection. This
+handles populating the connection with the correct settings and returns
+a connector ready to use, which in turn uses the Client to actually make
+the request.</p>
+</div>
+<div class="paragraph">
+<p>Finally, the Connection package provides a ServiceRequest. This allows
+modules to request the third party services they need.</p>
+</div>
+<div class="paragraph">
+<p>This will probably change in the near future to allow for scopes etc.</p>
+</div>
+<div class="paragraph">
+<p>To make a service request, a module resolves the 'Service Request' class
+out of the container. This class holds information on all modules, and
+the services they either require or optionally can accept. In this way,
+we can work out which services a module needs and so ensure the module
+is associated with the correct connections.</p>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using Antora.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
