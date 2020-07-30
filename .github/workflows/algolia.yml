@@ -20,12 +20,6 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    - name: Create environment file
-      run: 'echo "APPLICATION_ID=$APP_ID" > .env && echo "APPLICATION_ID=$API_KEY" > .env'
-      env:
-        APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-        API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
       
     - name: Install dependencies
       run: sudo apt-get install jq
@@ -34,8 +28,16 @@ jobs:
       run: echo "::set-output name=config::$(cat scraper/config.json | jq -r tostring)"
       id: config-file-step
       
+      
+    - name: Create environment file
+      run: 'echo "APPLICATION_ID=$APP_ID" > .env && echo "APPLICATION_ID=$API_KEY" > .env && echo "CONFIG=$CONFIG" > .env'
+      env:
+        APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+        API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+        CONFIG: ${{steps.config-file-step.outputs.config}}
+        
     - name: Scrape the documentation site
-      run: docker run --env-file=.env -e "CONFIG=${{steps.config-file-step.outputs.config}}" algolia/docsearch-scraper
+      run: docker run --env-file=.env algolia/docsearch-scraper
 #     # Runs a single command using the runners shell
 #     - name: Clone the scraper repository
 #       run: git clone https://github.com/algolia/docsearch-scraper scraper-repository
