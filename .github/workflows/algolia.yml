@@ -7,6 +7,8 @@ name: Algolia Scraper
 on:
   schedule:
     - cron: '0 9 * * WED'
+  repository_dispatch:
+    types: crawl
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
