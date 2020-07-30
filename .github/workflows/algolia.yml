@@ -38,7 +38,7 @@ jobs:
       working-directory: ./scraper-repository
 
     - name: Enter pipenv shell
-      run: pipenv install
+      run: pipenv shell
       working-directory: ./scraper-repository
 
     - name: Create environment file
