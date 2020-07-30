@@ -42,9 +42,7 @@ jobs:
       working-directory: ./scraper-repository
 
     - name: Create environment file
-      run: |
-        'echo "APPLICATION_ID=$APP_ID" > .env'
-        'echo "APPLICATION_ID=$API_KEY" > .env'
+      run: 'echo "APPLICATION_ID=$APP_ID" > .env && echo "APPLICATION_ID=$API_KEY" > .env'
       env:
         APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
         API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
