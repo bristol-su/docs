@@ -53,5 +53,5 @@ jobs:
       working-directory: ./scraper-repository
 
     - name: Scrape the documentation
-      run: pipenv run -- ./docsearch docker:run config.json
+      run: pipenv run -- ./docsearch docker:run ./../scraper/config.json
       working-directory: ./scraper-repository
