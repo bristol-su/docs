@@ -43,6 +43,10 @@ jobs:
         APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
         API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
       working-directory: ./scraper-repository
+   
+    - name: Edit the docker file to avoid chrome not found
+      run: sed -i 's/google-chrome-stable=83.0.4103.61-1/google-chrome-stable/g' ./scraper/dev/docker/Dockerfile.base
+      working-directory: ./scraper-repository
      
     - name: Build the docker container
       run: pipenv run -- ./docsearch docker:build
