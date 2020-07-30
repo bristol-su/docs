@@ -27,6 +27,9 @@ jobs:
         APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
         API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
       
+    - name: Install dependencies
+      run: sudo apt-get install jq
+      
     - name: Scrape the documentation site
       run: docker run --env-file=.env -e "CONFIG=$(cat scraper/config.json | jq -r tostring)" algolia/docsearch-scraper
 #     # Runs a single command using the runners shell
