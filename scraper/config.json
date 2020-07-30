@@ -1,7 +1,7 @@
 {
   "index_name": "portal-docs",
   "start_urls": [
-    "https://docs.bristolsustaging.co.uk"
+    "url": "https://docs.bristolsustaging.co.uk/(?P<component>.*?)/(?P<version>.*?)/",
   ],
   "sitemap_urls": [
     "https://docs.bristolsustaging.co.uk/sitemap.xml"
@@ -9,7 +9,7 @@
   "stop_urls": [],
   "selectors": {
     "lvl0": {
-      "selector": "//nav[@class='breadcrumbs']/ul/li[last()]",
+      "selector": "//nav[@class='breadcrumbs']/ul/li[last() - 1]",
       "type": "xpath",
       "global": true,
       "default_value": "Home"
