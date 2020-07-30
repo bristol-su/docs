@@ -37,10 +37,6 @@ jobs:
       run: pipenv install
       working-directory: ./scraper-repository
 
-    - name: Enter pipenv shell
-      run: pipenv shell
-      working-directory: ./scraper-repository
-
     - name: Create environment file
       run: 'echo "APPLICATION_ID=$APP_ID" > .env && echo "APPLICATION_ID=$API_KEY" > .env'
       env:
@@ -49,9 +45,9 @@ jobs:
       working-directory: ./scraper-repository
      
     - name: Build the docker container
-      run: ./docsearch docker:build
+      run: pipenv run -- ./docsearch docker:build
       working-directory: ./scraper-repository
 
     - name: Scrape the documentation
-      run: ./docsearch docker:run config.json
+      run: pipenv run -- ./docsearch docker:run config.json
       working-directory: ./scraper-repository
