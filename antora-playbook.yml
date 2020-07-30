@@ -63,8 +63,8 @@ output:
  dir: ./docs
 ui:
  bundle:
-  #url: https://github.com/bristol-su/docs-ui/raw/master/build/ui-bundle.zip
-  url: ./../docs-ui/build/ui-bundle.zip
+  url: https://github.com/bristol-su/docs-ui/raw/master/build/ui-bundle.zip
+  #url: ./../docs-ui/build/ui-bundle.zip
   snapshot: true
  supplemental_files:
  - path: ui.yml
