@@ -19,7 +19,7 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
         <div class="navbar-item hide-for-print">
-          <input id="search-input" type="text" placeholder="Search docs">
+          <input id="search-input" type="text" placeholder="Search docs (/)">
         </div>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -458,7 +458,7 @@ var search = docsearch({
   apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
   indexName: 'portal-docs',
   inputSelector: '#search-input',
-  autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
+  autocompleteOptions: { autoselect: true, hint: false, keyboardShortcuts: ['/'] },
   algoliaOptions: { hitsPerPage: 10 }
 }).autocomplete
 search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
