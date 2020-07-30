@@ -21,37 +21,45 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Clone the scraper repository
-      run: git clone https://github.com/algolia/docsearch-scraper scraper-repository
-
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.6.11
-    
-    - name: Install pipenv
-      uses: dschep/install-pipenv-action@v1
-    
-    - name: Install python dependencies
-      run: pipenv install
-      working-directory: ./scraper-repository
-
     - name: Create environment file
       run: 'echo "APPLICATION_ID=$APP_ID" > .env && echo "APPLICATION_ID=$API_KEY" > .env'
       env:
         APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
         API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
-      working-directory: ./scraper-repository
-   
-    - name: Edit the docker file to avoid chrome not found
-      run: sed -i 's/google-chrome-stable=83.0.4103.61-1/google-chrome-stable/g' ./scraper/dev/docker/Dockerfile.base
-      working-directory: ./scraper-repository
-     
-    - name: Build the docker container
-      run: pipenv run -- ./docsearch docker:build
-      working-directory: ./scraper-repository
+      
+    - name: Scrape the documentation site
+      run: docker run -it --env-file=.env -e "CONFIG=$(cat scraper/config.json | jq -r tostring)" algolia/docsearch-scraper
+#     # Runs a single command using the runners shell
+#     - name: Clone the scraper repository
+#       run: git clone https://github.com/algolia/docsearch-scraper scraper-repository
 
-    - name: Scrape the documentation
-      run: pipenv run -- ./docsearch docker:run ./../scraper/config.json
-      working-directory: ./scraper-repository
+#     - name: Setup Python
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: 3.6.11
+    
+#     - name: Install pipenv
+#       uses: dschep/install-pipenv-action@v1
+    
+#     - name: Install python dependencies
+#       run: pipenv install
+#       working-directory: ./scraper-repository
+
+#     - name: Create environment file
+#       run: 'echo "APPLICATION_ID=$APP_ID" > .env && echo "APPLICATION_ID=$API_KEY" > .env'
+#       env:
+#         APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+#         API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+#       working-directory: ./scraper-repository
+   
+#     - name: Edit the docker file to avoid chrome not found
+#       run: sed -i 's/google-chrome-stable=83.0.4103.61-1/google-chrome-stable/g' ./scraper/dev/docker/Dockerfile.base
+#       working-directory: ./scraper-repository
+     
+#     - name: Build the docker container
+#       run: pipenv run -- ./docsearch docker:build
+#       working-directory: ./scraper-repository
+
+#     - name: Scrape the documentation
+#       run: pipenv run -- ./docsearch docker:run ./../scraper/config.json
+#       working-directory: ./scraper-repository
