@@ -30,7 +30,10 @@ jobs:
       
       
     - name: Create environment file
-      run: 'echo "APPLICATION_ID=$APP_ID" > .env && echo "API_KEY=$API_KEY" > .env && echo "CONFIG=$CONFIG" > .env'
+      run: |
+        'echo "APPLICATION_ID=$APP_ID" >> .env'
+        'echo "API_KEY=$API_KEY" >> .env' 
+        'echo "CONFIG=$CONFIG" >> .env'
       env:
         APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
         API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
