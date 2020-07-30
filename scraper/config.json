@@ -9,7 +9,7 @@
   "stop_urls": [],
   "selectors": {
     "lvl0": {
-      "selector": "//nav[@class='breadcrumbs']/ul/li[0]",
+      "selector": "//nav[@class='breadcrumbs']/ul/li[1]",
       "type": "xpath",
       "global": true,
       "default_value": "Home"
@@ -18,7 +18,7 @@
       "selector": "//nav[@class='breadcrumbs']/ul/li[last() - 1]",
       "type": "xpath",
       "global": true,
-      "default_value": "Introduction"
+      "default_value": ""
     },
     "lvl1": ".doc h1",
     "lvl2": ".doc h2",
