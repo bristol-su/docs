@@ -31,8 +31,7 @@ jobs:
         python-version: 3.6.11
     
     - name: Install pipenv
-      run: sudo apt-get install pipenv
-      working-directory: ./scraper-repository
+      uses: dschep/install-pipenv-action@v1
     
     - name: Install python dependencies
       run: pipenv install
