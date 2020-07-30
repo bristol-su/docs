@@ -36,6 +36,10 @@ jobs:
         API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
         CONFIG: ${{steps.config-file-step.outputs.config}}
         
+    - name: Log env file
+      run: echo "::debug::Set the Octocat variable:$(cat .env)"
+ 
+      
     - name: Scrape the documentation site
       run: docker run --env-file=.env algolia/docsearch-scraper
 #     # Runs a single command using the runners shell
