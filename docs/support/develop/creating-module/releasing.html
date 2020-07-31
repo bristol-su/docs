@@ -403,13 +403,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>CHANGELOG.md - A changelog to keep track of the changes between releases of your module. This should look something like&#8230;&#8203;</p>
+<p>CHANGELOG.md - A changelog to keep track of the changes between releases of your module. This should look something like&#8230;&#8203;
+.Example <code>CHANGELOG.md</code> file</p>
 </li>
 </ul>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre># Changelog
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown"># Changelog
 
 All notable changes to this project will be documented in this file.
 
@@ -440,7 +443,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Unreleased]: https://github.com/username/repository/compare/v1.0.1...HEAD
 [1.0.1]: https://github.com/username/repository/compare/v1.0...v1.0.1
-[1.0]: https://github.com/username/repository/releases/tag/v1.0</pre>
+[1.0]: https://github.com/username/repository/releases/tag/v1.0</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="ulist">
@@ -458,13 +463,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <p>README.md. A description of your module. A template can be found <a href="_attachments/README.md">here</a>.</p>
 </li>
 <li>
-<p>.gitattributes. This specifies (amongst other things) the files that aren&#8217;t needed for your code to run, and helps keep your module small when installed in the portal.</p>
+<p>composer.json. You will probably already have this file in your module, but you need to make sure the name matches the name you want, and the description matches your module. Try and avoid using 'bristol-su' - use your own name or company name instead!</p>
+</li>
+<li>
+<p>.gitattributes. This specifies (amongst other things) the files that aren&#8217;t needed for your code to run, and helps keep your module small when installed in the portal.
+.Example <code>.gitattributes</code> file</p>
 </li>
 </ul>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>* text=auto
+<pre class="highlightjs highlight"><code class="language-gitignore hljs" data-lang="gitignore">* text=auto
 /tests export-ignore
 composer.lock export-ignore
 .gitignore export-ignore
@@ -474,7 +485,9 @@ phpunit.xml export-ignore
 CHANGELOG.md export-ignore
 CODE_OF_CONDUCT.md export-ignore
 CONTRIBUTING.md export-ignore
-/docs export-ignore</pre>
+/docs export-ignore</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -544,7 +557,7 @@ The template module includes the documentation framework.
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>THe setup documentation. This should focus on what each setting does, what the permissions do, etc. It should make the setup process using your module as easy as possible.</td>
+<td>The setup documentation. This should focus on what each setting does, what the permissions do, what completion conditions are available etc. It should make creating a module instance using your module as easy as possible.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
@@ -645,10 +658,43 @@ Toby Twigger &lt;tobytwigger1@gmail.com&gt;
 </div>
 </div>
 <div class="sect1">
+<h2 id="_releasing_a_version_of_your_module"><a class="anchor" href="#_releasing_a_version_of_your_module"></a>Releasing a version of your module</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once your module is in a state to be released, you should release a version. This includes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Updating your changelog to represent any changes made</p>
+</li>
+<li>
+<p>Clicking on 'Create a new release' on github</p>
+</li>
+<li>
+<p>Creating a tag (e.g. v1.0.1). The release title should also be the name of the tag, and the description should be similar to your changelog. We use the following template for the description</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown"># [v1.0.1 - 16/06/2020]
+
+### Added
+- Describe changes here
+### Removed
+- These changes should be the same as your changelog
+
+[v1.0.1 - 16/06/2020]: https://github.com/username/repo/compare/v1.0.0...v1.0.1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_making_your_module_downloadable"><a class="anchor" href="#_making_your_module_downloadable"></a>Making your module downloadable</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use packagist</p>
+<p>In order to allow others to use your module, it must be published on a platform such as github then pulled through to a package management platform. We use <a href="https://packagist.org" class="bare">https://packagist.org</a>. Having created an account, submit your repository on the website. This will allow others to run 'composer require' to pull in your module.</p>
 </div>
 </div>
 </div>
@@ -656,7 +702,85 @@ Toby Twigger &lt;tobytwigger1@gmail.com&gt;
 <h2 id="_pull_requests"><a class="anchor" href="#_pull_requests"></a>Pull requests</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To portal and docs</p>
+<p>At this point, you&#8217;re ready to go! All that&#8217;s left is to let other portal users know your module exists. To do this, you should submit a pull request to both the portal repository and the documentation repository.</p>
+</div>
+<div class="sect2">
+<h3 id="_portal_repository"><a class="anchor" href="#_portal_repository"></a>Portal repository</h3>
+<div class="paragraph">
+<p>The point of this pull request is to automatically include your module in all fresh installs of the portal. This is by far the best way to deploy your module - any users of the portal will be able to use your module.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a fork of the portal repository by clicking 'Fork' <a href="https://github.com/bristol-su/portal">here</a>.</p>
+</li>
+<li>
+<p>Add your module using <code>composer require</code>.</p>
+</li>
+<li>
+<p>Push your changes to your forked repository on Github.</p>
+</li>
+<li>
+<p>Create a <a href="https://github.com/bristol-su/portal/compare">pull request</a>, keeping the default base branch and changing the compare branch to your forked branch. You should see two files changed - <code>composer.json</code> and <code>composer.lock</code>.</p>
+</li>
+<li>
+<p>Create the pull request. Set the title to be <strong>New Module: Module Name</strong>, and use the following template for the description</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># Module Name
+My Module
+
+# What does this module do?
+A brief description of what your module does
+
+# Is your module up to our community standards?
+- [x] I've written tests for the module
+- [ ] I've written documentation for the module</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_documentation_repository"><a class="anchor" href="#_documentation_repository"></a>Documentation Repository</h3>
+<div class="paragraph">
+<p>Having written documentation, you can merge it into our documentation site.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a fork of the documentation site by clicking 'Fork' <a href="https://github.com/bristol-su/docs">here</a>.</p>
+</li>
+<li>
+<p>Edit the <code>antora-playbook.yml</code> and add the following under the module section in the content &#8594; sources attribute.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> - url: https://github.com/username/module-repository
+   start_path: docs
+   branches: [master]
+   tags: v*</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Push your changes to your forked repository on Github</p>
+</li>
+<li>
+<p>Create a <a href="https://github.com/bristol-su/docs/compare">pull request</a>, keeping the default base branch and changing the compare branch to your forked branch. You should see one file changed - <code>antora-playbook.yaml</code>.</p>
+</li>
+<li>
+<p>Create the pull request. Set the title to be <strong>Module Documentation: Module Name</strong>. You may leave the title blank.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Once we approve the request, it may take up to two hours to merge your documentation in with the documentation site. If you ever make changes to your documentation, they may also take up to two hours to propagate. You will only ever have to push the changes to your repository though - the documentation will pick up on changes itself.</p>
+</div>
 </div>
 </div>
 </div>
