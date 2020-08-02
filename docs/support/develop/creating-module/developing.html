@@ -16,6 +16,8 @@
       <meta name="docsearch:module" content="creating-module">
     <link rel="stylesheet" href="../../../_/css/site.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162373885-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-162373885-2')</script>
   </head>
   <body class="article">
 <header class="header">
@@ -562,6 +564,50 @@ detected. You can put this into an alias by editing your .bashrc file:</p>
 <div class="content">
 <pre>alias onchange-module="source /path/to/venv/bin/activate &amp;&amp; " when-changed -r /path/to/module/public/modules -c php /path/to/playground/artisan vendor:publish --force --provider="Your\Provider\Namespace\ModuleServiceProvider"</pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_your_module_should_contain"><a class="anchor" href="#_what_your_module_should_contain"></a>What your module should contain</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following chapters of this documentation will go through this in much more detail, but this aims to give an overview of what a module should/could consist of.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Participant Page</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A way for users of the portal to interact with your module</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Admin Page</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A way for portal admins to interact with your module.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Settings</p>
+</li>
+<li>
+<p>Permissions</p>
+</li>
+<li>
+<p>Events</p>
+</li>
+<li>
+<p>Completion Conditions</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
