@@ -385,47 +385,11 @@
   <div class="content">
 <article class="doc">
 <h1 class="page">Creating an API</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Having created your frontend using Blade, you may want to set up an API
 for your module.</p>
-</div>
-<div class="paragraph">
-<p>As normal, the SDK sets up your API routes. This includes injecting the
-correct module instance and activity into the controllers, since the API
-exists for a staged module as opposed to the module in general. This may
-be easier to understand with an example. Say you&#8217;re creating a module to
-upload a file, and you want to create an API to get all files.</p>
-</div>
-<div class="paragraph">
-<p>If the API was created just for the module, not for the specific module
-instance, when we retrieved all files we would get all files ever
-uploaded through the portal. If we had two services, an expense claim
-service and a risk assessment service, our API would return both expense
-claim submissions and risk assessment submissions, which is not ideal.</p>
-</div>
-<div class="paragraph">
-<p>Instead, your API will just return files specific to a single module
-instance, so either the expense claim service or the risk assessment
-service. Your 'get all files' route will exist as</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>GET /api/expense-claims/evidence/upload-file/file</p>
-</li>
-<li>
-<p>GET /api/risk-assessment/new/upload-file/file</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Notice the activity and the module slugs change and the results of the
-API change depending on the module or activity in use.</p>
-</div>
-<div class="paragraph">
-<p>In general, you should find that you don&#8217;t need to think about this too
-much since the SDK takes care of most the complications. However, it is
-good to have it in mind when developing a module.</p>
 </div>
 <div class="paragraph">
 <p>To go about creating an API, we follow the Laravel way: add the route to
@@ -463,10 +427,15 @@ controller in 'app/Http/Controllers/Api'.</p>
 }</pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_route_model_binding"><a class="anchor" href="#_route_model_binding"></a>Route Model Binding</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Notice we have used route model binding to load the file requested.
 Unlike normal, we require that route model bindings are prefixed with
-the module alias, to limit any clashes. We could set up the file route
+the module alias, to limit any conflicts. We could set up the file route
 model binding as so:</p>
 </div>
 <div class="paragraph">
@@ -490,6 +459,8 @@ instead.</p>
 </div>
 <div class="paragraph">
 <p>Tools you can use in the API will be covered in the backend section.</p>
+</div>
+</div>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

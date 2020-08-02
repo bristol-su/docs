@@ -385,6 +385,8 @@
   <div class="content">
 <article class="doc">
 <h1 class="page">Using Javascript and Vue</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>At this point, you should know enough to have created a simple blade
 frontend and a corresponding API (although the business logic is still
@@ -393,12 +395,22 @@ using the Vue.js framework to provide an interactive, responsive
 frontend. We don&#8217;t enforce the use of Vue, but the template module has
 the scaffolding to use Vue out the box.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_javascript_architecture"><a class="anchor" href="#_javascript_architecture"></a>Javascript Architecture</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Your JavaScript entry point is the module.js file in /resources/js. This
 file should import your global dependencies and create a new Vue
 instance mounted to the base component defined in
 'resources/views/layout/app.blade.php'. This file is then loaded in the
 same blade file.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Example <code>module.js</code> file</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -422,11 +434,37 @@ let vue = new Vue({
 });</pre>
 </div>
 </div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is set up for you if you&#8217;re using the template module!
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The above is an example of a module.js file, taken from the template. We
 import Vue and BootstrapVue (a set of Vue components built around
 Bootstrap). We also import a http-client and notifications, as well as a
 component.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+We&#8217;re still in the process of deciding which frontend framework to use, and are considering Vuetify.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>We can initialise BootstrapVue by calling <code>Vue.use(BootstrapVue)</code>,
@@ -436,6 +474,11 @@ create a new Vue instance, attached to the root element by ID. In the
 want to use in the blade template. We often create a single base
 component per page and import it here.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_http_client"><a class="anchor" href="#_http_client"></a>HTTP Client</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The http client can be installed by adding
 <code>"http-client": "github:bristol-su/http-client"</code> to your dependencies
@@ -484,15 +527,23 @@ define how to make an API request in one place.</p>
 automatically detect whether to use the admin or participant API so you
 don&#8217;t need to specify!</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notifications"><a class="anchor" href="#_notifications"></a>Notifications</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>You may have seen we also used this.$notify. This is so that the
 notification framework can easily be changed at any point. Again, this
 is assigned to the Vue prototype in the module.js file.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_window_variables"><a class="anchor" href="#_window_variables"></a>Window variables</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Having created, registered and used Vue components which can utilise an
-API, you should have most the tools you&#8217;ll need to set up the frontend
-of a module with JS easily. The portal doesn&#8217;t stop there, however. It
+<p>The portal doesn&#8217;t stop there, however. It
 also provides an object, accessible through 'window.portal', which holds
 information about the current environment. This is used by the http
 client to work out who the user is, as well as information about the
@@ -505,7 +556,7 @@ relied on. The portal uses passport to securely log a user into the API
 and provide a JWT token for authentication on each request. This
 securely retrieves the database user, at which stage we can check the
 control user/group/role passed by the http-client from the window.portal
-object is owned and accessible by the given database user.</p>
+object is owned and accessible by the given database user. In short, only load information from the back-end! If you need to access a third party, do it through the back-end rather than directly from the frontend.</p>
 </div>
 <div class="paragraph">
 <p>You can also add your own information to this object. For example, you
@@ -597,6 +648,8 @@ no role logged in</p>
 <p>Using these along with the Vue framework and API calls should allow you
 to build your module exactly how you want, whilst keeping it integrated
 with the SDK and in turn the portal and playground.</p>
+</div>
+</div>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

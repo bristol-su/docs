@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Setup Pages :: Bristol SU Portal Project</title>
+    <title>Creating Pages :: Bristol SU Portal Project</title>
     <link rel="canonical" href="https://bristol-su.github.io/docs/support/develop/frontend/pages.html">
     <meta name="generator" content="Antora 2.3.3">
     <meta name="docsearch:language" content="en" />
@@ -384,130 +384,129 @@
 </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Setup Pages</h1>
+<h1 class="page">Creating Pages</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>First, we will look at how modules are able to use the Blade templating
 engine. We will explore the blade heirarchy, how the SDK extends the
-templating engine and how we can set up pages.</p>
+templating engine and how we can create new pages.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_routing"><a class="anchor" href="#_routing"></a>Routing</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>As mentioned in the introduction, modules have two main entry points;
-the administrator page and the participant page. The routes for these
-pages are included in the template module, and use the standard Laravel
-routing system. However, the SDK takes care of the module prefixes and
-namespacing, so you just have to refer to the root url. For example, to
-set up the route for the participant page</p>
+<p>A module should have two main entry points for users of the portal - the user side and the admin side. The routes for these points should be defined in the <code>routes/admin/web.php</code> and <code>routes/participants/web.php</code>. By default, the template module gives you a single route for each.</p>
 </div>
-<div class="paragraph">
-<p><code>Route::get('/', 'ParticipantPageController@index);</code></p>
-</div>
-<div class="paragraph">
-<p>The 'ParticipantPageController' is stored in app/Http/Controllers, and
-simply returns a view</p>
-</div>
-<div class="literalblock">
+<div class="sidebarblock">
 <div class="content">
-<pre>class ParticipantPageController extends Controller
+<div class="title">Participant Route</div>
+<div class="paragraph">
+<p>The default route for a participant.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">// routes/participants/web.php
+`+Route::get('/', 'ParticipantPageController@index);+`
+
+// app/Http/Controllers/ParticipantPageController.php
+class ParticipantPageController extends Controller
 {
     public function index()
     {
         return view('static-page::participant');
     }
-}</pre>
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice we use blade namespacing to ensure modules never have clashing
-view template names. We always use the unique alias of the module before
-the view template. In the above example, 'participant.blade.php' is
-stored in 'resources/views'. The SDK takes care of loading the view
-templates with the correct namespace.</p>
+<p>The portal takes care of namespacing and file locations. It will automatically load any routes from the correct locations, and prefix them to work with the portal. Your controller base namespace is specified in your service provider. Namespacing for your views are set up automatically, meaning your blade template in <code>resources/views/participant.blade.php</code> can be referred to as <code>'static-page::participant'</code>.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_blade_templates"><a class="anchor" href="#_blade_templates"></a>Blade Templates</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Taking a look at participant.blade.php will reveal that this extends
-'static-page::layouts.app', which is your modules parent layout. It is
-also allowed to use the following tools/sections/stacks to build up a
-frontend layout.</p>
+'static-page::layouts.app', which is your modules parent layout. This file registers your assets, creates a container component for loading vue, and extends the Bristol SU template to add things like a header/footer etc to your page. This template must always be extended.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>@section('title', 'My Title') to change the title of the page</p>
-</li>
-<li>
-<p>@section('module-content') for the main content of your page.</p>
-</li>
-<li>
-<p>@push('meta-tags') for any meta tags to put on the page</p>
-</li>
-<li>
-<p>@push('fonts') for any fonts for the page</p>
-</li>
-<li>
-<p>@push('styles') for any styles in the page</p>
-</li>
-<li>
-<p>@push('scripts') for any scripts in the page.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Although you may use these however you want to build up your module, we
-recommend following the template layout and putting most things in your
-'layouts/app.blade.php' file.</p>
-</div>
-<div class="paragraph">
-<p>This file extends 'bristolsu::base', which is the base blade template
-for the portal and is found in the SDK. This blade template is built to
-integrate with any frontend, so that the portal/playground etc may
-define exactly what a page should look like, but within a set of given
-parameters which the modules can also use (listed above).</p>
-</div>
-<div class="paragraph">
-<p>Your app.blade.php file should look something like:</p>
-</div>
-<div class="literalblock">
+<div class="sidebarblock">
 <div class="content">
-<pre>@extends('bristolsu::base')
+<div class="title">Base blade template</div>
+<div class="paragraph">
+<p>An example <code>app.blade.php</code> file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-blade hljs" data-lang="blade">@extends('bristolsu::base')
 
 @section('content')
-    &lt;div id="static-page-root"&gt;
+    &lt;div id="my-module-root"&gt;
         @yield('module-content')
     &lt;/div&gt;
 @endsection
 
 @push('styles')
-    &lt;link href="{{ asset('modules/static-page/css/module.css') }}" rel="stylesheet"&gt;
+    &lt;link href="{{ asset('modules/my-module/css/module.css') }}" rel="stylesheet"&gt;
 @endpush
 
 @push('scripts')
-    &lt;script src="{{ asset('modules/static-page/js/module.js') }}"&gt;&lt;/script&gt;
-@endpush</pre>
+    &lt;script src="{{ asset('modules/my-module/js/module.js') }}"&gt;&lt;/script&gt;
+@endpush</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
-<p>We extend the SDK layout. We then define our page content. To do this,
-we yield the 'module-content' section which is defined by individual
-pages. We wrap this in a div tag with an ID which we use for mounting
-Vue (covered later).</p>
+<p>You may also notice a number of blade sections/stacks you can use. The full list is below:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@section('title', 'My Title')</code> to change the title of the page</p>
+</li>
+<li>
+<p><code>@section('module-content')</code> for the main content of your page.</p>
+</li>
+<li>
+<p><code>@push('meta-tags')</code> for any meta tags to put on the page</p>
+</li>
+<li>
+<p><code>@push('fonts')</code> for any fonts for the page</p>
+</li>
+<li>
+<p><code>@push('styles')</code> for any styles in the page</p>
+</li>
+<li>
+<p><code>@push('scripts')</code> for any scripts in the page.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_assets"><a class="anchor" href="#_assets"></a>Assets</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>We then push the css and js files from your public directory to be
-loaded when the page is loaded. By putting this here, we only need to
-include the files once and they will appear on every page of our module.</p>
+<p>Your assets are generally compiled by webpack and moved to the correct directory (covered later on). This means they can be loaded as above by referencing them in your base template.</p>
 </div>
-<div class="paragraph">
-<p>This is only the suggested way of setting up your module frontend. Since
-it is based on Laravel, and does not apply any more restrictions than
-are absolutely necessary, you are welcome to set this up in any way you
-want.</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_should_you_consume_your_own_api"><a class="anchor" href="#_should_you_consume_your_own_api"></a>Should you consume your own API?</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Most the modules we develop have only two web routes. We then utilise
-Vue and the API to provide all module functionality. The API
-automatically takes into account user credentials, but the web routes
-don&#8217;t. This means that, if you link to another page in your module, you
-need to include the query parameters.</p>
+Vue and the API to provide all module functionality. The alternative is to use normal POST requests through a form, but we&#8217;ve found ourselves creating APIs anyway, so why not save ourselves the duplication of form submissions?</p>
+</div>
+<div class="paragraph">
+<p>When using the API, the portal automatically passes up user/group/role credentials. See the components section for more information on this. In summary, it tells the portal which group/role you&#8217;re currently acting as, allowing us to determine things like your permissions and settings.
+Web routes, however, don&#8217;t have this luxury. This means that if you want to link to another route in your module, you need to manually include query parameters. An example of this may be something like a download button to link to a url.</p>
 </div>
 <div class="paragraph">
 <p>If in a blade template, this is easily done by appending the query
@@ -549,7 +548,7 @@ module.js file:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>These portal. variables are all available and sent by the SDK, so your
+<p>These portal variables are all available and sent by the SDK, so your
 hyperlink could then, by passing the getAuthQueryString() through the
 components from the blade tempate, read</p>
 </div>
@@ -571,6 +570,8 @@ components from the blade tempate, read</p>
     }
   }
 &lt;/script&gt;</pre>
+</div>
+</div>
 </div>
 </div>
 </article>
