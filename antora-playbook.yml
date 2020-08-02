@@ -2,6 +2,8 @@ site:
  title: Bristol SU Portal Project
  url: https://bristol-su.github.io/docs
  start_page: home::index.adoc
+ keys: 
+  google_analytics: 'UA-162373885-2'
 content:
  sources:
  # Home for contents page to rest of docs site
