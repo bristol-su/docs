@@ -50,6 +50,7 @@
           <div class="navbar-dropdown">
                 <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
                 <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-flyerless-subscription-management/1.0.0/index.html">Flyerless Subscription Management</a>
                 <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
                 <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
                 <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
@@ -137,40 +138,64 @@
     <a class="nav-link" href="../sdk-api/index.html">Introduction</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../sdk-api/authentication-authorization.html">Authentication &amp; Authorization</a>
   </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../sdk-api/storage.html">Storage</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../sdk-api/events.html">Events</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../sdk-api/settings.html">Settings</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../sdk-api/filters.html">Filters</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../sdk-api/completion-conditions.html">Completion Conditions</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../sdk-api/testing.html">Testing</a>
-  </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../sdk-api/database.html">Database</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../sdk-api/control.html">Control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/storage.html">Storage</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extra Features</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Helping your module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/settings.html">Settings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/events.html">Events</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../sdk-api/stand-alone.html">Stand-alone features</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/completion-conditions.html">Completion Conditions</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -283,6 +308,14 @@
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Flyerless Subscription Management</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-flyerless-subscription-management/1.0.0/index.html">1.0.0</a>
         </li>
       </ul>
     </li>
@@ -487,10 +520,18 @@ phpunit.xml export-ignore
 CHANGELOG.md export-ignore
 CODE_OF_CONDUCT.md export-ignore
 CONTRIBUTING.md export-ignore
-/docs export-ignore</code></pre>
+/docs export-ignore
+/.github export-ignore</code></pre>
 </div>
 </div>
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>.github. This folder contains all meta related files for your github repository. By default, we give you issue templates and a workflow to automatically compile your javascript and sass on push. This means you don&#8217;t need to worry about running npm before pushing, as github will do this for you automatically! You may want to change the email/name in the workflow file though.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -756,19 +797,15 @@ A brief description of what your module does
 </li>
 <li>
 <p>Edit the <code>antora-playbook.yml</code> and add the following under the module section in the content &#8594; sources attribute.</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
-<pre> - url: https://github.com/username/module-repository
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"> - url: https://github.com/username/module-repository
    start_path: docs
    branches: [master]
-   tags: v*</pre>
+   tags: v*</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Push your changes to your forked repository on Github</p>
 </li>
