@@ -447,7 +447,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">`+$databaseUser = app()-&gt;make(\BristolSU\Support\User\Contracts\UserAuthentication::class)-&gt;getUser()+`</code></pre>
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">$userAuthentication = app(\BristolSU\Support\User\Contracts\UserAuthentication::class);
+$databaseUser = $userAuthentication-&gt;getUser();</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -669,80 +670,97 @@ activity instances by default.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Finally, we want to allow users of the portal to define who can do
-specific things within a module. Of course, this isn&#8217;t something you as
-a developer can define - it all depends on how the module is used in a
-specific case.</p>
+specific things within a module. Back to our example of a file upload module, some users may be able to upload a new file and others just see uploaded files.</p>
 </div>
 <div class="paragraph">
 <p>The SDK defines a flexible permission framework for assigning
-permissions. See the SDK documentation for more information.</p>
+permissions. All we need to do is let the SDK know what permissions your module needs, and check the permissions in the correct places.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_permissions_to_use"><a class="anchor" href="#_what_permissions_to_use"></a>What permissions to use</h3>
+<div class="paragraph">
+<p>Although the permissions you will need will depend on your module, these generalisations will help to guide the permissions you need.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each participant page should have a permission.</p>
+</li>
+<li>
+<p>Each participant API route should have a permission.</p>
+</li>
+<li>
+<p>Each admin page should have a permission.</p>
+</li>
+<li>
+<p>Each admin API route should have a permission.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_registering_permissions"><a class="anchor" href="#_registering_permissions"></a>Registering permissions</h3>
 <div class="paragraph">
-<p>From a module point of view, all you need to do is let the SDK know what
-permissions are available to assign for your module, and check the
-permissions in the correct places. Say we wanted to assign a permission
-for viewing the participant page. This means that anyone with this
-permission should be able to see the participant page, but if you don&#8217;t
-have it you&#8217;ll be presented with a 403 error.</p>
-</div>
-<div class="paragraph">
-<p>To let the module know about your permissions, you should register them
-in the $permissions array in the service provider. The key should be the
-key for the permission, and the content should be an array with a name,
-description and admin element. For example, the following permission
-would register a 'view-page' permission that is NOT an admin permission.</p>
+<p>Each permission consists of a key, which is a string. These <strong>must</strong> start with your module alias, but it&#8217;s up to you what you use after that. We recommend creating your permission from a string separated by full stops. If the permission is for an admin, put this in the second position. The third position could then be <code>view-page</code> or similar, or if you have a REST api the resource should go here with the action fourth. Here are some examples:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>'view-page' =&gt; [
-  'name' =&gt; 'View Participant Page',
-  'description' =&gt; 'View the main page of the module.',
-  'admin' =&gt; false
-]</pre>
+<pre>module-alias.admin.view-page // View admin page
+module-alias.view-page // View page
+module-alias.admin.file.download // Download for an admin
+module-alias.file.download // Download for a participant</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If admin was true, users of the portal will see that this permission is
-for the admin side. For example, you could have an admin permission to
-view the admin page.</p>
+<p>A permission also consists of a name and description.</p>
 </div>
-<div class="literalblock">
+<div class="paragraph">
+<p>There are two ways to register permissions with the SDK. The easiest one is to register each permission in the array in the service provider, and the other is to use the interface directly.</p>
+</div>
+<div class="sect3">
+<h4 id="_service_provider"><a class="anchor" href="#_service_provider"></a>Service Provider</h4>
+<div class="paragraph">
+<p>For each permission, you can use the <code>$permissions</code> array in your module service provider. The key should be the key for the permission as described above, and the content should be an array with a name, description and admin element (a boolean which specifies if the permission is for an admin or not).</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<pre>'admin.view-page' =&gt; [
-  'name' =&gt; 'View Admin Page',
-  'description' =&gt; 'View the administrator page of the module.',
-  'admin' =&gt; true
-]</pre>
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">protected $permissions = [
+    'view-page' =&gt; [
+      'name' =&gt; 'View Participant Page',
+      'description' =&gt; 'View the main page of the module.',
+      'admin' =&gt; false
+    ]
+];</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Although only admins can access the activity anyway, this is a further
-level of protection. You may notice we also prefix the permission with
-'admin.' when an admin permission is registered, so we don&#8217;t have any
-permissions which are registered twice.</p>
+<p>You may notice your module alias isn&#8217;t at the start of the array key. The SDK automatically appends your module alias to the start.</p>
 </div>
-<div class="paragraph">
-<p>It is also worth noting that, by registering the permissions in a
-$permissions array, the SDK automatically adds your alias to the start
-of the permission string. So, in reality, the 'View Participant Page'
-permission is actually referred to as, e.g., 'my-alias.view-page'.</p>
 </div>
+<div class="sect3">
+<h4 id="_directly_with_the_interface"><a class="anchor" href="#_directly_with_the_interface"></a>Directly with the interface</h4>
 <div class="paragraph">
-<p>Having registered permissions, the portal will take care of ensuring
-they are assigned.</p>
+<p>You can also use the permission store interface directly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">\BristolSU\Support\Permissions\Facade\Permission::register('module-alias.permission-key', 'Permission Name', 'Permission Description', 'module-alias', $isAdmin);</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_authorizing_checking_permissions"><a class="anchor" href="#_authorizing_checking_permissions"></a>Authorizing (Checking Permissions)</h3>
 <div class="paragraph">
 <p>You now need to check that someone has a permission
-when they try and carry out an action.</p>
+when they try and carry out an action. If the user doesn&#8217;t have a permission, we should return a 403 error to the user.</p>
 </div>
 <div class="paragraph">
 <p>To do this, we recommend overriding the default 'authorize' function in
-your controller to add your alias to the ability. If you don&#8217;t want to
+your base controller to add your alias to the ability. This will allow you to refer to the permission as <code>'view-page'</code> not <code>'module-alias.view-page'</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t want to
 do this, make sure to refer to the permission in its full form with your
 alias at the start.</p>
 </div>
@@ -770,13 +788,10 @@ alias at the start.</p>
 <p>We can now authorize the user. In the participant page controller, we
 just have to put the following line at the start of the method to
 automatically check the user has the permissions, and throw an error if
-they don&#8217;t</p>
+they don&#8217;t.</p>
 </div>
 <div class="paragraph">
 <p><code>$this-&gt;authorize('view-page');</code></p>
-</div>
-<div class="paragraph">
-<p>Wasn&#8217;t that easy!</p>
 </div>
 <div class="paragraph">
 <p>Of course, this is a general permission check to make sure a user can do
@@ -790,35 +805,32 @@ model.</p>
 <div class="sect3">
 <h4 id="_checking_module_instance_access"><a class="anchor" href="#_checking_module_instance_access"></a>Checking Module Instance Access</h4>
 <div class="paragraph">
-<p>In the future, this framework will be revised. For now, we recommend the
-following:</p>
-</div>
-<div class="paragraph">
 <p>Let&#8217;s take an example of a file. We need to check the file belongs to
 the module instance, so that it can only be accessed through a single
-page. To do this, we tend to use route model binding. This has the
+page. If we have two different file upload modules, e.g. a constitution and a risk assessment, we only want to see consitutions in the consitution module and vice versa.</p>
+</div>
+<div class="paragraph">
+<p>To do this, we tend to use route model binding. This has the
 additional benefit of ensuring our route model binding doesn&#8217;t clash
-with any other modules.</p>
+with any other modules as long as we bind using our module instance</p>
 </div>
 <div class="paragraph">
 <p>In your module service provider boot method, you can bind a model as
-follows:</p>
+follows.</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>Route::bind('uploadfile_file', function($id) {
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">Route::bind('uploadfile_file', function($id) {
     $file = File::findOrFail($id);
     if(request()-&gt;route('module_instance_slug') &amp;&amp; (int) $file-&gt;module_instance_id === request()-&gt;route('module_instance_slug')-&gt;id()) {
         return $file;
     }
     throw (new \Illuminate\Database\Eloquent\ModelNotFoundException)-&gt;setModel(File::class);
-});</pre>
+});</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice we use a key which includes the alias at the start, and and only
-return the file if the module instance ID matches the current module
-instance.</p>
+<p>We can then use <code>{uploadfile_file}</code> in our route as a parameter to require a file ID and have it injected into the controller. If the module instance ID of the file is different to the current module instance ID, we throw a 404 error.</p>
 </div>
 </div>
 <div class="sect3">
@@ -826,14 +838,14 @@ instance.</p>
 <div class="paragraph">
 <p>This is the portals way of checking the user has access to the file.
 This should only really be done on the participant side, since the
-admins can access all activity instances in the module instance. On the
+admins can access all activity instances , or more specifically all models, in the module instance. On the
 participant side, in the controller, we tend to put the following:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>if((int) $file-&gt;activity_instance_id !== (int) app(\BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceResolver::class)-&gt;getActivityInstance()-&gt;id) {
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">if((int) $file-&gt;activity_instance_id !== (int) app(\BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceResolver::class)-&gt;getActivityInstance()-&gt;id) {
     throw new \Illuminate\Auth\Access\AuthorizationException;
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -850,7 +862,7 @@ be able to.</p>
 example, a files deletion to only the person who initially uploaded it
 (as opposed to the group or role that it was uploaded for), you can add
 an additional check against the current user control model, ensuring the
-ID is the same as the user id you have saved on the model.</p>
+ID is the same as the user id you have saved on the model. Throwing an <code>AuthorizationException</code> as above will take care of formatting the error for you.</p>
 </div>
 </div>
 </div>
@@ -864,13 +876,13 @@ use the SDK PermissionTester. An example method call for checking if the
 currently authenticated user has the given permission would look like</p>
 </div>
 <div class="paragraph">
-<p><code>\BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('upload-file');</code></p>
+<p><code>\BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('upload-file.view-page');</code></p>
 </div>
 <div class="paragraph">
 <p>This will either return true or false depending on if the user has the
 permission or not. The SDK hijacks the Laravel permission framework and
 forces all permission tests through this method, meaning you can use any
-normal Laravel permission tool (e.g. @can('my-alias.upload-file') in
+normal Laravel permission tool (e.g. <code>@can('my-alias.upload-file')</code> in
 blade templates) to check permissions. This permission checking will all
 be done on the currently authenticated user. To check a given user, use
 the evaluateFor method, which additionally accepts a user, group and/or
@@ -878,7 +890,7 @@ role.</p>
 </div>
 <div class="paragraph">
 <p>Finally, as a shortcut to using the PermissionTester, we have created a
-helper function 'hasPermission' which will call the PermissionTester and
+helper function <code>hasPermission($ability (e.g. 'mymodule.view-file'))</code> that can be called from anywhere, which will call the PermissionTester and
 return the result. Pass in just the ability to check the current user,
 or pass in a user/group/role to check the given user/group/role instead.</p>
 </div>
