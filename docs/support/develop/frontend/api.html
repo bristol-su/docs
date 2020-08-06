@@ -173,6 +173,9 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/events.html">Events</a>
   </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
@@ -184,9 +187,6 @@
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
@@ -434,27 +434,29 @@ for your module.</p>
 the 'api.php' file in either admin or participant, then create the
 controller in 'app/Http/Controllers/Api'.</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>routes/admin/api.php:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>Route::namespace('Api')-&gt;group(function() {
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">Route::namespace('Api')-&gt;group(function() {
     Route::get('/file', 'FileController@index');
     Route::get('/file/{staticpage_file}', 'FileController@show');
 
     OR
 
     Route::apiResource('file', 'FileController');
-});</pre>
+});</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>app/Http/Controllers/Api/FileController:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>class FileController extends Controller {
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">class FileController extends Controller {
     public function index() {
         //
     }
@@ -462,7 +464,9 @@ controller in 'app/Http/Controllers/Api'.</p>
     public function show(File $file) {
         return $file;
     }
-}</pre>
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -476,16 +480,20 @@ Unlike normal, we require that route model bindings are prefixed with
 the module alias, to limit any conflicts. We could set up the file route
 model binding as so:</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>ModuleServiceProvider.php</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>public function boot() {
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">public function boot() {
     parent::boot();
 
     Route::model('staticpage_file', BristolSU\Module\StaticPage\Model\File::class);
-}</pre>
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">

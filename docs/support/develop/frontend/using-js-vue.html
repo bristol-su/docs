@@ -173,6 +173,9 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/events.html">Events</a>
   </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
@@ -184,9 +187,6 @@
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
@@ -445,14 +445,14 @@ instance mounted to the base component defined in
 'resources/views/layout/app.blade.php'. This file is then loaded in the
 same blade file.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p>Example <code>module.js</code> file</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>import Vue from 'vue';
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import http from 'http-client';
 import AWN from "awesome-notifications";
@@ -469,7 +469,7 @@ let vue = new Vue({
     components: {
         ExampleComponent
     }
-});</pre>
+});</code></pre>
 </div>
 </div>
 </div>
@@ -533,9 +533,9 @@ and still let you use the normal .then() .catch() .then() promises.</p>
 <p>To simplify this further, we assign the client to the Vue prototype.
 This means that, in your Vue components, you can simply use</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>export default {
+<pre class="highlightjs highlight"><code class="language-vuejs hljs" data-lang="vuejs">export default {
     name: "MyComponent",
 
     data() {
@@ -551,7 +551,7 @@ This means that, in your Vue components, you can simply use</p>
                 .catch(error =&gt; this.$notify.alert('Could not load files: ' + error.message);
         }
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -617,12 +617,12 @@ Package</a>. You can follow their documentation, but generally you will
 just need to put the following in your middleware or service provider
 boot function:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>Laracasts\Utilities\JavaScript\JavaScriptFacade::put([
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">Laracasts\Utilities\JavaScript\JavaScriptFacade::put([
   'key' =&gt; 'value',
   'typeform_client_id' =&gt; config('typeform-alias.client_id')
-]);</pre>
+]);</code></pre>
 </div>
 </div>
 <div class="paragraph">

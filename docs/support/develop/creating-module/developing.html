@@ -173,6 +173,9 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/events.html">Events</a>
   </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
@@ -184,9 +187,6 @@
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
@@ -500,24 +500,24 @@ You can set up a local web server to serve the playground through a URL such as 
 <div class="paragraph">
 <p>Assuming the directory structure is as follows;</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>- modules
+<pre class="highlightjs highlight"><code>- modules
     - my-module
         - composer.json
         - ...
 - playground
     -composer.json
-    - ...</pre>
+    - ...</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>we can paste the following into the playground composer.json to make composer aware of
 the module.</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>"autoload-dev": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"autoload-dev": {
     ...
 },
 "repositories": [
@@ -528,7 +528,7 @@ the module.</p>
 ],
 "extra": {
     ...
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -585,18 +585,18 @@ the following</p>
 </li>
 </ol>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>when-changed -r /path/to/module/public/modules -c php /path/to/playground/artisan vendor:publish --force --provider="Your\Provider\Namespace\ModuleServiceProvider"</pre>
+<pre class="highlightjs highlight"><code class="language-shell script hljs" data-lang="shell script">when-changed -r /path/to/module/public/modules -c php /path/to/playground/artisan vendor:publish --force --provider="Your\Provider\Namespace\ModuleServiceProvider"</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>This will watch your assets, and publish them when any changes are
 detected. You can put this into an alias by editing your .bashrc file:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>alias onchange-module="source /path/to/venv/bin/activate &amp;&amp; " when-changed -r /path/to/module/public/modules -c php /path/to/playground/artisan vendor:publish --force --provider="Your\Provider\Namespace\ModuleServiceProvider"</pre>
+<pre class="highlightjs highlight"><code class="language-shell script hljs" data-lang="shell script">alias onchange-module="source /path/to/venv/bin/activate &amp;&amp; " when-changed -r /path/to/module/public/modules -c php /path/to/playground/artisan vendor:publish --force --provider="Your\Provider\Namespace\ModuleServiceProvider"</code></pre>
 </div>
 </div>
 </div>

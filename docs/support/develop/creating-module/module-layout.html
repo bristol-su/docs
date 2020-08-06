@@ -173,6 +173,9 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/events.html">Events</a>
   </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
@@ -184,9 +187,6 @@
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
@@ -463,13 +463,13 @@ module, you will need to require the support package. This is already done for y
 <p>It must also provide namespacing. You will need to decide on a namespace
 for your module. We will use the example <code>\BristolSU\Module\Typeform</code></p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>"autoload": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"autoload": {
     "psr-4": {
       "BristolSU\\Module\\Typeform\\": "app/"
     }
-  },</pre>
+  },</code></pre>
 </div>
 </div>
 </div>
@@ -575,15 +575,15 @@ If you use webpack (as the template does), your js and css will be automatically
 <div class="paragraph">
 <p>Your routes folder is where your routes are stored. It should look like</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>- routes
+<pre class="highlightjs highlight"><code>- routes
     - admin
         - web.php // Web Admin Routes
         - api.php // API Admin Routes
     - participant
         - web.php // Web Participant Routes
-        - api.php // API Participant Routes</pre>
+        - api.php // API Participant Routes</code></pre>
 </div>
 </div>
 <div class="paragraph">

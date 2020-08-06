@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Actions :: Bristol SU Portal Project</title>
     <link rel="canonical" href="https://bristol-su.github.io/docs/support/develop/sdk-api/actions.html">
+    <meta name="description" content="How to create actions">
+    <meta name="docsearch:description" content="How to create actions">
+    <meta name="keywords" content="actions,action,sdk action,event listener,listener">
+    <meta name="docsearch:keywords" content="actions,action,sdk action,event listener,listener">
     <meta name="generator" content="Antora 2.3.3">
     <meta name="docsearch:language" content="en" />
       <meta name="docsearch:version" content="develop">
@@ -169,6 +173,9 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="events.html">Events</a>
   </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="connections.html">Connections</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
@@ -180,9 +187,6 @@
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="commands.html">Commands</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="connections.html">Connections</a>
   </li>
   <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="actions.html">Actions</a>
@@ -421,79 +425,171 @@
   <div class="content">
 <article class="doc">
 <h1 class="page">Actions</h1>
-<div id="preamble">
+<div class="sect1">
+<h2 id="_what_are_actions"><a class="anchor" href="#_what_are_actions"></a>What are actions?</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Actions are the counterparts to events, and allow for something to
-happen when an event is fired. Examples of 'global' actions are things
-like send an email, add a task to a task manager like Asana or give
-someone a permission on Azure AD. However, modules can register their
-own actions. For example, a file upload module may register an action
-'Upload a File', which takes a file url and uploads it to a specific
-module instance with a specific activity instance.</p>
+happen when an event is fired. As a developer, you may be used to calling these Event Listeners.</p>
 </div>
 <div class="paragraph">
-<p>An action can be built by implementing the Action interface:
-<code>\BristolSU\Support\Action\Contracts\Action</code>. Similarly to the
-triggerable events, actions have fields which need to be fulfilled. For
-example, you could have an 'email address', 'subject line' and 'content'
-fields for a 'Send an Email' action.</p>
+<p>Examples of actions are normally things sending an email, adding a task to a task manager like Asana or giving a permission on Azure AD. With the portal, a user can bind one of these actions to any event to automate tasks. For example, we could automatically send an email to someone who submits a form through the portal.</p>
 </div>
 <div class="paragraph">
-<p>The actions require an options function, which should return a normal
-Form Schema, and a handle method. The handle method should make use of
-the data passed through the construct.</p>
+<p>Individual modules may also provide actions for the rest of the portal to use. For example, a file upload module may register an action 'Upload a File'. This would take a file URL and module instance/activity instance and upload the file. This would be very useful if you wanted a user to attach a file to a form but also wanted the file to be held separately. The 'Upload a File' action could be bound to a 'Form Submitted' event, get the file URL and upload it!</p>
 </div>
 <div class="paragraph">
-<p>In the 'Send an Email' case, this data may look something like:</p>
+<p>Packages may also just include actions if they want. We have a few integration packages that don&#8217;t supply a module, but rather integrations such as actions for a given third party.</p>
 </div>
-<div class="literalblock">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_build_an_action"><a class="anchor" href="#_how_to_build_an_action"></a>How to build an action</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An action is simply a class that extends the Action class:
+<code>\BristolSU\Support\Action\Contracts\Action</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_accepting_settings"><a class="anchor" href="#_accepting_settings"></a>Accepting Settings</h3>
+<div class="paragraph">
+<p>To make actions as useful as possible, they may accept any number of settings. In the above examples, such as uploading a file, settings would be a file URL, module instance id and activity instance id. For uploading a task to Asana, settings may be a Connection ID, the task contents and a due date. For sending an email, you&#8217;d have an email address, subject line and content field.</p>
+</div>
+<div class="paragraph">
+<p>To ask for settings, you need to use the <code>options</code> function to return a FormSchema.</p>
+</div>
+<div class="exampleblock">
 <div class="content">
-<pre>$data = [
-  'email_address' =&gt; 'tobytwigger1@gmail.com',
-  'subject' =&gt; 'Your file has been uploaded',
-  'content' =&gt; 'Hi Toby! Just to let you know, you\'re file has been successfully uploaded...'
-];</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This should be saved in a property in your action. Having created a new
-instance of your action initialised with the data it needs, we call the
-handle method. This is where you can actually carry out the action.
-Using the data given in the construct, we have enough information to
-send an email with the given parameters.</p>
-</div>
-<div class="paragraph">
-<p>Some modules may find they don&#8217;t have a need for an action, which is
-fine! Generally, actions will be global ones such as sending an email.</p>
-</div>
-<div class="paragraph">
-<p>Don&#8217;t forget, you could always create a package with just an action in
-if you think the portal is missing a useful action!</p>
-</div>
-<div class="paragraph">
-<p>Having created an action, it needs to be registered in a service
-provider so the portal knows it exists and can use it. To do this, put
-the following line in a boot method in your service provider:</p>
-</div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>public function boot()
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">public static function options(): FormSchema\Schema\Form
 {
-    parent::boot();
-    BristolSU\Support\Action\Facade\ActionManager::registerAction(ActionClass::class, 'Action Name', 'A description for the action to help the user understand');
-}</pre>
+    return \FormSchema\Generator\Form::make()
+        -&gt;withField(
+            Field::input('email_address')-&gt;inputType('email')-&gt;label('Email
+        )
+        -&gt;withField(...)
+        -&gt;getSchema();
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_executing_the_action"><a class="anchor" href="#_executing_the_action"></a>Executing the Action</h3>
+<div class="paragraph">
+<p>When an action is to be executed, the <code>run</code> method will be called. In this method, you may do anything you want to execute the action. In our email example, this would be sending an email using the Laravel framework.</p>
+</div>
+<div class="paragraph">
+<p>To access settings you asked for in the 'options' function, we use the <code>option</code> function. This takes a key, such as 'email_address', and a default for if the value is not given.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_returning_a_response"><a class="anchor" href="#_returning_a_response"></a>Returning a Response</h3>
+<div class="paragraph">
+<p>It&#8217;s useful to keep a log of all actions, as well as alerting users when actions have failed. To do this, all we need to do is return a specific kind of response.</p>
+</div>
+<div class="sect3">
+<h4 id="_successful_response"><a class="anchor" href="#_successful_response"></a>Successful Response</h4>
+<div class="paragraph">
+<p>If the action succeeded, and we sent the email, we return a success response. We can do this using the <code>\BristolSU\Support\Action\ActionResponse</code> class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">return \BristolSU\Support\Action\ActionResponse::success(sprintf('The email was sent successfully to %s.', $this-&gt;option('email_address'))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When an action returns a success response, a user can see all the event fields, the settings available to the action and the message in the success response. This allows for debugging of actions by users of the portal.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_failed_response"><a class="anchor" href="#_failed_response"></a>Failed Response</h4>
+<div class="paragraph">
+<p>When an action fails, there are several ways we can log this information</p>
+</div>
+<div class="sect4">
+<h5 id="_throwing_an_exception"><a class="anchor" href="#_throwing_an_exception"></a>Throwing an Exception</h5>
+<div class="paragraph">
+<p>If the <code>run</code> method throws an exception, we will automatically log the failed response using the exception message as the log message. This allows you to use cleaner code in your method whilst still making use of the logging framework.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_returning_a_failed_response"><a class="anchor" href="#_returning_a_failed_response"></a>Returning a Failed Response</h5>
+<div class="paragraph">
+<p>As you&#8217;d expect, the success method has a failed counterpart. Return this from the <code>run</code> method to let the action handler know that the action has failed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">return \BristolSU\Support\Action\ActionResponse::failure(sprintf('The email could not be sent to %s.', $this-&gt;option('email_address'))</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_history"><a class="anchor" href="#_history"></a>History</h2>
+<h2 id="_registering_an_action"><a class="anchor" href="#_registering_an_action"></a>Registering an Action</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To keep track of action history, you should use the trait
-<code>\BristolSU\Support\Action\History\HasHistory</code> in your action.
-r</p>
+<p>Having created an action, it needs to be registered into the portal so users can use it. To do this, you need to register it in the <code>boot</code> function of a service provider.</p>
+</div>
+<div class="paragraph">
+<p>If you are creating a module, your service provider will extend <code>\BristolSU\Support\Module\ModuleServiceProvider</code>. In this case, you can use the method <code>registerAction</code> to register any number of actions in your boot.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">public function boot()
+{
+    parent::boot();
+    $this-&gt;registerAction(
+        \MyName\Space\MyAction::class, <i class="conum" data-value="1"></i><b>(1)</b>
+        'My Action Name' <i class="conum" data-value="2"></i><b>(2)</b>
+        'A longer description for my action' <i class="conum" data-value="3"></i><b>(3)</b>
+    );
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The fully qualified class name of your action.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>A name for your action</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>A description for your action</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If you aren&#8217;t creating a module, you can still register your action with the portal. You need to use the action manager directly.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">public function boot()
+{
+    \BristolSU\Support\Action\Facade\ActionManager::registerAction(
+        \MyName\Space\MyAction::class,
+        'My Action Name'
+        'A longer description for my action'
+    );
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

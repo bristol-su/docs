@@ -173,6 +173,9 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/events.html">Events</a>
   </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
@@ -184,9 +187,6 @@
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
@@ -444,15 +444,15 @@ you usually would in a service provider.</p>
 <p>Generally, the ModuleServiceProvider class should be placed in your app
 directory, and be loaded in composer.json</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>"extra": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extra": {
     "laravel": {
       "providers": [
         "BristolSU\\Module\\Typeform\\ModuleServiceProvider"
       ]
     }
-  }</pre>
+  }</code></pre>
 </div>
 </div>
 </div>
@@ -466,9 +466,11 @@ directory, and be loaded in composer.json</p>
 methods. An example implementation, which should be good enough for most
 modules (having changed the alias and namespace) is provided below</p>
 </div>
-<div class="literalblock">
+<div class="exampleblock">
 <div class="content">
-<pre>// Alias of the module
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">// Alias of the module
 public function alias(): string {
     return 'my-alias';
 }
@@ -481,7 +483,9 @@ public function namespace() {
 // Path to the base of the module (location of the composer.json file)
 public function baseDirectory() {
     return __DIR__ . '/..';
-}</pre>
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="ulist">
