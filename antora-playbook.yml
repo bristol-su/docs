@@ -22,7 +22,7 @@ content:
  # SDK Documentation
  - url: https://github.com/bristol-su/support
    start_path: antora-docs
-   branches: [develop]
+   branches: [master, docs/v4.x]
  # Control Documentation
  - url: https://github.com/bristol-su/control
    start_path: antora-docs
