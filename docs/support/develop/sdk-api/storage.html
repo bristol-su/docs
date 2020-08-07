@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Storage :: Bristol SU Portal Project</title>
     <link rel="canonical" href="https://bristol-su.github.io/docs/support/develop/sdk-api/storage.html">
+    <meta name="description" content="Storage">
+    <meta name="docsearch:description" content="Storage">
+    <meta name="keywords" content="file,storage,s3,filesystem,upload">
+    <meta name="docsearch:keywords" content="file,storage,s3,filesystem,upload">
     <meta name="generator" content="Antora 2.3.3">
     <meta name="docsearch:language" content="en" />
       <meta name="docsearch:version" content="develop">
@@ -196,69 +200,6 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Components in depth</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/index.html">Introduction to the components</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/actions.html">Actions</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/activity.html">Activity</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/activity-instance.html">Activity Instance</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/authentication.html">Authentication</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/authorization.html">Authorization</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/completion.html">Completion</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/connection.html">Connection</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/events.html">Events</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/filters.html">Filters</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/helpers.html">Helpers</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/http.html">Http</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/logic.html">Logic</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/module.html">Module</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/module-instance.html">ModuleInstance</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/permissions.html">Permissions</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/testing.html">Testing</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/user.html">User</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/middleware.html">Middleware</a>
-  </li>
-</ul>
-  </li>
 </ul>
   </nav>
 </div>
@@ -421,13 +362,10 @@
 <article class="doc">
 <h1 class="page">Storage</h1>
 <div class="paragraph">
-<p>Any SDK implementation will use the default Laravel storage framework,
-built on FlySystem, to upload files and assets. Make sure to always put
-any assets or files you upload into a folder with your alias in it. For
-example, upload a file called file.txt as</p>
+<p>Any SDK implementation will use the default Laravel storage framework, built on FlySystem, to upload files and assets. Make sure to always put any assets or files you upload into a folder with your module alias in it. For example, upload a file called file.txt with a name <code>'my-alias/file.txt'</code></p>
 </div>
 <div class="paragraph">
-<p>'my-alias/file.txt'.</p>
+<p>This will allow us to tell different module assets apart in storage.</p>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

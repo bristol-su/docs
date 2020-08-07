@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Events :: Bristol SU Portal Project</title>
     <link rel="canonical" href="https://bristol-su.github.io/docs/support/develop/sdk-api/events.html">
+    <meta name="description" content="Using events in a module">
+    <meta name="docsearch:description" content="Using events in a module">
+    <meta name="keywords" content="events,listeners,trigger,actions,">
+    <meta name="docsearch:keywords" content="events,listeners,trigger,actions,">
     <meta name="generator" content="Antora 2.3.3">
     <meta name="docsearch:language" content="en" />
       <meta name="docsearch:version" content="develop">
@@ -196,69 +200,6 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Components in depth</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/index.html">Introduction to the components</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/actions.html">Actions</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/activity.html">Activity</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/activity-instance.html">Activity Instance</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/authentication.html">Authentication</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/authorization.html">Authorization</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/completion.html">Completion</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/connection.html">Connection</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/events.html">Events</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/filters.html">Filters</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/helpers.html">Helpers</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/http.html">Http</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/logic.html">Logic</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/module.html">Module</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/module-instance.html">ModuleInstance</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/permissions.html">Permissions</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/testing.html">Testing</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/user.html">User</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/middleware.html">Middleware</a>
-  </li>
-</ul>
-  </li>
 </ul>
   </nav>
 </div>
@@ -428,42 +369,59 @@
 This means that you can create events as normal, fire them in any way
 Laravel allows, and bind listeners to events as normal.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_are_events_used_for_in_the_portal"><a class="anchor" href="#_what_are_events_used_for_in_the_portal"></a>What are events used for in the portal</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>However, events also take on a new role in the portal. They are of
-course used to specify when something has happened in the system, which
-opens the door to many handy features.</p>
+<p>The portal introduces an event &#8594; action concept, which is a way of allowing users to set up their own event listeners. It allows users to, for example, send an email to someone when a document is submitted. The sending of the email is handled by actions, and an event causes the email to be sent by firing when a document is submitted.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, events can hold information. We register this information in a uniform way to allow actions to use it, so users can map information from an event to an action to create a powerful response framework for automating common tasks.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_triggerable_events"><a class="anchor" href="#_triggerable_events"></a>Triggerable Events</h2>
+<h2 id="_creating_an_event"><a class="anchor" href="#_creating_an_event"></a>Creating an Event</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The portal allows users, through the UI, to set up something like 'When
-a file is uploaded, send them an email'. This statement is made of two
-parts, the trigger and the action. The trigger is a file being uploaded,
-and this is represented by a normal event being fired. The action is
-sending an email. Actions are covered later, but essentially it allows
-the user to write an email, merge data from the event, and deploy to
-automatically send an email when a file is uploaded.</p>
+<p>All events that want to be used for the event framework, which will be nearly all of your events (the more you have, the more things a user can use your module for), must implement the <code>\BristolSU\Support\Action\Contracts\TriggerableEvent</code> interface. This requires every event to implement two methods - one to return each of the available fields, and one to return the meta data for each of these fields.</p>
 </div>
+<div class="sect2">
+<h3 id="_event_data"><a class="anchor" href="#_event_data"></a>Event Data</h3>
 <div class="paragraph">
-<p>To allow your module to be used in this way, your events need to
-implement the TriggerableEvent interface
-(\BristolSU\Support\Action\Contracts\TriggerableEvent). This defines two
-methods which are used by the SDK to understand what data the event
-holds.</p>
+<p>To allow you total control over what information your event contains, you can return an array of data accessible to the event. This will generally use information/models passed to the event through the constructor, and format it using uniform keys. You should always try and include things like the module instance ID and activity instance ID, as well as data custom to you.</p>
 </div>
-<div class="paragraph">
-<p>The getFieldMetaData function should return a description of each bit of
-information available in the event. For example, say we created an event
-which fires when a file is uploaded and contains information about the
-file. Our getFieldMetaData could look something like (although in
-reality it should register more information):</p>
-</div>
-<div class="literalblock">
+<div class="exampleblock">
 <div class="content">
-<pre>public function getFieldMetaData(): array
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">public function getFields(): array
+{
+    return [
+        'user_id' =&gt; $this-&gt;file-&gt;uploaded_by,
+        'file_name' =&gt; $this-&gt;file-&gt;name,
+        'file_mimetype' =&gt; $this-&gt;file-&gt;mimetype,
+        'module_instance_id' =&gt; $this-&gt;file-&gt;module_instance_id,
+        'activity_instance_id' =&gt; $this-&gt;file-&gt;activity_instance_id
+    ];
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_event_metadata"><a class="anchor" href="#_event_metadata"></a>Event MetaData</h3>
+<div class="paragraph">
+<p>We can then give each key of data a more informative name and a description. This will be used to help the user match the correct information to each action field.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">public function getFieldMetaData(): array
 {
   return [
      'user_id' =&gt; [
@@ -480,69 +438,36 @@ reality it should register more information):</p>
      ],
      ...
   ]
-}</pre>
+}</code></pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_registering_your_event"><a class="anchor" href="#_registering_your_event"></a>Registering your event</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>The portal can now understand the event and the information it contains.
-Users can map these fields to action fields (think, in the case of 'Send
-an Email', the email address, subject line, message etc) to create their
-own dynamic listeners through the UI!</p>
+<p>Having created and fired your events, you need to let the portal know the events exist, so it can listen out for them and allow users to attach listeners to them. To do this, put each event in the <code>$events</code> array in your service provider. For an event with a class name FileUploaded::class, we would add</p>
 </div>
-<div class="paragraph">
-<p>Of course, when the event is fired and the action triggered, we need to
-get values for the user id, file name and file mimetype. This is made
-more difficult by the fact that the event only stores a file object,
-which has different keys to those we defined for the event.</p>
-</div>
-<div class="paragraph">
-<p>To allow us to retrieve and map the data, we implement the getFields
-method. This should return the actual value of each item of data, so
-that an event can be transformed to an array with the keys given in
-getFieldMetaData(). An example follows:</p>
-</div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>public function getFields(): array
-{
-    return [
-        'user_id' =&gt; $this-&gt;file-&gt;uploaded_by,
-        'file_name' =&gt; $this-&gt;file-&gt;name,
-        'file_mimetype' =&gt; $this-&gt;file-&gt;mimetype
-    ];
-}</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Events will be used for much more in the future. It is likely that any
-activity logging framework that is set up will be based around logging
-events fired. There will also be things like completion conditions based
-around events having been fired supplied by the SDK. To make sure your
-module stays fully integrated with the portal, it is a good idea to fire
-more events than you necessarily feel is needed right now.</p>
-</div>
-<div class="paragraph">
-<p>Having created and fired your events, you need to let the portal know
-the events exist! To do this, put each one in the $events array in your
-service provider. For an event with a class name FileUploaded::class, we
-would add</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>protected $events = [
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">protected $events = [
     FileUploaded::class =&gt; [
         'name' =&gt; 'File Uploaded',
         'description' =&gt; 'When a new file is uploaded'
     ],
     ...
-]</pre>
+]</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If an event is not registered in this way, the portal won&#8217;t know it
-exists. You can still use it within your module to manually bind
-listeners etc, but your module won&#8217;t benefit from the event tools the
-portal supplies.</p>
+<p>The name should be a brief name to refer to the event, and the description should complete the sentence 'This event fires&#8230;&#8203;'.</p>
+</div>
+<div class="paragraph">
+<p>If an event is not registered in this way, the portal won&#8217;t know it exists. You can still use it within your module to manually bind listeners as you would for a normal Laravel app, but your module won&#8217;t benefit from the event tools the portal supplies, and users won&#8217;t be able to use it to create automated workflows.</p>
 </div>
 </div>
 </div>

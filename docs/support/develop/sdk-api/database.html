@@ -3,8 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Databaase :: Bristol SU Portal Project</title>
+    <title>Database :: Bristol SU Portal Project</title>
     <link rel="canonical" href="https://bristol-su.github.io/docs/support/develop/sdk-api/database.html">
+    <meta name="description" content="Using the database">
+    <meta name="docsearch:description" content="Using the database">
+    <meta name="keywords" content="database,storage,eloquent,migration">
+    <meta name="docsearch:keywords" content="database,storage,eloquent,migration">
     <meta name="generator" content="Antora 2.3.3">
     <meta name="docsearch:language" content="en" />
       <meta name="docsearch:version" content="develop">
@@ -196,69 +200,6 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Components in depth</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/index.html">Introduction to the components</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/actions.html">Actions</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/activity.html">Activity</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/activity-instance.html">Activity Instance</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/authentication.html">Authentication</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/authorization.html">Authorization</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/completion.html">Completion</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/connection.html">Connection</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/events.html">Events</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/filters.html">Filters</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/helpers.html">Helpers</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/http.html">Http</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/logic.html">Logic</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/module.html">Module</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/module-instance.html">ModuleInstance</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/permissions.html">Permissions</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/testing.html">Testing</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/user.html">User</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../components/middleware.html">Middleware</a>
-  </li>
-</ul>
-  </li>
 </ul>
   </nav>
 </div>
@@ -419,11 +360,21 @@
 </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Databaase</h1>
+<h1 class="page">Database</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>The SDK provides a handy method to keep track of revisions on models. If
-you expect models to change, and want a log of all changes, simply add
-the <code>\BristolSU\Support\Revision\HasRevision</code> trait to any model!</p>
+<p>You have access to the same database tools Laravel gives you. Any migrations in <code>/database/migrations</code> will be published and migrated when your module is published to the portal, and your models can work using the Eloquent base model as normal. The only thing you need to be aware of is making sure you start your table name with your module alias, to limit conflicts. Also see the Authentication/Authorization documentation for more information about the Activity Instance.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_revision_information"><a class="anchor" href="#_revision_information"></a>Revision Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The SDK provides a handy method to keep track of revisions on models. If you expect models to change, and want a log of all changes, simply add the <code>\BristolSU\Support\Revision\HasRevision</code> trait to any model!</p>
+</div>
+</div>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
