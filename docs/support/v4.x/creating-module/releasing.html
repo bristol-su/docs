@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Releasing :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/support/develop/creating-module/releasing.html">
+    <meta name="description" content="How to go about releasing a module">
+    <meta name="docsearch:description" content="How to go about releasing a module">
+    <meta name="keywords" content="release, finished module, publish">
+    <meta name="docsearch:keywords" content="release, finished module, publish">
+    <meta name="generator" content="Antora 2.3.3">
+    <meta name="docsearch:language" content="en" />
+      <meta name="docsearch:version" content="v4.x">
+      <meta name="docsearch:component" content="SDK (Support)">
+      <meta name="docsearch:module" content="creating-module">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162373885-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-162373885-2')</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <div class="navbar-item hide-for-print">
+            <input id="search-input" type="text" placeholder="Search docs (/)">
+          </div>
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-flyerless-subscription-management/1.0.0/index.html">Flyerless Subscription Management</a>
+                <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="../../develop/creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://tobytwigger.myjetbrains.com/youtrack/newIssue">Open an Issue</a>
+            <a class="button is-primary" href="https://github.com/bristol-su/portal">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="support" data-version="v4.x">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">SDK (Support)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Creating a Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="setup.html">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="module-layout.html">Module Layout</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="service-provider.html">Service Provider</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="developing.html">Developing a Module</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="releasing.html">Releasing a Module</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frontend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/pages.html">Setting up Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/api.html">Creatng an API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/using-js-vue.html">Using JS and Vue</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">SDK API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/authentication-authorization.html">Authentication &amp; Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/database.html">Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/control.html">Control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/storage.html">Storage</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extra Features</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Helping your module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/settings.html">Settings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../sdk-api/stand-alone.html">Stand-alone features</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/completion-conditions.html">Completion Conditions</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SDK (Support)</span>
+    <span class="version">v4.x</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Flyerless Subscription Management</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-flyerless-subscription-management/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../develop/creating-module/index.html">develop</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">v4.x</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">SDK (Support)</a></li>
+    <li>Creating a Module</li>
+    <li><a href="releasing.html">Releasing a Module</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">v4.x</button>
+  <div class="version-menu">
+    <a class="version" href="../../develop/creating-module/releasing.html">develop</a>
+    <a class="version is-current" href="releasing.html">v4.x</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/support/edit/docs/v4.x/antora-docs/modules/creating-module/pages/releasing.adoc">Edit this Page</a></div>
+  
+    <div class="view-on-github"><a href="https://github.com/bristol-su/support">View on GitHub</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Releasing</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once your module is ready to go, and you&#8217;ve written all the necessary tests, you want to open it to the world. This page will take you through the necessary steps to make sure your module can be used by others.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_meta_files_in_the_repository"><a class="anchor" href="#_meta_files_in_the_repository"></a>Meta files in the repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To be accepted by the portal, your repository needs to meet community standards. This means you&#8217;ll need to ensure your repository has the following files:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CHANGELOG.md - A changelog to keep track of the changes between releases of your module. This should look something like&#8230;&#8203;
+.Example <code>CHANGELOG.md</code> file</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown"># Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [1.0.1] - (18/03/2020)
+
+### Added
+- Use me for new features.
+### Changed
+- Use me for changes in existing functionality.
+### Deprecated
+- Use me for soon-to-be removed features.
+### Removed
+- Use me for now removed features.
+### Fixed
+- Use me for any bug fixes.
+### Security
+- Use me in case of vulnerabilities.
+
+## [1.0] - (28/02/2020)
+
+### Added
+- Initial Release
+
+[Unreleased]: https://github.com/username/repository/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/username/repository/compare/v1.0...v1.0.1
+[1.0]: https://github.com/username/repository/releases/tag/v1.0</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CODE_OF_CONDUCT.md. Feel free to write your own, but <a href="_attachments/CODE_OF_CONDUCT.md">here</a> is the one we use for all our projects.</p>
+</li>
+<li>
+<p>CONTRIBUTING.md. A description of how to contribute to the project. Ours can be found <a href="_attachments/CONTRIBUTING.md">here</a>.</p>
+</li>
+<li>
+<p>LICENCE.md. The licence for your project. This will nearly always be the GNU General Public License v3.0, found <a href="https://www.gnu.org/licenses/gpl-3.0.txt">here</a>.</p>
+</li>
+<li>
+<p>README.md. A description of your module. A template can be found <a href="_attachments/README.md">here</a>.</p>
+</li>
+<li>
+<p>composer.json. You will probably already have this file in your module, but you need to make sure the name matches the name you want, and the description matches your module. Try and avoid using 'bristol-su' - use your own name or company name instead!</p>
+</li>
+<li>
+<p>.gitattributes. This specifies (amongst other things) the files that aren&#8217;t needed for your code to run, and helps keep your module small when installed in the portal.
+.Example <code>.gitattributes</code> file</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-gitignore hljs" data-lang="gitignore">* text=auto
+/tests export-ignore
+composer.lock export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+package-lock.json export-ignore
+phpunit.xml export-ignore
+CHANGELOG.md export-ignore
+CODE_OF_CONDUCT.md export-ignore
+CONTRIBUTING.md export-ignore
+/docs export-ignore
+/.github export-ignore</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>.github. This folder contains all meta related files for your github repository. By default, we give you issue templates and a workflow to automatically compile your javascript and sass on push. This means you don&#8217;t need to worry about running npm before pushing, as github will do this for you automatically! You may want to change the email/name in the workflow file though.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_documentation"><a class="anchor" href="#_documentation"></a>Documentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To make your module as easy to use as possible, we strongly recommend documenting your work. To have your documentation included on the Bristol SU Documentation site, you must use antora.</p>
+</div>
+<div class="paragraph">
+<p>This may sound scary, but it&#8217;s really simple to get started! We see documentation as being just as important as the code, and therefore should be kept in the same place. Generally this should be a <code>/docs</code> folder.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The template module includes the documentation framework.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_structure"><a class="anchor" href="#_structure"></a>Structure</h3>
+<div class="paragraph">
+<p>The general structure of the <code>docs</code> folder should be as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>- /docs
+    - antora.yml <i class="conum" data-value="1"></i><b>(1)</b>
+    - /modules
+        - /users <i class="conum" data-value="2"></i><b>(2)</b>
+            - nav.adoc <i class="conum" data-value="3"></i><b>(3)</b>
+            - /pages
+                - dummy-page.adoc <i class="conum" data-value="4"></i><b>(4)</b>
+            - /images
+        - /admins <i class="conum" data-value="5"></i><b>(5)</b>
+        - /setup <i class="conum" data-value="6"></i><b>(6)</b>
+        - /developers <i class="conum" data-value="7"></i><b>(7)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>antora.yml</code> file describes your documentation, giving it a version and a name. An example <code>antora.yml</code> file can be found below.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Where your user documentation lives. This should focus on how to use your module as a user</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The navigation file. This defines the layout of the section. Each folder has one of these files. An example is given below.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>An example page. Again, an example is given below.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The admin documentation. This should focus on how to use the admin side of the module</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>The setup documentation. This should focus on what each setting does, what the permissions do, what completion conditions are available etc. It should make creating a module instance using your module as easy as possible.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>The developer documentation (optional). Contains any documentation you think may help future developers, or yourself.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_files"><a class="anchor" href="#_example_files"></a>Example Files</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Example <code>antora.yml</code> file</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">name: module-mymodule <i class="conum" data-value="1"></i><b>(1)</b>
+title: My Module <i class="conum" data-value="2"></i><b>(2)</b>
+version: v1.0 <i class="conum" data-value="3"></i><b>(3)</b>
+asciidoc:
+ attributes:
+  page-repo-url: https://github.com/bristol-su/support <i class="conum" data-value="4"></i><b>(4)</b>
+start_page: users:index.adoc <i class="conum" data-value="5"></i><b>(5)</b>
+nav: <i class="conum" data-value="6"></i><b>(6)</b>
+ - modules/users/nav.adoc
+ - modules/admins/nav.adoc
+ - modules/developers/nav.adoc</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The alias of your module prefixed with 'module-'. This is very important, else the module won&#8217;t show up in the documentation.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The title of your module</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The version of your module. This should be kept up to date each time you release a new version.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The repository URL of your project (optional)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The initial page.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>The list of navigations within your documentation.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Example <code>nav.adoc</code> file</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">.Users <i class="conum" data-value="1"></i><b>(1)</b>
+* xref:dummy-page.adoc[Dummy Page] <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The section of the documentation.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>A link to the page of your module. In reality, you can have as many of these as you want. See the <a href="https://docs.antora.org/antora/2.3/navigation/files-and-lists/">Antora documentation</a> for more information.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Example <code>dummy-page.adoc</code> file</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">= The title of my page
+Toby Twigger &lt;tobytwigger1@gmail.com&gt;
+:description: A description of this page
+:keywords: A comma separated, list of, keywords
+
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_releasing_documentation"><a class="anchor" href="#_releasing_documentation"></a>Releasing Documentation</h3>
+<div class="paragraph">
+<p>You should use branches to keep track of your documentation versions. The following is a recommendation, but you may use other methods of tracking documentation versions.</p>
+</div>
+<div class="paragraph">
+<p>Documentation should be written/updated along with the rest of your code on the <code>develop</code> branch. You may also use feature branches from the <code>develop</code> branch.</p>
+</div>
+<div class="paragraph">
+<p>Work should then be merged into the master branch when ready. From here, it can be tagged with a release version.</p>
+</div>
+<div class="paragraph">
+<p>A documentation branch should be made from the develop branch. A documentation branch should be called <code>docs/v1.x</code>, <code>docs/v2.x</code> etc, and we should only have a branch for major versions. For each new feature, we should update the docs on develop and merge it into the corresponding docs branch.</p>
+</div>
+<div class="paragraph">
+<p>If we need to update old documentation for an older version, this can be done by editing the docs branch directly.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_releasing_a_version_of_your_module"><a class="anchor" href="#_releasing_a_version_of_your_module"></a>Releasing a version of your module</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once your module is in a state to be released, you should release a version. This includes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Updating your changelog to represent any changes made</p>
+</li>
+<li>
+<p>Clicking on 'Create a new release' on github</p>
+</li>
+<li>
+<p>Creating a tag (e.g. v1.0.1). The release title should also be the name of the tag, and the description should be similar to your changelog. We use the following template for the description</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown"># [v1.0.1 - 16/06/2020]
+
+### Added
+- Describe changes here
+### Removed
+- These changes should be the same as your changelog
+
+[v1.0.1 - 16/06/2020]: https://github.com/username/repo/compare/v1.0.0...v1.0.1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_making_your_module_downloadable"><a class="anchor" href="#_making_your_module_downloadable"></a>Making your module downloadable</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to allow others to use your module, it must be published on a platform such as github then pulled through to a package management platform. We use <a href="https://packagist.org" class="bare">https://packagist.org</a>. Having created an account, submit your repository on the website. This will allow others to run 'composer require' to pull in your module.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pull_requests"><a class="anchor" href="#_pull_requests"></a>Pull requests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At this point, you&#8217;re ready to go! All that&#8217;s left is to let other portal users know your module exists. To do this, you should submit a pull request to both the portal repository and the documentation repository.</p>
+</div>
+<div class="sect2">
+<h3 id="_portal_repository"><a class="anchor" href="#_portal_repository"></a>Portal repository</h3>
+<div class="paragraph">
+<p>The point of this pull request is to automatically include your module in all fresh installs of the portal. This is by far the best way to deploy your module - any users of the portal will be able to use your module.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a fork of the portal repository by clicking 'Fork' <a href="https://github.com/bristol-su/portal">here</a>.</p>
+</li>
+<li>
+<p>Add your module using <code>composer require</code>.</p>
+</li>
+<li>
+<p>Push your changes to your forked repository on Github.</p>
+</li>
+<li>
+<p>Create a <a href="https://github.com/bristol-su/portal/compare">pull request</a>, keeping the default base branch and changing the compare branch to your forked branch. You should see two files changed - <code>composer.json</code> and <code>composer.lock</code>.</p>
+</li>
+<li>
+<p>Create the pull request. Set the title to be <strong>New Module: Module Name</strong>, and use the following template for the description</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown"># Module Name
+My Module
+
+# What does this module do?
+A brief description of what your module does
+
+# Is your module up to our community standards?
+- [x] I've written tests for the module
+- [ ] I've written documentation for the module</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_documentation_repository"><a class="anchor" href="#_documentation_repository"></a>Documentation Repository</h3>
+<div class="paragraph">
+<p>Having written documentation, you can merge it into our documentation site.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a fork of the documentation site by clicking 'Fork' <a href="https://github.com/bristol-su/docs">here</a>.</p>
+</li>
+<li>
+<p>Edit the <code>antora-playbook.yml</code> and add the following under the module section in the content &#8594; sources attribute.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"> - url: https://github.com/username/module-repository
+   start_path: docs
+   branches: [master, docs/*]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Push your changes to your forked repository on Github</p>
+</li>
+<li>
+<p>Create a <a href="https://github.com/bristol-su/docs/compare">pull request</a>, keeping the default base branch and changing the compare branch to your forked branch. You should see one file changed - <code>antora-playbook.yaml</code>.</p>
+</li>
+<li>
+<p>Create the pull request. Set the title to be <strong>Module Documentation: Module Name</strong>. You may leave the description blank.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Once we approve the request, it may take up to two hours to merge your documentation in with the documentation site. If you ever make changes to your documentation, they may also take up to two hours to propagate. You will only ever have to push the changes to your repository though - the documentation will pick up on changes itself.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using Antora.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { autoselect: true, hint: false, keyboardShortcuts: ['/'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
