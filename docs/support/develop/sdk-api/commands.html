@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Commands :: Bristol SU Portal Project</title>
     <link rel="canonical" href="https://bristol-su.github.io/docs/support/develop/sdk-api/commands.html">
+    <meta name="description" content="How to run scheduled commands">
+    <meta name="docsearch:description" content="How to run scheduled commands">
+    <meta name="keywords" content="commands,scheduled commands,artisan">
+    <meta name="docsearch:keywords" content="commands,scheduled commands,artisan">
     <meta name="generator" content="Antora 2.3.3">
     <meta name="docsearch:language" content="en" />
       <meta name="docsearch:version" content="develop">
@@ -421,42 +425,75 @@
   <div class="content">
 <article class="doc">
 <h1 class="page">Commands</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>A integral part of Laravel is being able to use the command line to
-interact with your app (i.e. the portal). When developing a module, you
-may decide that your module would benefit from having commands. These
-shouldn&#8217;t be essential parts of your app unless you provide an entry
-point through the web, since users of the portal may not have direct
-access to the console.</p>
+interact with an app. This is no different for modules - you may decide that your module would benefit from having commands. These shouldn&#8217;t be essential parts of your app unless you provide an entry point through the web, since users of the portal may not have direct access to the console.</p>
 </div>
 <div class="paragraph">
-<p>Commands should be created using the default Laravel command structure:
-<a href="https://laravel.com/docs/6.x/artisan#command-structure" class="bare">https://laravel.com/docs/6.x/artisan#command-structure</a></p>
+<p>An example may be a command to clear up old entries in a database. Your module doesn&#8217;t rely on it, but it allows you to provide a simple way to use the functionality, and it can later be used via the web/api.</p>
 </div>
 <div class="paragraph">
-<p>Once you&#8217;ve written your command, it can be registered by putting the
-class name into the $commands array in your service provider.</p>
+<p>Commands should be created using the default Laravel <a href="https://laravel.com/docs/master/artisan#command-structure">command structure</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_registering_commands"><a class="anchor" href="#_registering_commands"></a>Registering Commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Having written a command, you will need to register the command so the portal knows it exists. If you don&#8217;t do this, your command will not be accessible outside your module.</p>
 </div>
 <div class="paragraph">
-<p>Laravel provides no framework for registering scheduled commands outside
-the main app. These are commands that are run at specific times as
-opposed to being called by name through the console. The SDK does
-provide a method for registering scheduled commands from packages.
-Having created a normal command, put it in the 'scheduledCommands' array
-along with a cron string. This may look something like</p>
+<p>The easiest way to register it is to put the class name into the <code>$commands</code> array in the service provider</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>protected $scheduledCommands = [
-    CommandOne::class =&gt; '* * * * *',
-    CommandTwo::class =&gt; '* /5 * * * *'
-]</pre>
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">protected $commands = [
+    \My\Namespace\CommandOne::class,
+    \My\Namespace\CommandTwo::class,
+];</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>These commands will be executed at the given times. Commands in
-scheduled commands need to be registered in $commands as well, or
-Laravel won&#8217;t know they exist.</p>
+<p>You may also use the <code>commands()</code> method, which takes an array of command class names.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scheduling_commands"><a class="anchor" href="#_scheduling_commands"></a>Scheduling Commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You may decide your command to clear up old database entries should be run every so often automatically. To do this, we would normally enter an entry into the console Kernel in the portal/playground, but this would require additional setup for each module. Therefore, the SDK provides a way to run scheduled commands using cron.</p>
+</div>
+<div class="paragraph">
+<p>To run a command automatically, you can add the command to the <code>$scheduledCommands</code> array in the service provider. Each command must also be registered as above, and each command must have an associated cron string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">protected $scheduledCommands = [
+    \My\Namespace\CommandOne::class =&gt; '* * * * *',
+    ...
+];</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You may also use th <code>CommandStore</code> interface directly in your service provider. To do this, resolve <code>\BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore</code> from the container, and use the <code>schedule</code> method, passing it your module alias, command class name and the cron string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">public function boot()
+{
+    $commandStore = $this-&gt;app-&gt;make(\BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore::class);
+    $commandStore-&gt;schedule('my-module-alias', \My\Namespace\CommandOne::class, '* * * * *');
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The SDK will make sure these commands are now run at the specified times according to the cron string. It is recommended not to run the command too often where possible, as it can make your module expensive to run for the user.</p>
+</div>
+</div>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
