@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Developing your module :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/support/creating-module/developing.html">
+    <meta name="description" content="Developing a module with the playground">
+    <meta name="docsearch:description" content="Developing a module with the playground">
+    <meta name="keywords" content="developing, environment, playground">
+    <meta name="docsearch:keywords" content="developing, environment, playground">
+    <meta name="generator" content="Antora 2.3.3">
+    <meta name="docsearch:language" content="en" />
+      <meta name="docsearch:version" content="master">
+      <meta name="docsearch:component" content="SDK (Support)">
+      <meta name="docsearch:module" content="creating-module">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162373885-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-162373885-2')</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <div class="navbar-item hide-for-print">
+            <input id="search-input" type="text" placeholder="Search docs (/)">
+          </div>
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../module-flyerless-subscription-management/1.0.0/index.html">Flyerless Subscription Management</a>
+                <a class="navbar-item" href="../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://tobytwigger.myjetbrains.com/youtrack/newIssue">Open an Issue</a>
+            <a class="button is-primary" href="https://github.com/bristol-su/portal">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="support" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">SDK (Support)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Creating a Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="setup.html">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="module-layout.html">Module Layout</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="service-provider.html">Service Provider</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="developing.html">Developing a Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="releasing.html">Releasing a Module</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frontend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/pages.html">Setting up Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/api.html">Creatng an API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/using-js-vue.html">Using JS and Vue</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">SDK API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/authentication-authorization.html">Authentication &amp; Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/database.html">Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/control.html">Control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/storage.html">Storage</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extra Features</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Helping your module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/settings.html">Settings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../sdk-api/stand-alone.html">Stand-alone features</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/completion-conditions.html">Completion Conditions</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SDK (Support)</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Flyerless Subscription Management</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-flyerless-subscription-management/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../v4.x/creating-module/index.html">v4.x</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">SDK (Support)</a></li>
+    <li>Creating a Module</li>
+    <li><a href="developing.html">Developing a Module</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <div class="version-menu">
+    <a class="version is-current" href="developing.html">master</a>
+    <a class="version" href="../v4.x/creating-module/developing.html">v4.x</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/support/edit/master/antora-docs/modules/creating-module/pages/developing.adoc">Edit this Page</a></div>
+  
+    <div class="view-on-github"><a href="https://github.com/bristol-su/support">View on GitHub</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Developing your module</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The flexibility of the SDK means we can wrap a new frontend around the
+package to produce a totally different set of features. We&#8217;ve done just
+this, and came up with the <strong>playground</strong>. The playground uses the SDK to
+instantly frame any module in a development environment, allowing you to
+change settings, permissions and third party connections without having
+to set up a new activity.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You don&#8217;t have to use the playground - the portal will do the same job. However, the playground requires a lot less configuration when creating new module instances.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_playground_setup"><a class="anchor" href="#_playground_setup"></a>Playground Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It&#8217;s easiest to develop with the playground locally, so that changes are instantly reflected.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>git clone https://github.com/bristol-su/playground playground</code>
+to clone the playground project</p>
+</li>
+<li>
+<p><code>composer install &amp;&amp; npm install &amp;&amp; npm run dev</code> to install
+dependencies</p>
+</li>
+<li>
+<p>Edit the .env file. At least fill in the database connection section.</p>
+</li>
+<li>
+<p>Generate a secret key: <code>php artisan key:generate &amp;&amp; php artisan passport:keys</code></p>
+</li>
+<li>
+<p>Run the migrations: <code>php artisan migrate</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can now run <code>php artisan serve</code> and access the playground at <a href="http://localhost:8000!" class="bare">http://localhost:8000!</a></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can set up a local web server to serve the playground through a URL such as 'https://playground.local' rather than using the php server.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pulling_in_your_module"><a class="anchor" href="#_pulling_in_your_module"></a>Pulling in your module</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As is, the module would still need to be published so it can be pulled into the playground. To circumvent this, we need to set up a local composer repository to symlink the module. The following has been tested on Linux, but should work on Windows/Mac too.</p>
+</div>
+<div class="paragraph">
+<p>Assuming the directory structure is as follows;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>- modules
+    - my-module
+        - composer.json
+        - ...
+- playground
+    -composer.json
+    - ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>we can paste the following into the playground composer.json to make composer aware of
+the module.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"autoload-dev": {
+    ...
+},
+"repositories": [
+    {
+        "type": "path",
+        "url": "../modules/my-module"
+    }
+],
+"extra": {
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now composer will be able to search your module folder and find your module composer.json file. We can then require our module via composer:
+<code>composer require bristol-su/my-module @dev</code></p>
+</div>
+<div class="paragraph">
+<p>Requiring @dev will install the version on your filesystem. You can also use any other composer constraint, but @dev should work for most situations.</p>
+</div>
+<div class="sect2">
+<h3 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>Troubleshooting</h3>
+<div class="paragraph">
+<p>If your module does not appear in the playground, you may need to delete
+'bootstrap/cache/packages.php' and 'bootstrap/cache/services.php'. Your
+module should now appear, and you should be able to click into it and
+start developing!</p>
+</div>
+<div class="paragraph">
+<p>When you first open your module in the playground, you may not see the
+example Vue component. This is because your JS and CSS files have not
+been published. Nor have your config files, or migrations, but these are
+merged into the portal at boot. Your js and css files (compiled)
+however, must be published each time there is a change.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compiling_on_change"><a class="anchor" href="#_compiling_on_change"></a>Compiling on change</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Although we are working on an easier solution, we recommend using
+<a href="https://github.com/joh/when-changed">when-changed</a> (if you use linux) to
+manage this updating. This is a command you can run to automatically
+publish your assets when a change is detected. To set this up, follow
+the following</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set up a python virtual environment (in e.g.
+/home/toby/dev/when-changed):
+<code>python3 -m venv /home/toby/dev/when-changed/venv</code></p>
+</li>
+<li>
+<p>Source the environment:
+<code>source /home/toby/dev/when-changed/venv/bin/activate</code></p>
+</li>
+<li>
+<p>Install when-changed: <code>pip install when-changed</code></p>
+</li>
+<li>
+<p>Run</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell script hljs" data-lang="shell script">when-changed -r /path/to/module/public/modules -c php /path/to/playground/artisan vendor:publish --force --provider="Your\Provider\Namespace\ModuleServiceProvider"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will watch your assets, and publish them when any changes are
+detected. You can put this into an alias by editing your .bashrc file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell script hljs" data-lang="shell script">alias onchange-module="source /path/to/venv/bin/activate &amp;&amp; " when-changed -r /path/to/module/public/modules -c php /path/to/playground/artisan vendor:publish --force --provider="Your\Provider\Namespace\ModuleServiceProvider"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_your_module_should_contain"><a class="anchor" href="#_what_your_module_should_contain"></a>What your module should contain</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following chapters of this documentation will go through this in much more detail, but this aims to give an overview of what a module should/could consist of.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Participant Page</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A way for users of the portal to interact with your module</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Admin Page</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A way for portal admins to interact with your module.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Settings</p>
+</li>
+<li>
+<p>Permissions</p>
+</li>
+<li>
+<p>Events</p>
+</li>
+<li>
+<p>Completion Conditions</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using Antora.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { autoselect: true, hint: false, keyboardShortcuts: ['/'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

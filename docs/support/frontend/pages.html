@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating Pages :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/support/frontend/pages.html">
+    <meta name="description" content="Creating a page for a module">
+    <meta name="docsearch:description" content="Creating a page for a module">
+    <meta name="keywords" content="page,frontend,routing,blade,templates,assets,compiling">
+    <meta name="docsearch:keywords" content="page,frontend,routing,blade,templates,assets,compiling">
+    <meta name="generator" content="Antora 2.3.3">
+    <meta name="docsearch:language" content="en" />
+      <meta name="docsearch:version" content="master">
+      <meta name="docsearch:component" content="SDK (Support)">
+      <meta name="docsearch:module" content="frontend">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162373885-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-162373885-2')</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <div class="navbar-item hide-for-print">
+            <input id="search-input" type="text" placeholder="Search docs (/)">
+          </div>
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../module-flyerless-subscription-management/1.0.0/index.html">Flyerless Subscription Management</a>
+                <a class="navbar-item" href="../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="../creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://tobytwigger.myjetbrains.com/youtrack/newIssue">Open an Issue</a>
+            <a class="button is-primary" href="https://github.com/bristol-su/portal">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="support" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../creating-module/index.html">SDK (Support)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Creating a Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/setup.html">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/module-layout.html">Module Layout</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/service-provider.html">Service Provider</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/developing.html">Developing a Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/releasing.html">Releasing a Module</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frontend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="pages.html">Setting up Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api.html">Creatng an API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-js-vue.html">Using JS and Vue</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">SDK API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/authentication-authorization.html">Authentication &amp; Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/database.html">Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/control.html">Control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/storage.html">Storage</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extra Features</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Helping your module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/settings.html">Settings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../sdk-api/stand-alone.html">Stand-alone features</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/completion-conditions.html">Completion Conditions</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SDK (Support)</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Flyerless Subscription Management</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-flyerless-subscription-management/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../creating-module/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../v4.x/creating-module/index.html">v4.x</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../creating-module/index.html">SDK (Support)</a></li>
+    <li>Frontend</li>
+    <li><a href="pages.html">Setting up Pages</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <div class="version-menu">
+    <a class="version is-current" href="pages.html">master</a>
+    <a class="version" href="../v4.x/frontend/pages.html">v4.x</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/support/edit/master/antora-docs/modules/frontend/pages/pages.adoc">Edit this Page</a></div>
+  
+    <div class="view-on-github"><a href="https://github.com/bristol-su/support">View on GitHub</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Creating Pages</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>First, we will look at how modules are able to use the Blade templating
+engine. We will explore the blade heirarchy, how the SDK extends the
+templating engine and how we can create new pages.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_routing"><a class="anchor" href="#_routing"></a>Routing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A module should have two main entry points for users of the portal - the user side and the admin side. The routes for these points should be defined in the <code>routes/admin/web.php</code> and <code>routes/participants/web.php</code>. By default, the template module gives you a single route for each.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Participant Route</div>
+<div class="content">
+<div class="paragraph">
+<p>The default route for a participant.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">// routes/participants/web.php
+`+Route::get('/', 'ParticipantPageController@index);+`
+
+// app/Http/Controllers/ParticipantPageController.php
+class ParticipantPageController extends Controller
+{
+    public function index()
+    {
+        return view('static-page::participant');
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The portal takes care of namespacing and file locations. It will automatically load any routes from the correct locations, and prefix them to work with the portal. Your controller base namespace is specified in your service provider. Namespacing for your views are set up automatically, meaning your blade template in <code>resources/views/participant.blade.php</code> can be referred to as <code>'static-page::participant'</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_blade_templates"><a class="anchor" href="#_blade_templates"></a>Blade Templates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Taking a look at participant.blade.php will reveal that this extends
+'static-page::layouts.app', which is your modules parent layout. This file registers your assets, creates a container component for loading vue, and extends the Bristol SU template to add things like a header/footer etc to your page. This template must always be extended.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Base blade template</div>
+<div class="content">
+<div class="paragraph">
+<p>An example <code>app.blade.php</code> file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-blade hljs" data-lang="blade">@extends('bristolsu::base')
+
+@section('content')
+    &lt;div id="my-module-root"&gt;
+        @yield('module-content')
+    &lt;/div&gt;
+@endsection
+
+@push('styles')
+    &lt;link href="{{ asset('modules/my-module/css/module.css') }}" rel="stylesheet"&gt;
+@endpush
+
+@push('scripts')
+    &lt;script src="{{ asset('modules/my-module/js/module.js') }}"&gt;&lt;/script&gt;
+@endpush</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You may also notice a number of blade sections/stacks you can use. The full list is below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@section('title', 'My Title')</code> to change the title of the page</p>
+</li>
+<li>
+<p><code>@section('module-content')</code> for the main content of your page.</p>
+</li>
+<li>
+<p><code>@push('meta-tags')</code> for any meta tags to put on the page</p>
+</li>
+<li>
+<p><code>@push('fonts')</code> for any fonts for the page</p>
+</li>
+<li>
+<p><code>@push('styles')</code> for any styles in the page</p>
+</li>
+<li>
+<p><code>@push('scripts')</code> for any scripts in the page.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_assets"><a class="anchor" href="#_assets"></a>Assets</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Your assets are generally compiled by webpack and moved to the correct directory (covered later on). This means they can be loaded as above by referencing them in your base template.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_should_you_consume_your_own_api"><a class="anchor" href="#_should_you_consume_your_own_api"></a>Should you consume your own API?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Most the modules we develop have only two web routes. We then utilise
+Vue and the API to provide all module functionality. The alternative is to use normal POST requests through a form, but we&#8217;ve found ourselves creating APIs anyway, so why not save ourselves the duplication of form submissions?</p>
+</div>
+<div class="paragraph">
+<p>When using the API, the portal automatically passes up user/group/role credentials. See the components section for more information on this. In summary, it tells the portal which group/role you&#8217;re currently acting as, allowing us to determine things like your permissions and settings.
+Web routes, however, don&#8217;t have this luxury. This means that if you want to link to another route in your module, you need to manually include query parameters. An example of this may be something like a download button to link to a url.</p>
+</div>
+<div class="paragraph">
+<p>If in a blade template, this is easily done by appending the query
+string onto the end of the url. To get the query string, you can call
+<code>url()-&gt;getAuthQueryString()</code>, which should then be appended to the
+href with a question mark</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">&lt;a href="download?{{url()-&gt;getAuthQueryString()}}"&gt;Download&lt;/a&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also retrieve the query string as an array using the
+<code>getAuthQueryArray()</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">$array = url()-&gt;getAuthQueryArray()
+
+var_dump($array)
+
+/*
+* [
+*  "u" =&gt; 1,
+*  "g" =&gt; 3,
+*  "r" =&gt; null,
+*  "a" =&gt; 44
+*/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re working in Vue, we suggest putting the following in your
+module.js file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">Vue.prototype.$url = portal.APP_URL + '/' + portal.A_OR_P + '/' + portal.ACTIVITY_SLUG + '/' + portal.MODULE_INSTANCE_SLUG + '/' + portal.ALIAS;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These portal variables are all available and sent by the SDK, so your
+hyperlink could then, by passing the getAuthQueryString() through the
+components from the blade tempate, read</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-vue hljs" data-lang="vue">&lt;template&gt;
+  &lt;a :href="downloadUrl"&gt;Download&lt;/a&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default {
+    props: {
+      queryString: {type: String}
+    },
+    computed: {
+      downloadUrl() {
+        return this.$url + '/download?' + this.queryString;
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using Antora.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { autoselect: true, hint: false, keyboardShortcuts: ['/'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Authentication &amp; Authorization :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/support/sdk-api/authentication-authorization.html">
+    <meta name="description" content="Using the authentication and authorization framework">
+    <meta name="docsearch:description" content="Using the authentication and authorization framework">
+    <meta name="keywords" content="authentication,authorization,permissions,control,users,activity instance,module instance">
+    <meta name="docsearch:keywords" content="authentication,authorization,permissions,control,users,activity instance,module instance">
+    <meta name="generator" content="Antora 2.3.3">
+    <meta name="docsearch:language" content="en" />
+      <meta name="docsearch:version" content="master">
+      <meta name="docsearch:component" content="SDK (Support)">
+      <meta name="docsearch:module" content="sdk-api">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162373885-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-162373885-2')</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <div class="navbar-item hide-for-print">
+            <input id="search-input" type="text" placeholder="Search docs (/)">
+          </div>
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../module-flyerless-subscription-management/1.0.0/index.html">Flyerless Subscription Management</a>
+                <a class="navbar-item" href="../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="../creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://tobytwigger.myjetbrains.com/youtrack/newIssue">Open an Issue</a>
+            <a class="button is-primary" href="https://github.com/bristol-su/portal">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="support" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../creating-module/index.html">SDK (Support)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Creating a Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/setup.html">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/module-layout.html">Module Layout</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/service-provider.html">Service Provider</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/developing.html">Developing a Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/releasing.html">Releasing a Module</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frontend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/pages.html">Setting up Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/api.html">Creatng an API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/using-js-vue.html">Using JS and Vue</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">SDK API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Basics</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="authentication-authorization.html">Authentication &amp; Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="database.html">Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="control.html">Control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage.html">Storage</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extra Features</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Helping your module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="settings.html">Settings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="connections.html">Connections</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="stand-alone.html">Stand-alone features</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="commands.html">Commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="completion-conditions.html">Completion Conditions</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SDK (Support)</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Flyerless Subscription Management</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-flyerless-subscription-management/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../creating-module/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../v4.x/creating-module/index.html">v4.x</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../creating-module/index.html">SDK (Support)</a></li>
+    <li>SDK API</li>
+    <li>Basics</li>
+    <li><a href="authentication-authorization.html">Authentication &amp; Authorization</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <div class="version-menu">
+    <a class="version is-current" href="authentication-authorization.html">master</a>
+    <a class="version" href="../v4.x/sdk-api/authentication-authorization.html">v4.x</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/support/edit/master/antora-docs/modules/sdk-api/pages/authentication-authorization.adoc">Edit this Page</a></div>
+  
+    <div class="view-on-github"><a href="https://github.com/bristol-su/support">View on GitHub</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Authentication &amp; Authorization</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you create a normal website, you usually have to consider how users will login and how you will securely store that information. Fortunately, when creating a module, you don&#8217;t need to think about any of that! Anyone using your module will be logged in.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types_of_users"><a class="anchor" href="#_types_of_users"></a>Types of Users</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two different types of users in the portal, database users and control users. A database user is generally used to log in. It may have a password and email verification assigned to it, and possibly social media provider IDs. The control user is the actual user, which contains information about the user and is in groups and roles.</p>
+</div>
+<div class="paragraph">
+<p>We use these two users to abstract the login process away from control. Control can be purely focussed on the user, and therefore can be substituted for any other user management system. The database users will stay the same and allow for the same login process no matter where the user data is stored.</p>
+</div>
+<div class="sect2">
+<h3 id="_database_user"><a class="anchor" href="#_database_user"></a>Database User</h3>
+<div class="paragraph">
+<p>You generally won&#8217;t need to access the database user, since nearly everything a module does will be through the control user. If you ever find yourself needing to though, you can resolve the <code>\BristolSU\Support\User\Contracts\UserAuthentication</code> contract from the container.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">$userAuthentication = app(\BristolSU\Support\User\Contracts\UserAuthentication::class);
+$databaseUser = $userAuthentication-&gt;getUser();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This function returns <code>null</code> if no user is logged in, or an instance of <code>\BristolSU\Support\User\User</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_control_models"><a class="anchor" href="#_control_models"></a>Control Models</h3>
+<div class="paragraph">
+<p>These are generally the models you will work with. When accessing your module, you will always have access to the control user. In some cases, your module may also be used in the context of a group membership or a group role, meaning you&#8217;ll have access to the control group and the control role.</p>
+</div>
+<div class="paragraph">
+<p>This may be sounding worrying in terms of how many bits of information you need to consider, but later on in this page we simplify this to make module development a lot easier. It is always worth bearing in mind though, especially if your module directly uses one of these models.</p>
+</div>
+<div class="sect3">
+<h4 id="_retrieving_the_model"><a class="anchor" href="#_retrieving_the_model"></a>Retrieving the model</h4>
+<div class="paragraph">
+<p>The <code>\BristolSU\Support\Authentication\Contracts\Authentication</code> class is the way to retrieve information about the current control user. This works on both the web and the API, as long as it is resolved out of the container. This means you can type hint it into your controller methods, or resolve it directly from the container.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">$authentication = app(\BristolSU\Support\Authentication\Contracts\Authentication::class);
+
+// Returns an instance of \BristolSU\ControlDB\Contracts\Models\User
+$controlUser = $authentication-&gt;getUser();
+
+// Returns an instance of \BristolSU\ControlDB\Contracts\Models\Group or null
+$controlGroup = $authentication-&gt;getGroup();
+
+// Returns an instance of \BristolSU\ControlDB\Contracts\Models\Role or null
+$controlRole = $authentication-&gt;getRole();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_requiring_a_control_model"><a class="anchor" href="#_requiring_a_control_model"></a>Requiring a control model</h4>
+<div class="paragraph">
+<p>Most of the time, a module will be able to work with any combination of control models. Whether or not a group/role is logged in shouldn&#8217;t matter to the module, generally it will only affect things like permissions and settings which are defined by the user when setting up a module.</p>
+</div>
+<div class="paragraph">
+<p>Occasionally, however, a module will need to have a specific model. For example, we have a module which is used to assign roles to a group. Since this then depends on having a group in the module to assign the roles too, this module can <strong>only</strong> be used when a group is logged in.</p>
+</div>
+<div class="paragraph">
+<p>To tell the portal this is the case, you can put a <code>'for'</code> key in your config. This takes one of <code>'user', 'group' or 'role'</code>, and defaults to user. If it is user, then as long as a user is logged in the module can be used. If it is group, then both a user and group will be accessible to the module. If the module is defined as for a role, a user, group and role will always be accessible to the module. In this way, you can create modules based around control models without worrying that a given model won&#8217;t be availabl.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">&lt;?php
+
+return [
+    'name' =&gt; '...',
+    'description' =&gt; '...',
+    'for' =&gt; 'group' // Could also be 'role', defaults to 'user'
+];</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_referencing_users_groups_and_roles"><a class="anchor" href="#_referencing_users_groups_and_roles"></a>Referencing users, groups and roles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Having users, groups and roles adds a lot of flexibility to the way the portal works, but it also adds a significant amount of complexity in terms of referencing the user/group/role. In our module, we generally won&#8217;t care if just a user is logged in, or a user/group/role combination are, until it comes to saving data.</p>
+</div>
+<div class="paragraph">
+<p>Say we&#8217;re creating an upload file module. If the module has been put in the context of a role by the admin of the portal, anyone in the same role should be able to access the same files. If, however, the module is in the context of a user then only the user should see the files. When saving a file in the database, we then need to reference not only the ID as normal, but also the type of the model. At the most basic level, this would just be the user ID, but this could be the Role ID and the model type <code>role</code>, or the same for a group.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_activity_instance"><a class="anchor" href="#_the_activity_instance"></a>The Activity Instance</h3>
+<div class="paragraph">
+<p>The SDK aims to eliminate this added complexity and return to the idea of a single ID using the idea of an Activity Instance. An Activity Instance is a unified ID for any user/group/role. Modules no longer need to consider each of the user/group/role situations unless relevant to the module operation, and instead just think about the single ID Activity Instance ID.</p>
+</div>
+<div class="paragraph">
+<p>When a user starts an activity in any context, they will create a new activity instance. By saving the file (or any other data) against the activity instance ID, and the module instance ID, you can ensure you always pass the correct information to the user. The activity instance ID contains information about the user/group/role accessing the data, and the module instance ID contains information about which data to retrieve.</p>
+</div>
+<div class="sect3">
+<h4 id="_database_setup"><a class="anchor" href="#_database_setup"></a>Database Setup</h4>
+<div class="paragraph">
+<p>Rather than using the normal <code>user_id</code> column in your module, you will need to have the following columns on any tables you may need to retrieve for a user. For example, we&#8217;d have this on a 'files' table, but not on a 'file comments' table since they are attached to a file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">$table-&gt;unsignedInteger('module_instance_id');
+$table-&gt;unsignedInteger('activity_instance_id');</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_accessing_data"><a class="anchor" href="#_accessing_data"></a>Accessing Data</h4>
+<div class="paragraph">
+<p>To even further simplify the user system for you, we provide traits/scopes to help you carry out common queries. All you need to do is add the <code>\BristolSU\Support\Authentication\HasResource</code> trait to any eloquent model which uses the module instance and activity instance pattern.</p>
+</div>
+<div class="paragraph">
+<p>When a new model is created, the module instance ID and activity instance ID are automatically resolved and saved if not given. When creating models for a user, this is good enough. When creating a new model as an admin, who themselves doesn&#8217;t have an activity instance ID, we will need them to select one to save the model against. In this case, we will have to pass the activity instance ID to the model on creation, and the trait will fill in the module instance ID for us.</p>
+</div>
+<div class="paragraph">
+<p>To retrieve data for a specific user/group/role (activity instance), we can use the <code>forResource($activityInstanceId = null, $moduleInstanceId = null)</code> scope. This is used on the participant side, and will apply a where contraint to the query builder to only retrieve rows for the given activity instance and module instance. If no activity instance or module instance are given, it will use the current ones. Therefore, to retrieve all files for the current user, we&#8217;d use</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">$files = \My\Namespace\File::forResource()-&gt;get();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On the admin side, you generally will want to retrieve all data for the
+module instance, regardless of the corresponding activity instance. This is equivalent to showing all files from all users for the specific module instance in a file upload module, which is what would usually be expected on an admin side. For this, a <code>forModuleInstance($moduleInstanceId = null)</code> scope is provided. If the Module Instance ID is null or not given, it will search for all rows with the current module instance ID.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_user_ids"><a class="anchor" href="#_using_user_ids"></a>Using User IDs</h4>
+<div class="paragraph">
+<p>Although this handles the basic retrieval of data, we will sometimes want to know who uploaded something as opposed to which resource it is for. If you have a file upload module in a group activity, the activity instance will be relevant for the group only. This means that we know the file belongs to Group 1, but nothing more about it.</p>
+</div>
+<div class="paragraph">
+<p>We may want to know that Jane uploaded the file as opposed to Joe, which is information that will be lost during the upload as we essentially only save the group. Therefore, we strongly recommend always adding a <code>user_id</code> column to your tables and manually resolving the control user from Authentication and saving their ID in here.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example of the migrations and controllers for an Upload File
+module, where a file can be uploaded and retrieved by a user and viewed
+by an admin. If an admin needed to upload a file, they&#8217;d have to select
+the activity instance and this would need to be saved into the model
+manually as opposed to using the trait, as admins aren&#8217;t logged into
+activity instances by default.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Database Migration</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">Schema::create('uploadfile_files', function(Blueprint $table) {
+    $table-&gt;bigIncrements('id');
+    $table-&gt;string('title');
+    $table-&gt;text('description')-&gt;nullable();
+    ...
+    $table-&gt;unsignedInteger('uploaded_by');
+    $table-&gt;unsignedInteger('module_instance_id');
+    $table-&gt;unsignedInteger('activity_instance_id');
+    $table-&gt;timestamps();
+    $table-&gt;softDeletes();
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Participant Controller</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">class ParticipantFileController
+{
+
+    public function store(\BristolSU\Support\Authentication\Contracts\Authentication $authentication)
+    {
+        returm File::create([
+            'title' =&gt; $request-&gt;get('title'),
+            'description' =&gt; $request-&gt;get('description'),
+            ...
+            'uploaded_by' =&gt; $authentication-&gt;getUser()-&gt;id(), // Get the User ID
+        ]);
+    }
+
+    public function index()
+    {
+        return File::forResource()-&gt;get();
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Admin Controller:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">class AdminFileController
+{
+
+    public function store(\BristolSU\Support\Authentication\Contracts\Authentication $authentication)
+    {
+        returm File::create([
+            'title' =&gt; $request-&gt;get('title'),
+            'description' =&gt; $request-&gt;get('description'),
+            ...
+            'uploaded_by' =&gt; $authentication-&gt;getUser()-&gt;id(), // Get the admins User ID
+            'activity_instance_id' =&gt; $request-&gt;get('activity_instance_id') // Must be passed through the API manually
+        ]);
+    }
+
+    public function index()
+    {
+        return File::forModuleInstance()-&gt;get();
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Using these tools, we can now save and access data in the database in a way that works with the flexible user control system of the portal.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_permissions"><a class="anchor" href="#_permissions"></a>Permissions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Finally, we want to allow users of the portal to define who can do
+specific things within a module. Back to our example of a file upload module, some users may be able to upload a new file and others just see uploaded files.</p>
+</div>
+<div class="paragraph">
+<p>The SDK defines a flexible permission framework for assigning
+permissions. All we need to do is let the SDK know what permissions your module needs, and check the permissions in the correct places.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_permissions_to_use"><a class="anchor" href="#_what_permissions_to_use"></a>What permissions to use</h3>
+<div class="paragraph">
+<p>Although the permissions you will need will depend on your module, these generalisations will help to guide the permissions you need.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each participant page should have a permission.</p>
+</li>
+<li>
+<p>Each participant API route should have a permission.</p>
+</li>
+<li>
+<p>Each admin page should have a permission.</p>
+</li>
+<li>
+<p>Each admin API route should have a permission.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_registering_permissions"><a class="anchor" href="#_registering_permissions"></a>Registering permissions</h3>
+<div class="paragraph">
+<p>Each permission consists of a key, which is a string. These <strong>must</strong> start with your module alias, but it&#8217;s up to you what you use after that. We recommend creating your permission from a string separated by full stops. If the permission is for an admin, put this in the second position. The third position could then be <code>view-page</code> or similar, or if you have a REST api the resource should go here with the action fourth. Here are some examples:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>module-alias.admin.view-page // View admin page
+module-alias.view-page // View page
+module-alias.admin.file.download // Download for an admin
+module-alias.file.download // Download for a participant</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A permission also consists of a name and description.</p>
+</div>
+<div class="paragraph">
+<p>There are two ways to register permissions with the SDK. The easiest one is to register each permission in the array in the service provider, and the other is to use the interface directly.</p>
+</div>
+<div class="sect3">
+<h4 id="_service_provider"><a class="anchor" href="#_service_provider"></a>Service Provider</h4>
+<div class="paragraph">
+<p>For each permission, you can use the <code>$permissions</code> array in your module service provider. The key should be the key for the permission as described above, and the content should be an array with a name, description and admin element (a boolean which specifies if the permission is for an admin or not).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">protected $permissions = [
+    'view-page' =&gt; [
+      'name' =&gt; 'View Participant Page',
+      'description' =&gt; 'View the main page of the module.',
+      'admin' =&gt; false
+    ]
+];</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You may notice your module alias isn&#8217;t at the start of the array key. The SDK automatically appends your module alias to the start.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_directly_with_the_interface"><a class="anchor" href="#_directly_with_the_interface"></a>Directly with the interface</h4>
+<div class="paragraph">
+<p>You can also use the permission store interface directly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">\BristolSU\Support\Permissions\Facade\Permission::register('module-alias.permission-key', 'Permission Name', 'Permission Description', 'module-alias', $isAdmin);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authorizing_checking_permissions"><a class="anchor" href="#_authorizing_checking_permissions"></a>Authorizing (Checking Permissions)</h3>
+<div class="paragraph">
+<p>You now need to check that someone has a permission
+when they try and carry out an action. If the user doesn&#8217;t have a permission, we should return a 403 error to the user.</p>
+</div>
+<div class="paragraph">
+<p>To do this, we recommend overriding the default 'authorize' function in
+your base controller to add your alias to the ability. This will allow you to refer to the permission as <code>'view-page'</code> not <code>'module-alias.view-page'</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t want to
+do this, make sure to refer to the permission in its full form with your
+alias at the start.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>class Controller
+{
+    use AuthorizesRequests {
+        authorize as baseAuthorize;
+    }
+
+    use DispatchesJobs, ValidatesRequests;
+
+    public function authorize($ability, $arguments = [])
+    {
+        return $this-&gt;baseAuthorize(
+            'my-alias.' . $ability,
+            $arguments
+        );
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can now authorize the user. In the participant page controller, we
+just have to put the following line at the start of the method to
+automatically check the user has the permissions, and throw an error if
+they don&#8217;t.</p>
+</div>
+<div class="paragraph">
+<p><code>$this-&gt;authorize('view-page');</code></p>
+</div>
+<div class="paragraph">
+<p>Of course, this is a general permission check to make sure a user can do
+something. There are additional checks that need to be made to secure
+your module. These checks revolve around particular models. For example,
+you need to check a model actually belongs to the correct module
+instance. You also may need to check a model belongs to the correct
+activity instance, or the user is allowed to perform an action on this
+model.</p>
+</div>
+<div class="sect3">
+<h4 id="_checking_module_instance_access"><a class="anchor" href="#_checking_module_instance_access"></a>Checking Module Instance Access</h4>
+<div class="paragraph">
+<p>Let&#8217;s take an example of a file. We need to check the file belongs to
+the module instance, so that it can only be accessed through a single
+page. If we have two different file upload modules, e.g. a constitution and a risk assessment, we only want to see consitutions in the consitution module and vice versa.</p>
+</div>
+<div class="paragraph">
+<p>To do this, we tend to use route model binding. This has the
+additional benefit of ensuring our route model binding doesn&#8217;t clash
+with any other modules as long as we bind using our module instance</p>
+</div>
+<div class="paragraph">
+<p>In your module service provider boot method, you can bind a model as
+follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">Route::bind('uploadfile_file', function($id) {
+    $file = File::findOrFail($id);
+    if(request()-&gt;route('module_instance_slug') &amp;&amp; (int) $file-&gt;module_instance_id === request()-&gt;route('module_instance_slug')-&gt;id()) {
+        return $file;
+    }
+    throw (new \Illuminate\Database\Eloquent\ModelNotFoundException)-&gt;setModel(File::class);
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can then use <code>{uploadfile_file}</code> in our route as a parameter to require a file ID and have it injected into the controller. If the module instance ID of the file is different to the current module instance ID, we throw a 404 error.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_checking_activity_instance_access"><a class="anchor" href="#_checking_activity_instance_access"></a>Checking Activity Instance Access</h4>
+<div class="paragraph">
+<p>This is the portals way of checking the user has access to the file.
+This should only really be done on the participant side, since the
+admins can access all activity instances , or more specifically all models, in the module instance. On the
+participant side, in the controller, we tend to put the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">if((int) $file-&gt;activity_instance_id !== (int) app(\BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceResolver::class)-&gt;getActivityInstance()-&gt;id) {
+    throw new \Illuminate\Auth\Access\AuthorizationException;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will return a 403 error if the file does not belong to the activity
+instance. Therefore, if we had a group activity, anyone in the group
+would be able to access the file but anyone outside the group wouldn&#8217;t
+be able to.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_checking_for_model_ownership"><a class="anchor" href="#_checking_for_model_ownership"></a>Checking for model ownership</h4>
+<div class="paragraph">
+<p>This may only apply for a few of your routes. If you want to limit, for
+example, a files deletion to only the person who initially uploaded it
+(as opposed to the group or role that it was uploaded for), you can add
+an additional check against the current user control model, ensuring the
+ID is the same as the user id you have saved on the model. Throwing an <code>AuthorizationException</code> as above will take care of formatting the error for you.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_checking_permission_access"><a class="anchor" href="#_checking_permission_access"></a>Checking Permission Access</h3>
+<div class="paragraph">
+<p>You won&#8217;t always want to throw an error if a permission is not owned
+though. For example, you may want to show a button if a user has the
+'upload-file' permission. To check if the button should be shown, we can
+use the SDK PermissionTester. An example method call for checking if the
+currently authenticated user has the given permission would look like</p>
+</div>
+<div class="paragraph">
+<p><code>\BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('upload-file.view-page');</code></p>
+</div>
+<div class="paragraph">
+<p>This will either return true or false depending on if the user has the
+permission or not. The SDK hijacks the Laravel permission framework and
+forces all permission tests through this method, meaning you can use any
+normal Laravel permission tool (e.g. <code>@can('my-alias.upload-file')</code> in
+blade templates) to check permissions. This permission checking will all
+be done on the currently authenticated user. To check a given user, use
+the evaluateFor method, which additionally accepts a user, group and/or
+role.</p>
+</div>
+<div class="paragraph">
+<p>Finally, as a shortcut to using the PermissionTester, we have created a
+helper function <code>hasPermission($ability (e.g. 'mymodule.view-file'))</code> that can be called from anywhere, which will call the PermissionTester and
+return the result. Pass in just the ability to check the current user,
+or pass in a user/group/role to check the given user/group/role instead.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using Antora.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { autoselect: true, hint: false, keyboardShortcuts: ['/'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
