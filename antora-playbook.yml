@@ -79,4 +79,4 @@ ui:
  - path: .nojekyll
  - path: CNAME
    contents: |
-    docs.bristolsustaging.co.uk
+    portal-docs.bristolsu.org.uk
