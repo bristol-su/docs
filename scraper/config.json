@@ -1,10 +1,10 @@
 {
   "index_name": "portal-docs",
   "start_urls": [
-    "https://docs.bristolsustaging.co.uk"
+    "https://portal-docs.bristolsu.org.uk"
   ],
   "sitemap_urls": [
-    "https://docs.bristolsustaging.co.uk/sitemap.xml"
+    "https://portal-docs.bristolsu.org.uk/sitemap.xml"
   ],
   "stop_urls": [],
   "selectors": {
