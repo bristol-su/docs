@@ -65,6 +65,16 @@ content:
  - url: https://github.com/bristol-su/typeform-service
    start_path: docs
    branches: [master]
+ # Api Client
+ - url: https://github.com/bristol-su/api-client
+   start_path: docs
+   branches: [develop]
+ - url: https://github.com/bristol-su/api-client-toolkit
+   start_path: docs
+   branches: [develop]
+ - url: https://github.com/bristol-su/control-api-client
+   start_path: docs
+   branches: [develop]
 output:
  clean: true
  dir: ./docs
