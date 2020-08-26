@@ -2,7 +2,7 @@ site:
  title: Bristol SU Portal Project
  url: https://bristol-su.github.io/docs
  start_page: home::index.adoc
- keys: 
+ keys:
   google_analytics: 'UA-162373885-2'
 content:
  sources:
@@ -22,7 +22,7 @@ content:
  # SDK Documentation
  - url: https://github.com/bristol-su/support
    start_path: antora-docs
-   branches: [develop]
+   branches: [docs/v4.x, master]
  # Control Documentation
  - url: https://github.com/bristol-su/control
    start_path: antora-docs
@@ -64,6 +64,16 @@ content:
  - url: https://github.com/bristol-su/typeform-service
    start_path: docs
    branches: [master]
+ # Api Client
+ - url: https://github.com/bristol-su/api-client
+   start_path: docs
+   branches: [develop]
+ - url: https://github.com/bristol-su/api-client-toolkit
+   start_path: docs
+   branches: [develop]
+ - url: https://github.com/bristol-su/control-api-client
+   start_path: docs
+   branches: [develop]
 output:
  clean: true
  dir: ./docs
@@ -79,4 +89,4 @@ ui:
  - path: .nojekyll
  - path: CNAME
    contents: |
-    docs.bristolsustaging.co.uk
+    portal-docs.bristolsu.org.uk
