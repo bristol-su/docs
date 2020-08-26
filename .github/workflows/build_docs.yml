@@ -52,6 +52,6 @@ jobs:
     - name: Ping google search the new sitemap
       uses: fjogeleit/http-request-action@v1.4.1
       with:
-        url: http://www.google.com/ping?sitemap=https://docs.bristolsustaging.co.uk/sitemap.xml
+        url: http://www.google.com/ping?sitemap=https://portal-docs.bristolsu.org.uk/sitemap.xml
         method: GET
         preventFailureOnNoResponse: true
