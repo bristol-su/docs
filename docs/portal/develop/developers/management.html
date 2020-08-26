@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Management :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/portal/develop/developers/management.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <meta name="docsearch:language" content="en" />
+      <meta name="docsearch:version" content="develop">
+      <meta name="docsearch:component" content="Portal">
+      <meta name="docsearch:module" content="developers">
+  <link rel="stylesheet" href="../../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162373885-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-162373885-2')</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <div class="navbar-item hide-for-print">
+            <input id="search-input" type="text" placeholder="Search docs (/)">
+          </div>
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../api-client-php/1.0.0/index.html">API Client</a>
+                <a class="navbar-item" href="../../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-flyerless-subscription-management/1.0.0/index.html">Flyerless Subscription Management</a>
+                <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../api-client-php-toolkit/1.0.0/index.html">API Client Toolkit</a>
+                <a class="navbar-item" href="../../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="../../../support/v4.x/creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://tobytwigger.myjetbrains.com/youtrack/newIssue">Open an Issue</a>
+            <a class="button is-primary" href="https://github.com/bristol-su/portal">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="portal" data-version="develop">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Portal</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Users</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">The Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../activities.html">Activities</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developers</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="authentication-registration.html">Authentication &amp; Registration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="homepage.html">Homepage</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="using-activities.html">Using Activities</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api.html">API</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="management.html">Management</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Portal</span>
+    <span class="version">develop</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">API Client</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../api-client-php/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">API Client Toolkit</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../api-client-php-toolkit/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control API Client</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../api-client-php-module-control/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Flyerless Subscription Management</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-flyerless-subscription-management/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../support/creating-module/index.html">master prerelease</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../../support/v4.x/creating-module/index.html">v4.x</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Portal</a></li>
+    <li>Developers</li>
+    <li><a href="management.html">Management</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/portal/edit/develop/docs/modules/developers/pages/management.adoc">Edit this Page</a></div>
+  
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Management</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Management page is where the portal can be set up and managed. All
+controllers are stored in Management, and these routes are solely for
+loading view files. Navigation is done through the vue sidebar, which
+just sends the user to different pages.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_activities"><a class="anchor" href="#_activities"></a>Activities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Activities are the 'services' your portal delivers. You can create new
+activities or manage activities through managements.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_activities"><a class="anchor" href="#_creating_activities"></a>Creating Activities</h3>
+<div class="paragraph">
+<p>The 'Create Activity' button loads a form to create an activity. It
+collects basic information about the activity, to help display it.</p>
+</div>
+<div class="paragraph">
+<p>Name - Shown on the button<br>
+Description - May be used later<br>
+Slug - Where to get to the activity from<br>
+What kind of activity? - Completable or not, or multi completable<br>
+What resource is the activity for? - What resource should the activity
+focus on.<br>
+Who is it for? - Logic group on who can use it<br>
+Who are the admins - Logic group for who can access admin side<br>
+Active Range - DateTime when the activity is active between, or is it
+always active.</p>
+</div>
+<div class="paragraph">
+<p>How to create activities, what API calls it uses</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_viewing_all_activities"><a class="anchor" href="#_viewing_all_activities"></a>Viewing all activities</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_viewing_a_single_activity"><a class="anchor" href="#_viewing_a_single_activity"></a>Viewing a single activity</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id=""><a class="anchor" href="#"></a>+</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Module Instances</p>
+</div>
+<div class="sect2">
+<h3 id="_2"><a class="anchor" href="#_2"></a>+</h3>
+<div class="paragraph">
+<p>Viewing a module instance</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_changing_managements"><a class="anchor" href="#_changing_managements"></a>Changing managements</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_changing_permissions"><a class="anchor" href="#_changing_permissions"></a>Changing permissions</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_changing_services"><a class="anchor" href="#_changing_services"></a>Changing services</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3"><a class="anchor" href="#_3"></a>+</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Logic</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_logic"><a class="anchor" href="#_creating_logic"></a>Creating Logic</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_viewing_logic"><a class="anchor" href="#_viewing_logic"></a>Viewing Logic</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_permissions"><a class="anchor" href="#_permissions"></a>Permissions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_change_permissions"><a class="anchor" href="#_change_permissions"></a>Change Permissions</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connectors"><a class="anchor" href="#_connectors"></a>Connectors</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_see_all_connectors"><a class="anchor" href="#_see_all_connectors"></a>See all connectors</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_create_a_new_connector"><a class="anchor" href="#_create_a_new_connector"></a>Create a new connector</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_edit_a_connector"><a class="anchor" href="#_edit_a_connector"></a>Edit a connector</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_share_a_connector"><a class="anchor" href="#_share_a_connector"></a>Share a connector</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_settings"><a class="anchor" href="#_settings"></a>Settings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is where site wide settings are stored.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 34%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">authentication.verification.required</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Is an account required to verify
+its email before being allowed to use the portal?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true or false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>authentication.registration_identifier</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">What is the key of the attribute on the user model that should be used
+for login/registration. email or an additional attribute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email,
+username, &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>authentication.registration_identifier</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Laravel validation for the identifier of a user.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min:5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">authentication.password.validation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Laravel validation for the password
+of a user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">required</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">confirmed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min:6</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>authentication.authorization</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">On registration, can a new data user model be created? Or more
+specifically, must a data model with the identifier used for
+registeration already exist?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true or false</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>authentication.authorization</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">On registration, can a new control user model be created? Or more
+specifically, must a control model with a data provider ID of the data
+model with the attribute used for registeration already exist?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true or
+false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">authentication.messages.notInData</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message to show if a data user isn&#8217;t
+found, but settings forbid data user creation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your <code>email</code> couldn&#8217;t be
+found in our systems.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">authentication.messages.notInControl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message to show if a control user
+isn&#8217;t found, but settings forbid control user creation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You couldn&#8217;t be
+found in our systems</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>authentication.messages</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message to show if a user tries to register but is already registered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You are already registered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">additional_attributes.user</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional attributes for the user.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>[\{"type":"user","key":"student_id","name":"Student ID"},</p>
+</div>
+<div class="paragraph">
+<p>\{"type":"user","key":"username","name":"Username"}]</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">additional_attributes.group</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional attributes for the grpup.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{"type":"group","key":"student_id","name":"Student ID"}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">additional_attributes.role</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional attributes for the role.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{"type":"role","key":"student_id","name":"Student ID"}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">additional_attributes.position</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional attributes for the position.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[\{"type":"position","key":"student_id","name":"Student ID"}]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">welcome.fillInRegInformation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Should the user be given the chance to
+fill out registration information on the homepage?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true or false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">welcome.messages.title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Title to show on the welcome page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'Welcome to
+the portal!'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">welcome.messages.subtitle</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtitle to show on the welcome page.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update your information below to get started.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">welcome.attributes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Settings for attribute editing on the welcome page.
+Through this, you can control which attributes are visible, which are
+editable and which are required.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\{"email":\{"visible":true,"editable":true,"required":false}, &#8230;&#8203; }</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thirdPartyAuthentication.providers</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using Antora.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { autoselect: true, hint: false, keyboardShortcuts: ['/'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

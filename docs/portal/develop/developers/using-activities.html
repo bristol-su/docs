@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using Activities :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/portal/develop/developers/using-activities.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <meta name="docsearch:language" content="en" />
+      <meta name="docsearch:version" content="develop">
+      <meta name="docsearch:component" content="Portal">
+      <meta name="docsearch:module" content="developers">
+  <link rel="stylesheet" href="../../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162373885-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-162373885-2')</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <div class="navbar-item hide-for-print">
+            <input id="search-input" type="text" placeholder="Search docs (/)">
+          </div>
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../api-client-php/1.0.0/index.html">API Client</a>
+                <a class="navbar-item" href="../../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-flyerless-subscription-management/1.0.0/index.html">Flyerless Subscription Management</a>
+                <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../api-client-php-toolkit/1.0.0/index.html">API Client Toolkit</a>
+                <a class="navbar-item" href="../../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="../../../support/v4.x/creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://tobytwigger.myjetbrains.com/youtrack/newIssue">Open an Issue</a>
+            <a class="button is-primary" href="https://github.com/bristol-su/portal">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="portal" data-version="develop">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Portal</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Users</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">The Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../activities.html">Activities</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developers</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="authentication-registration.html">Authentication &amp; Registration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="homepage.html">Homepage</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="using-activities.html">Using Activities</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api.html">API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="management.html">Management</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Portal</span>
+    <span class="version">develop</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">API Client</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../api-client-php/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">API Client Toolkit</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../api-client-php-toolkit/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control API Client</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../api-client-php-module-control/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Flyerless Subscription Management</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-flyerless-subscription-management/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../support/creating-module/index.html">master prerelease</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../../support/v4.x/creating-module/index.html">v4.x</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Portal</a></li>
+    <li>Developers</li>
+    <li><a href="using-activities.html">Using Activities</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/portal/edit/develop/docs/modules/developers/pages/using-activities.adoc">Edit this Page</a></div>
+  
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Using Activities</h1>
+<div class="sect1">
+<h2 id="_setup"><a class="anchor" href="#_setup"></a>Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The portal homepage logs a user into a user/group/role (i.e. their
+control models), and redirects them to one of '/a/{activity-slug}' or
+'/p/{activity-slug}'.</p>
+</div>
+<div class="sect2">
+<h3 id="_control_authentication_checks"><a class="anchor" href="#_control_authentication_checks"></a>Control Authentication Checks</h3>
+<div class="paragraph">
+<p>At this point, the <em>participant/administrator</em> and <em>activity</em> middleware
+are active. These are defined in the SDK.</p>
+</div>
+<div class="paragraph">
+<p><em>Participant</em> middleware checks our control credentials. These check
+that the given credentials are in the for logic group for the activity,
+and the resource needed for the activity (i.e. group if a group
+activity, role if a role activity etc) is present. If any of these
+checks fail, we throw an ActivityRequiresParticipant. At this point, the
+portal catches the exception and puts us on a page loaded through the
+LogIntoParticipant controller. This page loads, using the Audience
+Member API from the SDK, the things the user can be to access the given
+activity.</p>
+</div>
+<div class="paragraph">
+<p>The reason for this is that, if the exception has been fired, we want to
+log in the user into something they can act as to be in the activity for
+logic group. Using the AudienceMember, we work out if the user can just
+be themselves, and if any groups or roles are in the logic group. We
+then load a page if so, which lists all the things we can be. This uses
+the same post request as the Portal Homepage to log us in and direct us
+to the activity.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/log-in-to-access-activity-ss.png" alt="log in to access activity ss">
+</div>
+</div>
+<div class="paragraph">
+<p>Of course, the same concept applies for the <em>administrator</em> middleware,
+which is applied if on the administrator side. This just directs to the
+LogIntoAdmin controller instead, through firing an ActivityRequiresAdmin
+exception. It also doesn&#8217;t check the activity resource type, just checks
+the user is in the admin logic group.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_instances"><a class="anchor" href="#_activity_instances"></a>Activity Instances</h3>
+<div class="paragraph">
+<p>The <em>activity</em> middleware is applied on the admin and participant sides.
+It injects the activity into the container. This means we can resolve
+the current activity from the container using the class name.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, it handles activity instances.
+<a href="https://docs.bristolsustaging.co.uk/books/framework-development/page/activity-instance">Activity
+instances</a> link together an activity and a resource. A resource is
+either a user, group or role, depending on what the activity is for. For
+example, if the activity is for a role, then when a user logged into
+that role does something in an activity, the activity instance ID is
+saved in the database, e.g. against an uploaded file. The activity
+instance contains a type, 'role', and an ID, of the role the user is
+logged into. Multiple different users can log into the same activity
+instance, for example if another user had the same role they would share
+the role activity instance. This essentially abstracts the user id,
+group id and/or role id to a single unified model with knowledge of the
+user/group/role structure.</p>
+</div>
+<div class="paragraph">
+<p>When in an activity, we ensure an activity instance is loaded and
+retrievable. The SDK provides an API for setting and getting an Activity
+Instance, and middleware to automatically check if it&#8217;s loaded. The
+middleware that is ran is listed below</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_log_into_an_activity_instance"><a class="anchor" href="#_log_into_an_activity_instance"></a>Log into an activity instance</h3>
+<div class="paragraph">
+<p>First, if the request contains a query with the key aiid, the activity
+instance, then that activity instance will be logged into.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_check_logged_into_activity_instance"><a class="anchor" href="#_check_logged_into_activity_instance"></a>Check logged into activity instance</h3>
+<div class="paragraph">
+<p>Throws a NotInActivityInstanceException if you are not logged into an
+activity instance. The portal defines an exception handler to handle
+this exception gracefully. It retrieves the activity being accessed,
+then uses the DefaultActivityInstanceGenerator, given by the SDK, to
+create or find an activity instance to log into. Most of the time, there
+will only be one activity instance. All the time, we can just find the
+first activity instance for their credentials and log into it.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, if the correct model is not available, we fire an
+ActivityRequiresUser / ActivityRequiresGroup / ActivityRequiresRole
+exception, which extends ActivityRequiresParticipant so behaves in the
+same way in terms of loading the page to log into the correct model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_check_activity_instance_is_for_the_activity"><a class="anchor" href="#_check_activity_instance_is_for_the_activity"></a>Check Activity Instance is for the activity</h3>
+<div class="paragraph">
+<p>At this point, we should have either been logged into the activity
+instance referenced with aiid, or the default activity instance. We now
+check the activity instance is linked to the activity we&#8217;re trying to
+load, and throw a NotInActivityInstanceException.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inject_the_activity_instance"><a class="anchor" href="#_inject_the_activity_instance"></a>Inject the activity instance</h3>
+<div class="paragraph">
+<p>FInally, we inject the activity instance to be referenced by its class
+name to be resolved from the container.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_page_layout"><a class="anchor" href="#_page_layout"></a>Page Layout</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When clicking on an activity, once all the checks are complete, you are
+taken to the activity page. This shows each of the module instances
+within the activity, and gives you a brief overview of the activity.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/activity-ss.png" alt="activity ss">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_title"><a class="anchor" href="#_title"></a>Title</h3>
+<div class="paragraph">
+<p>Title at the top of the page and browser title is dynamic. These are set
+to the title of the activity.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sidebar"><a class="anchor" href="#_sidebar"></a>Sidebar</h3>
+<div class="paragraph">
+<p>The sidebar shows activities you can access through your given
+credentials. For example, since we&#8217;re currently logged into our Swimming
+Club membership, the sidebar will show activities for which we are in
+the 'activity for logic' group. Clicking on them will take you to the
+participant page for the given activity (assuming we&#8217;re already on the
+participant side) or the admin side if we&#8217;re on the admin side.</p>
+</div>
+<div class="paragraph">
+<p>In summary, it will take you to any activities you can access without
+changing your participant/admin status or your user/group/role logins.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_acting_as"><a class="anchor" href="#_acting_as"></a>Acting As</h3>
+<div class="paragraph">
+<p>In the dropdown, unlike when we were on the homepage and saw 'Acting as
+nothing', we can now see 'Acting in your membership to Swimming Club'.
+This is because this represents the current credentials we&#8217;re in.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_instance_selection"><a class="anchor" href="#_activity_instance_selection"></a>Activity Instance Selection</h3>
+<div class="paragraph">
+<p>The SDK allows for three main types of activities, open, completable and
+multi-completable.</p>
+</div>
+<div class="paragraph">
+<p>In an open activity, the concept of finishing doesn&#8217;t exist. This is
+useful for things like 'Group Management', because there is only ever
+one activity instance and no completions.</p>
+</div>
+<div class="paragraph">
+<p>In a completable activity, there is only ever one activity instance so
+the activity can only be finished once. Therefore, this is useful for
+one-off tasks that cannot be repeated, but needs to be completed.</p>
+</div>
+<div class="paragraph">
+<p>A multi-completable activity is similar to a completable activity, but
+the activity can be started over and over. This is useful for things
+like 'Expense Claim Submissions', since you can restart the service for
+each expense claim so the service only has to be designed for a single
+submission.</p>
+</div>
+<div class="paragraph">
+<p>A multi-completable activity can have many activity instances for the
+same person. In reality, this means that one resource (i.e. the
+user/group/role the user is logged into, depending on who the activity
+is for) can have many totally disparate run throughs of the activity,
+allowing them to start it over as many times as they&#8217;d like.</p>
+</div>
+<div class="paragraph">
+<p>To be able to get back to previous activity instances, the activity
+instance switcher shows all previous run throughs (with a name and
+description). Clicking 'New Run Through' will create a new activity
+instance, and clicking on an activity instance will log into that one.
+To do that, it simply reloads the page but passes the aiid parameter,
+which the <code>LogIntoActivityInstance</code> middleware in the '<em>activity</em>'
+group logs into, meaning the page is reloaded from the point of view of
+the selected activity instance!</p>
+</div>
+<div class="paragraph">
+<p>The DefaultActivityInstanceGenerator returns the first activity instance
+from the database to log into. This works for a case where there is a
+single Activity Instance, but also where there are multiple activity
+instances.</p>
+</div>
+<div class="paragraph">
+<p>This should be changed to the most recent one, i.e. sort the activity
+instances by created_at descending</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modules"><a class="anchor" href="#_modules"></a>Modules</h3>
+<div class="paragraph">
+<p>Having loaded the page, and selected an activity instance if necessary,
+we can take a look at the modules.</p>
+</div>
+<div class="paragraph">
+<p>Modules have different states, decided by logic groups and completion
+information in the module instance set up. These are evaluated on load,
+so the frontend has the information necessary to render the page.</p>
+</div>
+<div class="paragraph">
+<p>Modules are loaded through the <code>Pages\ActivityController</code>. As normal,
+they have a participant() and admin() function. Both are similar.</p>
+</div>
+<div class="paragraph">
+<p>They both start by using the ResourceIdGenerator to get a resource ID
+and resource type to load. They also have access to the ActivityInstance
+and Activity through the container.</p>
+</div>
+<div class="paragraph">
+<p>The participant function then returns the correct view with the
+following parameters</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>activity &#8594; The current activity with all the module instances</p>
+</li>
+<li>
+<p>activityInstance &#8594; The activity instance logged into</p>
+</li>
+<li>
+<p>activityInstances &#8594; All activity instances for the activity, resource
+type and resource ID</p>
+</li>
+<li>
+<p>admin &#8594; false</p>
+</li>
+<li>
+<p>evaluation &#8594; Information about the state of each of the modules.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The admin function is very similar, except it uses a different
+evaluation function and returns admin as true.</p>
+</div>
+<div class="paragraph">
+<p>The evaluation is an SDK provided tool, and returns an array of
+completed Evaluation objects with the module instance ID as the key. The
+evaluation object is a simple data structure, holding the following
+parameters</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>visible:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Should the module instance be visible/shown on the page?</p>
+</li>
+<li>
+<p>The module is still accessible directly at the URL, but this may
+change soon.</p>
+</li>
+<li>
+<p>If admin, will always be true</p>
+</li>
+<li>
+<p>Uses the visible logic group</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>mandatory</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Is the module instance mandatory to complete?</p>
+</li>
+<li>
+<p>If admin, will always be false</p>
+</li>
+<li>
+<p>Will be false if the module instance is part of an open activity,
+since completion makes no sense in that context</p>
+</li>
+<li>
+<p>Uses the mandatory logic group</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>active:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Can the module instance be accessed?</p>
+</li>
+<li>
+<p>Always true if admin</p>
+</li>
+<li>
+<p>Uses the active logic group</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>complete:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Has the module been completed?</p>
+</li>
+<li>
+<p>If admin, will always be false</p>
+</li>
+<li>
+<p>Will be false if the module instance is part of an open activity,
+since completion makes no sense in that context</p>
+</li>
+<li>
+<p>Uses the completion condition.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The below image demonstrates the different states a module can take. Of
+course, the 'Not Visible' state is not visible, so is not included. All
+the buttons below are assumed to have the 'Visible' evaluation as true.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/button-types-ss.png" alt="button types ss">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://bristol-su-documentation.s3.amazonaws.com/uploads/images/gallery/2020-01/4eAfpXbIbbt1yeXU-module-states.png"><span class="image"><img src="data:image/png;base64</a></p>
+</div>
+<div class="paragraph">
+<p>The inactive buttons are 'grayed out', and unclickable.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using Antora.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { autoselect: true, hint: false, keyboardShortcuts: ['/'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

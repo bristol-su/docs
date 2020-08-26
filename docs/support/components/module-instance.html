@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Module Instance :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/support/v4.x/components/module-instance.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <meta name="docsearch:language" content="en" />
+      <meta name="docsearch:version" content="master">
+      <meta name="docsearch:component" content="SDK (Support)">
+      <meta name="docsearch:module" content="components">
+  <link rel="stylesheet" href="../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162373885-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-162373885-2')</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <div class="navbar-item hide-for-print">
+            <input id="search-input" type="text" placeholder="Search docs (/)">
+          </div>
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../api-client-php/1.0.0/index.html">API Client</a>
+                <a class="navbar-item" href="../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../module-flyerless-subscription-management/1.0.0/index.html">Flyerless Subscription Management</a>
+                <a class="navbar-item" href="../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../api-client-php-toolkit/1.0.0/index.html">API Client Toolkit</a>
+                <a class="navbar-item" href="../../control-api/develop/developers/index.html">Control (API)</a>
+                <a class="navbar-item" href="../v4.x/creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://tobytwigger.myjetbrains.com/youtrack/newIssue">Open an Issue</a>
+            <a class="button is-primary" href="https://github.com/bristol-su/portal">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="support" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../creating-module/index.html">SDK (Support)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Creating a Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/setup.html">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/module-layout.html">Module Layout</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/service-provider.html">Service Provider</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/developing.html">Developing a Module</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../creating-module/releasing.html">Releasing a Module</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frontend</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/pages.html">Setting up Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/api.html">Creatng an API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../frontend/using-js-vue.html">Using JS and Vue</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">SDK API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sdk-api/index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Basics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/authentication-authorization.html">Authentication &amp; Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/database.html">Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/control.html">Control</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sdk-api/storage.html">Storage</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extra Features</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Helping your module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/settings.html">Settings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/connections.html">Connections</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../sdk-api/stand-alone.html">Stand-alone features</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/filters.html">Filters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/commands.html">Commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/actions.html">Actions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../sdk-api/completion-conditions.html">Completion Conditions</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">SDK (Support)</span>
+    <span class="version">master prerelease</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">API Client</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../api-client-php/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">API Client Toolkit</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../api-client-php-toolkit/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../control-api/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control API Client</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../api-client-php-module-control/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Flyerless Subscription Management</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-flyerless-subscription-management/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../creating-module/index.html">master prerelease</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../v4.x/creating-module/index.html">v4.x</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../creating-module/index.html">SDK (Support)</a></li>
+    <li><a href="module-instance.html">Module Instance</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">master prerelease</button>
+  <div class="version-menu">
+    <a class="version is-current" href="module-instance.html">master prerelease</a>
+    <a class="version" href="../v4.x/components/module-instance.html">v4.x</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/support/edit/master/antora-docs/modules/components/pages/module-instance.adoc">Edit this Page</a></div>
+  
+    <div class="view-on-github"><a href="https://github.com/bristol-su/support">View on GitHub</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Module Instance</h1>
+<div class="paragraph">
+<p>The Module Instance package is predominantly responsible for creating
+and managing module instances. A module instance is an instance of a
+module registered with the portal. It can be thought of as a step in a
+process (activity).</p>
+</div>
+<div class="paragraph">
+<p>The module instance package includes tools for integrating with
+connections and settings. These may soon be moved to their own packages.</p>
+</div>
+<div class="paragraph">
+<p>A module instance is represented as a database row with the following
+attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alias: Alias of the module to use for the module instance</p>
+</li>
+<li>
+<p>Activity ID: The ID of the activity to which the module instance
+belongs</p>
+</li>
+<li>
+<p>Name: Name of the module instance</p>
+</li>
+<li>
+<p>Slug: The slug on which to access the module instance</p>
+</li>
+<li>
+<p>Description: A description of the module instance</p>
+</li>
+<li>
+<p>Active: An ID of a logic group. Anyone in this logic group will be
+able to use the module instance, but it will be grayed out and
+inaccessible for anyone outside the logic group</p>
+</li>
+<li>
+<p>Visible: An ID of a logic group. Anyone in this logic group will be
+able to see the module instance, but it will be hidden for anyone
+outside the logic group</p>
+</li>
+<li>
+<p>Mandatory: Only needed if the activity is completable. Specifies a
+logic group ID. Anyone in this logic group must complete this module
+instance before the activity can be thought of as complete.</p>
+</li>
+<li>
+<p>Completion Condition Instance ID: The ID of a completion condition
+instance representing when the module can be counted as complete.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By creating a module instance, an activity will show a button
+corresponding to the instance when a user is completing the activity. We
+can retrieve or create module instances through the ModuleInstance
+Repository.</p>
+</div>
+<div class="paragraph">
+<p>Modules may require or request services, and the link between a
+connection (See the connection documentation, an authenticated client
+for making http requests) and a module instance is managed by the
+Connection directory. This includes a database row for the
+module_instance_services table, which includes the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Service: Name of the service e.g. facebook, typeform</p>
+</li>
+<li>
+<p>Module Instance ID: ID of the module instance this service is for</p>
+</li>
+<li>
+<p>Connection ID: ID of the connection the module instance is allowed to
+use to make requests.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We also provide a repository to interact with this database row. This
+currently allows us to get all module instance connections, or get a
+connector from a service name. This function takes a service name and a
+module instance ID, and either throws an exception if the service has
+not been assigned to the module instance, or returns the connector ready
+to be used.</p>
+</div>
+<div class="paragraph">
+<p>Modules also register settings. When a module registers their settings,
+it gets passed to the Settings store, which is responsible for storing
+and retrieving the setting schema for a module.</p>
+</div>
+<div class="paragraph">
+<p>When a user assigns a value to one of these settings, or more
+specifically sets the setting value of a specific module instance, a row
+in module_instance_settings is created. This row contains the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Key: The key of the setting, as specified by the module in the
+settings schema</p>
+</li>
+<li>
+<p>Value: The value of the setting, as assigned by a user</p>
+</li>
+<li>
+<p>Module Instance ID: The ID of the module instance to which the setting
+belongs</p>
+</li>
+<li>
+<p>Encoded: Is the value in the 'value' column encoded? If true, the
+value will be decoded before being returned. This is useful for storing
+arrays in the table.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Finally, the settings directory provides a 'Settings Listener'. The idea
+of this is to allow modules to bind onto setting changes. When any
+setting is changed, an event is fired. A settings listener registered in
+the service provider catches this event and can execute module defined
+actions depending on the event. To create a settings listener, extend
+the SettingsListener class and add methods to handle different events:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;?php
+
+// Save a row each time the name is changed for a revision history
+class NameSettingListener extends \BristolSU\Support\ModuleInstance\Settings\SettingListener
+{
+    protected $key = 'name'; // Key of the setting to trigger on
+
+    public function onSaved(ModuleInstanceSetting $setting)
+    {
+        // Handle the setting change
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Middleware is also provided to inject the current module instance into
+the container.</p>
+</div>
+<div class="paragraph">
+<p>The Scheduler exists to register and retrieve commands that should be
+scheduled. Laravel requires that any scheduled commands are hard coded
+into the Console Kernel. To bypass this restriction, we dynamically
+register any scheduled commands that a module requires before the kernel
+is initialised. Any commands registered in the CommandStore by a module
+are registered as a scheduled command in the kernel each time the kernel
+is requested.</p>
+</div>
+<div class="paragraph">
+<p>Finally, the Module Instance package provides an 'evaluator'. This is a
+shortcut for dynamically determining attributes for a module instance.
+It is fundamentally constructed to return an Evaluation class for a
+module instance. This has properties active, visible, mandatory and
+complete, and returns a boolean for each property. It also provides
+casting methods, allowing us to easily pass this information to the
+frontend to be rendered.</p>
+</div>
+<div class="paragraph">
+<p>The module instance evaluator class is responsible for taking a module
+instance (for a specific activity instance), and evaluating the four
+properties based on a set of credentials. To better understand this, an
+example is provided. Say we want to evaluate a module for an activity
+instance, i.e. get the evaluation of a module for a specific
+group/user/role completing the activity. From this, we can say if the
+module is complete or not by testing the module instance completion
+condition. To determine if the module instance is active, we need to
+know the current user/group/role. These are passed into the function, so
+we can just find the active logic group and see if the user/group/role
+are part of this group. The same theory holds for the mandatory and
+visible logic group, however mandatory will always be false if the
+activity is not completable.</p>
+</div>
+<div class="paragraph">
+<p>This class also provides the same functions to evaluate a module
+instance for an admistrator, however this just sets visible and active
+to true, and mandatory and complete to false.</p>
+</div>
+<div class="paragraph">
+<p>It also provides an evaluateResource function. Unlike the admin or
+participant evaluations, this method does not accept a user/group/role.
+Instead, it provides an evaluation of the activity instance/module
+instance as a whole. For example, it will return mandatory if anyone who
+can access the activity instance has an evaluation of mandatory. It will
+return visible if the module instance is available for ANYONE who is
+working in the same activity instance.</p>
+</div>
+<div class="paragraph">
+<p>The module instance package also provides an activity instance
+evaluator. This should be used to test multiple module instances at
+once, as is the case for loading an activity instance page, and simply
+evaluates each module instance in the activity and returns an array of
+evaluator objects, with the key as the module instance ID.</p>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using Antora.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { autoselect: true, hint: false, keyboardShortcuts: ['/'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

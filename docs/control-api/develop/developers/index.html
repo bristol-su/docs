@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/control-api/develop/developers/index.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <meta name="docsearch:language" content="en" />
+      <meta name="docsearch:version" content="develop">
+      <meta name="docsearch:component" content="Control (API)">
+      <meta name="docsearch:module" content="developers">
+  <link rel="stylesheet" href="../../../_/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162373885-2"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-162373885-2')</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bristol-su.github.io/docs">Bristol SU Portal Project</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <div class="navbar-item hide-for-print">
+            <input id="search-input" type="text" placeholder="Search docs (/)">
+          </div>
+        <a class="navbar-item" href="https://bristol-su.github.io/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../api-client-php/1.0.0/index.html">API Client</a>
+                <a class="navbar-item" href="../../../control-frontend/develop/developers/index.html">Control</a>
+                <a class="navbar-item" href="../../../playground/develop/index.html">Playground</a>
+                <a class="navbar-item" href="../../../portal/develop/index.html">Portal</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Modules</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../module-assign-roles/1.0.0/index.html">Assign Roles</a>
+                <a class="navbar-item" href="../../../module-data-entry/1.0.0/index.html">Data Entry</a>
+                <a class="navbar-item" href="../../../module-flyerless-subscription-management/1.0.0/index.html">Flyerless Subscription Management</a>
+                <a class="navbar-item" href="../../../module-static-page/1.0.0/index.html">Static Page</a>
+                <a class="navbar-item" href="../../../module-template/1.0.0/index.html">Template</a>
+                <a class="navbar-item" href="../../../module-typeform/1.0.0/index.html">Typeform</a>
+                <a class="navbar-item" href="../../../module-upload-file/1.0.0/index.html">Upload File</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Developers</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../api-client-php-toolkit/1.0.0/index.html">API Client Toolkit</a>
+                <a class="navbar-item" href="index.html">Control (API)</a>
+                <a class="navbar-item" href="../../../support/v4.x/creating-module/index.html">SDK (Support)</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Integrations</a>
+          <div class="navbar-dropdown">
+                <a class="navbar-item" href="../../../integration-airtable/develop/index.html">AirTable</a>
+                <a class="navbar-item" href="../../../integration-unioncloud-control/develop/developers/index.html">UnionCloud</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://tobytwigger.myjetbrains.com/youtrack/newIssue">Open an Issue</a>
+            <a class="button is-primary" href="https://github.com/bristol-su/portal">Get Started</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="control-api" data-version="develop">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Control (API)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="integrations.html">Integrations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api.html">API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="additional-attributes.html">Additional Attributes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Control (API)</span>
+    <span class="version">develop</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">AirTable</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-airtable/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">API Client</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../api-client-php/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">API Client Toolkit</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../api-client-php-toolkit/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Assign Roles</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-assign-roles/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../control-frontend/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Control (API)</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Control API Client</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../api-client-php-module-control/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Data Entry</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-data-entry/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Flyerless Subscription Management</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-flyerless-subscription-management/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Home</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../home/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Playground</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../playground/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Portal</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../portal/develop/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">SDK (Support)</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../support/creating-module/index.html">master prerelease</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../../support/v4.x/creating-module/index.html">v4.x</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Static Page</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-static-page/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Template</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-template/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-typeform/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Typeform Service</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../service-typeform/develop/users/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">UnionCloud</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../integration-unioncloud-control/develop/developers/index.html">develop</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Upload File</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../module-upload-file/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/1.0.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Control (API)</a></li>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/control/edit/develop/antora-docs/modules/developers/pages/index.adoc">Edit this Page</a></div>
+  
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Introduction</h1>
+<div class="paragraph">
+<p>Control is the user management system for the Bristol SU Portal. The
+complexity of the user management structure was borne from the
+student-led society hierarchical structure. A student-led society is
+called a group. A group has many members, which are users. Additionally,
+a group has many roles, which may be occupied by a number of users. In
+reality, this allows us to assign users to committee roles (for example,
+a President, Secretary, Treasurer etc), as well as allow users to be
+members of groups.</p>
+</div>
+<div class="paragraph">
+<p>When worded in this way, the group system seems very restrictive for
+non-unions or non-group services. However, there is no requirement that
+says a group must be a student-led society. For example, a group may be
+a department in an office. Each individual could have a different role,
+or some individuals may be members and a hierarchical structure can be
+built above them (e.g. line manager, budget holder etc). Similarly, a
+group could represent a house for a letting agent. Tenants would be
+'members' of the group, and the agent responsible for the house could
+hold a role in the group.</p>
+</div>
+<div class="paragraph">
+<p>In this way, a huge amount of additional flexibility and customization
+can be achieved over a simple user model. Activities can be made open to
+only those in a role, or a role with a specific position. Services can
+be set up to require different steps to be completed by different
+people, which would not be as achievable or scalable than a simple user
+model.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows the relationships between Users, Groups and
+Roles.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/model-relations.png" alt="model relations">
+</div>
+</div>
+<div class="paragraph">
+<p>The relationship between Users, Groups and
+Roles.</p>
+</div>
+<div class="paragraph">
+<p>Each of these models can also be tagged. A tag is a simple model with a
+name and a reference. For example, we may want to tag a group with the
+'High Risk' tag, to represent a high financial risk. In this way, we can
+make an annual budget mandatory for any high risk groups. However, there
+could be a situation where we have another 'High Risk' tag, meaning a
+group regularly does high risk activities. Obviously we need to separate
+out these tags so no confusion occurs. To do this, we use tag
+categories. These are parent tags, which hold many child tags which are
+then applied to a model. For example, we could create a 'Financial Risk'
+category and a 'Physical risk' category, and assign them to the correct
+tags to reduce confusion.</p>
+</div>
+<div class="paragraph">
+<p>We also need a human-friendly way of referencing the tags. Instead of
+saying 'High Financial Risk', which will only work for some tags, or
+'High Risk with a category of Financial Risk', we say
+'financial_risk.high' (Financial Risk 'dot' High). This structure comes
+from a 'reference' of both the category and tag. The reference must be
+unique, and is thought of as a unique ID. Since both the parent and
+child have a different reference, we join the references with a dot to
+create the unique tag reference. In this way, we can reference both high
+risk tags as</p>
+</div>
+<div class="paragraph">
+<p>'financial_risk.high'</p>
+</div>
+<div class="paragraph">
+<p>'physical_risk.high'</p>
+</div>
+<div class="paragraph">
+<p>Another important part of the user management structure is the idea of a
+'Data Provider'. Many unions and other companies have a database of user
+information, or for data protection reasons outsource the storing of
+data to a third party. The portal therefore provides a structure to
+allow integration with these providers, without enforcing their use. The
+four base models (User, Group, Role and Position) all hold very little
+information. In fact, they only hold relations to one another and a data
+provider ID. This means that, in the case of a data breach, there is no
+identifiable data held in the platform. In order to get the identifiable
+information for use, we call the data() function on any model. This will
+return a second model, whose purpose is to store information such as
+names, emails, dates of birth etc.</p>
+</div>
+<div class="paragraph">
+<p>Using this method provides no disadvantage for data stored in the
+database, but allows for external data providers to be slotted into
+place and used to retrieve the data.</p>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using Antora.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+var search = docsearch({
+  appId: 'X72DC2WY93',
+  apiKey: '5a0df2d12ae0305890f5ff4ab7621747',
+  indexName: 'portal-docs',
+  inputSelector: '#search-input',
+  autocompleteOptions: { autoselect: true, hint: false, keyboardShortcuts: ['/'] },
+  algoliaOptions: { hitsPerPage: 10 }
+}).autocomplete
+search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+function focusSearchInput () { document.querySelector('#search-input').focus() }
+if (document.querySelector('.home-link.is-current')) window.addEventListener('load', focusSearchInput)
+</script>
+
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
