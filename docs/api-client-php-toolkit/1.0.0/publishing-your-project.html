@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Introduction :: Bristol SU Portal Project</title>
-    <link rel="canonical" href="https://bristol-su.github.io/docs/api-client-php-toolkit/1.0.0/index.html">
+    <title>Publishing your Project :: Bristol SU Portal Project</title>
+    <link rel="canonical" href="https://bristol-su.github.io/docs/api-client-php-toolkit/1.0.0/publishing-your-project.html">
     <meta name="generator" content="Antora 2.3.3">
     <meta name="docsearch:language" content="en" />
       <meta name="docsearch:version" content="1.0.0">
@@ -89,7 +89,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="index.html">Introduction</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -102,7 +102,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="project-structure.html">Project Structure</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="publishing-your-project.html">Publishing your Project</a>
   </li>
 </ul>
@@ -300,87 +300,50 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">API Client Toolkit</a></li>
-    <li><a href="index.html">Introduction</a></li>
+    <li>Getting Started</li>
+    <li><a href="publishing-your-project.html">Publishing your Project</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/bristol-su/api-client-toolkit/edit/develop/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bristol-su/api-client-toolkit/edit/develop/docs/modules/ROOT/pages/publishing-your-project.adoc">Edit this Page</a></div>
   
 </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Introduction</h1>
-<div id="preamble">
-<div class="sectionbody">
+<h1 class="page">Publishing your Project</h1>
 <div class="paragraph">
-<p>The Bristol SU Portal API Client simplifies the process of consuming the portal API from other systems. It provides a simple set of methods, matching up to API endpoints, to let anyone use the portal API without needing a good understanding of the portal API. it also simplifies the authentication significantly, and provides tools to handle pagination etc.</p>
+<p>Having created and tested your API Client, it&#8217;s ready to be used by anyone who uses your module. To make it accessible, it should be stored on github.</p>
 </div>
 <div class="paragraph">
-<p>The API Client can also be easily extended, to allow any module to add its API to the client. This documentation will predominantly cover extending the API client to provide additional functionality to developers trying to use your modules API.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_the_architecture"><a class="anchor" href="#_the_architecture"></a>The Architecture</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The API Client allows for a very simple extensible system. For each module that provides functionality to the API client, there will be a single entry point through a class. These classes are called <strong>Client Resource Groups</strong>. Each module must have one and only one Client Resource Group.</p>
+<p>Push your work to github, and release it using the release feature in GitHub. Submit it to packagist to allow composer to find it <a href="https://packagist.org/packages/submit">here</a>.</p>
 </div>
 <div class="paragraph">
-<p>Each Client Resource Group can give access to multiple <strong>Client Resources</strong>. There should generally be a Client Resource class per RESTful resource accessible through your API. For example, in an 'upload file' module with files and comments, you&#8217;d have two Client Resource classes - a File and a Comment.</p>
+<p>You should then submit a pull request to the API package, found at <a href="https://github.com/bristol-su/api-client" class="bare">https://github.com/bristol-su/api-client</a>.</p>
 </div>
 <div class="paragraph">
-<p>These Client Resources each contain a set of methods, which make the http calls via the API and return a model/array of models for the user to use.</p>
+<p>This pull request should modify the composer.json file to add a suggestion. This is so that users are told about your extension, but it isn&#8217;t installed by default. This means the API client can be kept as slim as possible for any users use case.</p>
 </div>
-<div class="exampleblock">
-<div class="title">Example 1. A user wants to get all files</div>
+<div class="sidebarblock">
 <div class="content">
-<div class="paragraph">
-<p><span class="image"><img src="_images/architecture.png" alt="architecture"></span></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The user creates an instance of the API Client</p>
-</li>
-<li>
-<p>They retrieve your module <em>Client Resource Group</em>, Upload File</p>
-</li>
-<li>
-<p>They retrieve your module <em>Client Resource</em>, a File</p>
-</li>
-<li>
-<p>They call a method, <code><code>getAll</code></code> to make an HTTP request</p>
-</li>
-<li>
-<p>The HTTP request passes back an array of <code><code>File</code></code> models.</p>
-</li>
-<li>
-<p>The <em>Client Resource</em> passes these back to the user</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>From a user point of view, if <code><code>$client</code></code> contains the API Client, all they need to do is</p>
-</div>
+<div class="title">composer.json file in the api-client repository</div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">$response = $client-&gt;uploadFile()-&gt;file()-&gt;getAll();
-$files = $response-&gt;getBody();</code></pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "name": "bristol-su/api-client",
+  ...
+  "suggest": {
+    "symfony/cache": "Allows for psr-16 compliant caching of HTTP results",
+    "guzzlehttp/guzzle": "A psr compliant HTTP client for making requests",
+
+    "bristol-su/example-api-client": "Extension to the API client for making requests to the Example module"
+  },
+  ...
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
-<p>The variable <code><code>$files</code></code> now contains an array of files, retrieved through your module API.
-The variable <code><code>$files</code></code> now contains an array of files, retrieved through your module API.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>The rest of this documentation will take you through the specifics of setting up your Client Resource Group and Client, and how to make the HTTP requests.</p>
-</div>
-<div class="paragraph">
-<p>There is other documentation available to explain how to use the API client as a developer.</p>
-</div>
-</div>
+<p>Users can now pull your repository in using composer.</p>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
