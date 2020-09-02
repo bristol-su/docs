@@ -416,50 +416,365 @@ $this-&gt;hydrate(
 </div>
 </div>
 <div class="sect1">
-<h2 id="_converting_responses_from_jsonxml"><a class="anchor" href="#_converting_responses_from_jsonxml"></a>Converting responses from JSON/XML</h2>
+<h2 id="_converting_responses_from_jsonxml_to_an_array"><a class="anchor" href="#_converting_responses_from_jsonxml_to_an_array"></a>Converting responses from JSON/XML to an array</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Content type set</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The API client will convert any response to an array. Although you expect to return a model to any user of your client, thanks to the hydrator, the hydrator itself needs an array to work. This isn&#8217;t what your API will generally return - it will usually return JSON or XML.</p>
+</div>
+<div class="paragraph">
+<p>We control what the response will contain using the <code><code>Accept</code></code> header. A user of the client will set this header (generally <code><code>application/json</code></code>), but they can theoretically set it to any content type and the portal will automatically convert your response to satisfy the request.</p>
+</div>
+<div class="paragraph">
+<p>If this header is set, the response will be converted from the content type to an array. Generally, this won&#8217;t affect you as the developer of a client. The only time it will is if you require a specific content type (for example, if your API return JSON directly). In this case, make sure you set the <code><code>Accept</code></code> header correctly in your function before making the request.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_editing_the_request"><a class="anchor" href="#_editing_the_request"></a>Editing the request</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>You can edit the request directly (adding headers, query strings, body etc) using the <code><code>getClient()</code></code> function. This will return a <code><code>BristolSU\ApiToolkit\Contracts\HttpClient</code></code> instance, through which you can access the <code><code>config</code></code>.</p>
+</div>
+<div class="paragraph">
+<p>This object is generally what you will be dealing with. It contains functions to add/remove headers, query parameters, body, control the cache etc. See all the functions in the <code><code>BristolSU\ApiToolkit\HttpClientConfig</code></code> class or below.</p>
+</div>
+<div class="paragraph">
+<p>You will usually access this object as follows</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">$config = $this-&gt;getClient()-&gt;config();</code></pre>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Using $httpClient directly</p>
+<p><strong>Headers</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><code>addHeaders(array $headers)</code></code> - Append an array of headers to the request.</p>
+</li>
+<li>
+<p><code><code>addHeader(string $key, string $value)</code></code> - Add a specific header to the request.</p>
+</li>
+<li>
+<p><code><code>getHeader(string $key, $default = null)</code></code> - Get the value of a header on the request.</p>
+</li>
+<li>
+<p><code><code>getHeaders(): array</code></code> - Get all headers set on the request.</p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p><strong>Body</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><code>addBody(array $headers)</code></code> - Append an array to the request body.</p>
+</li>
+<li>
+<p><code><code>addBodyElement(string $key, string $value)</code></code> - Add a specific key to the request body.</p>
+</li>
+<li>
+<p><code><code>getBodyElement(string $key, $default = null)</code></code> - Get the value of a specific key on the request body.</p>
+</li>
+<li>
+<p><code><code>getBody(): array</code></code> - Get the body set on the request</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Query</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><code>addQuery(array $headers)</code></code> - Append an array to the request query.</p>
+</li>
+<li>
+<p><code><code>addQueryElement(string $key, string $value)</code></code> - Add a specific key to the request query.</p>
+</li>
+<li>
+<p><code><code>getQueryElement(string $key, $default = null)</code></code> - Get the value of a specific key on the request query.</p>
+</li>
+<li>
+<p><code><code>getQuery(): array</code></code> - Get the query set on the request</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Cache</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><code>cache(bool $shouldCache) </code></code> - Whether or not the result should be cached. See the <em>cache</em> section for more information.</p>
+</li>
+<li>
+<p><code><code>shouldCache()</code></code> - Returns whether or not the result will be cached.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>SSL Verification</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><code>verifySSL(bool $verify)</code></code> - Whether or not the SSL certificate should be verified.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code><code>shouldVerifySSL()</code></code> - Returns whether or not the SSL certificate should be verified.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cache"><a class="anchor" href="#_cache"></a>Cache</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All <code><code>GET</code></code> requests will be cached by default, without you needing to do anything. Users are also able to disable the cache for a single request, so there&#8217;s generally no reason not to cache a request by default.</p>
+</div>
+<div class="paragraph">
+<p>If there really is a need for a specific endpoint, and the endpoint should be a <code><code>GET</code></code> request, you can call <code><code>disableCaching</code></code> to disable the cache. This will lead to an adverse effect on performance for end users, so please only do this if absolutely necessary.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">public function getAll()
+{
+    $this-&gt;usesPagination();
+    // ...
+    $this-&gt;disableCaching();
+    return $this-&gt;httpGet(...);
+}</code></pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_module_api_path"><a class="anchor" href="#_module_api_path"></a>Module API Path</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The Module API Path tool converts a normal endpoint to one that references a module instance. This is needed so that modules can create a client. Modules are staged at any number of URLs, defined by a user who sets up the module on the portal. The same module, e.g. a module that shows HTML, could be at the endpoint <code><code>/api/a/borrowing/library-books/static-page</code></code> or <code><code>/api/p/lending/garden-tools/static-page</code></code>. This URL is made of several parts</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Need to build</p>
+<p><strong>a</strong> or <strong>p</strong>. This specifies whether the admin API or participant API should be used.</p>
+</li>
+<li>
+<p>Activity Name - e.g. borrowing. This specifies the activity the module is in.</p>
+</li>
+<li>
+<p>Module Name - e.g. garden-tools. This specifies the specific name of the module.</p>
+</li>
+<li>
+<p>static-page - this is the <em>alias</em> of the module.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Furthermore, we always prepend user information to the API endpoint. For example, if a user with an ID of 2 was trying to access the API, under their membership to the group with an ID of 5, we&#8217;d need to append <code><code>user_id=2&amp;group_id=5</code></code>.</p>
+</div>
+<div class="paragraph">
+<p>Fortunately, this is all taken care of for you. Users are able to use public functions to set the information needed by this tool. The tool will dynamically set the query for you, and prepend your endpoint with the full API path.</p>
+</div>
+<div class="paragraph">
+<p>This example is for a module API client that wants to make use of the tool.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">public function getAll()
+{
+    $this-&gt;usesModuleUrl('module-alias');
+
+    return $this-&gt;httpGet('/my-endpoint');
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A lot went on there, so lets unpack it. First, we let the tool know we&#8217;re making a module URL. We pass it the alias of our module, as it appears on the portal.</p>
+</div>
+<div class="paragraph">
+<p>The middleware system will add the correct query parameters on, and append your endpoint with the full module API endpoint using data (e.g. admin or not, activity name, module instance name) given by the user.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_build_your_own_tools"><a class="anchor" href="#_build_your_own_tools"></a>Build your own tools</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Trait and methods</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>All these API tools have been built using a middleware structure. That is, each one is given the chance to modify the request and/or response each time someone uses the client.</p>
+</div>
+<div class="paragraph">
+<p>These tools have been set up by default, but it&#8217;s easy to create your own to extend the API client functionality.</p>
+</div>
+<div class="paragraph">
+<p>Each tool is simply a trait. Ours are stored under the namespace <code><code>\BristolSU\ApiToolkit\Concerns</code></code>, and have names corresponding to the functionality they provide the user.</p>
+</div>
+<div class="paragraph">
+<p>Each tool goes through a lifecycle each time a developer makes a request. The lifecycle consists of a set of methods with a prefix related to the trait name. For example, the prefix for the <code><code>PutsTheKettleOn</code></code> tool is <code><code>putsTheKettleOn</code></code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_check_if_the_tool_should_be_used"><a class="anchor" href="#_check_if_the_tool_should_be_used"></a>Check if the tool should be used</h3>
+<div class="paragraph">
+<p>Each request will check against each tool to see if it should be used. For example, a tool that tells the request to cache itself will only be used if the developer hasn&#8217;t explicitly disabled caching.</p>
+</div>
+<div class="paragraph">
+<p>This method should be the <code><code>canHandle(HttpClient $client)</code></code> method. It retrieves the HttpClient, and returns a boolean determining whether or not the tool should be used. This can be based on anything. For example, it may be dependent on if there are query parameters in the request, the method of the request, or something else entirely.</p>
+</div>
+<div class="paragraph">
+<p>The something else is usually user/developer input. A developer may enable pagination by calling <code><code>$this&#8594;usesPagination()</code></code>. This sets a private variable to true, and the <code><code>canHandle</code></code> method return the value of this variable. In this way, pagination is only set if the developer needs it to be.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">trait UsesPagination
+{
+    private $usePagination = false;
+
+    // The developer can call this function to mark the request as using pagination
+    protected function usesPagination()
+    {
+        $this-&gt;usePagination = true;
+    }
+
+    // This method is called to determine whether or not the tool should be used for a given request.
+    protected function usesPaginationCanHandle(HttpClient $client): bool
+    {
+        return $this-&gt;usePagination;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For caching, this could be user input. A user could disable a caching tool on a given request by calling <code><code>withoutCaching()</code></code>. This method would be defined on the <code><code>CachesResponse</code></code> trait, and would be marked as not being handle-able if the user has said without caching. This works exacty the same as above, except the <code><code>withoutCaching</code></code> method must be public so a user can use it, whereas the <code><code>usesPagination</code></code> method is protected so only a developer can use it.</p>
+</div>
+<div class="paragraph">
+<p>Make sure you return <code><code>$this</code></code> in any methods for users to use, so they can use the fluent interface!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pre_request_tooling"><a class="anchor" href="#_pre_request_tooling"></a>Pre-request tooling</h3>
+<div class="paragraph">
+<p>The next function to be aware of is the <code><code>preRequest</code></code> function. This receives an <code><code>HttpClient</code></code> and a url, and again may do whatever it needs to transform the request ready for transport. It can directly manipulate the <code><code>HttpClient</code></code> config, or return a new string to change the url.</p>
+</div>
+<div class="paragraph">
+<p>In the <code><code>UsesPagination</code></code> example, this function will add the <code><code>page</code></code> and <code><code>per_page</code></code> variables to the request query. A user may override these, hence we also need functions a user can call to set the page.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">trait UsesPagination
+{
+
+    private $this-&gt;page = 1;
+
+    private $this-&gt;perPage = 10;
+
+    public function page(int $page = 1)
+    {
+        $this-&gt;page = $page;
+        return $this;
+    }
+
+    public function perPage(int $perPage = 10)
+    {
+        $this-&gt;perPage = $perPage;
+        return $this;
+    }
+
+    protected function usesPaginationPreRequest(HttpClient $client, string $uri)
+    {
+        $client-&gt;config()-&gt;addQuery([
+          $this-&gt;pageKey =&gt; $this-&gt;page,
+          $this-&gt;perPageKey =&gt; $this-&gt;perPage
+        ]);
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This function can be left out if your tool doesn&#8217;t need to manipulate the client.</p>
+</div>
+<div class="paragraph">
+<p>If you want to change the url, you may do by returning a new url. Otherwise, make sure you don&#8217;t return anything from this function!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_post_request_tooling"><a class="anchor" href="#_post_request_tooling"></a>Post request tooling</h3>
+<div class="paragraph">
+<p>Finally, we can manipulate a response. This function receives a <code><code>\BristolSU\ApiToolkit\Response</code></code> instance, and must return it once done. You can set dynamic attributes on this class, or use the <code><code>setBody</code></code> function to set a new body.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">trait UsesPagination
+{
+    protected function usesPaginationPostRequest(Response $response)
+    {
+        $body = $response-&gt;getBody(); // Get the body as an array
+
+        // Set attributes of the response - in this case, information about the pagination.
+        // These attributes will be automatically created.
+        $response-&gt;current_page = $body['current_page'];
+        $response-&gt;records_from = $body['from'];
+        ...
+        $response-&gt;total_records = $body['total'];
+
+        // Set the body. This is because the actual body is kept in a sub-array, so the pagination will need to expose this as the real body.
+        $response-&gt;setBody($body['data']);
+
+        // Return the final response
+        return $response;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_register_your_tool"><a class="anchor" href="#_register_your_tool"></a>Register your tool</h3>
+<div class="paragraph">
+<p>The last thing to do is register your tool. This means you need to <em>use</em> the trait at the top of your class. The tools above are all used by the base class, so you only need to use custom tools.</p>
+</div>
+<div class="paragraph">
+<p>Finally, you will need to call the function <code><code>addTool($alias, $class)</code></code>. The alias is the 'prefix' of the functions you&#8217;ve used, which is usually your trait name. The class is the full namespaced class name of your trait.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-php hljs" data-lang="php">class MyClient
+{
+    use \My\Namespace\MyTool;
+
+    public function __construct()
+    {
+        $this-&gt;addTool('myTool', \My\Namespace\MyTool::class);
+    }
+
+    public function getAll()
+    {
+        $this-&gt;functionOnMyTool();
+
+        // Your tool can now be used as described above.
+    }
+
+}
+
+trait MyTool
+{
+    public function myToolCanHandle(HttpClient $client): bool
+    {
+        //
+    }
+
+    ...
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
