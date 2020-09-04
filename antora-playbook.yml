@@ -56,10 +56,6 @@ content:
  - url: https://github.com/bristol-su/template
    start_path: docs
    branches: [master]
- - url: https://github.com/TristanPWarren/suPortalFlyerless
-   start_path: docs
-   branches: [master]
-   tags: v*
  # Services
  - url: https://github.com/bristol-su/typeform-service
    start_path: docs
